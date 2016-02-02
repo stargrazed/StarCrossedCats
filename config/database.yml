@@ -1,0 +1,29 @@
+# PostgreSQL. Versions 8.2 and up are supported.
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  # For details on connection pooling, see rails configuration guide
+  # http://guides.rubyonrails.org/configuring.html#database-pooling
+  pool: 5
+
+development:
+  <<: *default
+  database: role_development
+
+  username: postgres
+
+  # The password associated with the postgres role (username).
+  password: Obelisksb-1293l5p653429d
+
+test:
+  <<: *default
+  database: role_test
+  user: postgres
+  password: Obelisksb-1293l5p653429d
+
+
+production:
+  <<: *default
+  database: role_production
+  username: postgres
+  password: <%= ENV['ROLE_DATABASE_PASSWORD'] %>
