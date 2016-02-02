@@ -1,3 +1,151 @@
-// Place all the styles related to the Welcome controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+@charset "UTF-8";
+
+
+h1 {
+    font-family: Arial, Helvetica, sans-serif;
+}
+h1 a{
+    font-family: cursive;
+    font-size:0.8em;
+}
+body{
+    background:#2E2E2E;
+}
+body #intro{
+    font-style: italic;
+    font-size: 1.2em;
+}
+
+body #intro::before{
+    content: open-quote;
+    font-size:1.5em;
+    color:black;
+}
+
+body #intro::after{
+    content: close-quote;
+    font-size:1.5em;
+    color:black;
+}
+
+header h3{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+header#mainHeader{
+
+}
+
+header#mainHeader nav {
+    position: absolute;
+    top:0;
+    margin:0px 50px 0px 250px;
+    padding-top:15px;
+}
+
+header#mainHeader ul {
+    padding-left:0px;
+}
+
+header#mainHeader ul li {
+    float: left;
+    list-style: none;
+    margin-left:-0.2em;
+    border:3px black solid;
+}
+
+header#mainHeader ul li a{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.4em;
+    color: #2E2E2E;
+    padding: 0px 20px 1px 10px;
+    border-right: 1px solid #000;
+    text-decoration: none;
+}
+header#mainHeader ul li a:last-child{
+    border: none;
+}
+header#mainHeader ul li a.current {
+    color: #FFFFFF;
+    background-color: #0789CE;
+}
+header#mainHeader ul li a:hover {
+    color: #FFFFFF;
+    background-color: #204BCF;
+}
+
+
+body p {
+    padding:0px 50px;
+}
+
+main{
+    text-align: justify;
+}
+body p#intro{
+  padding-left:50px
+}
+
+#pageFooter{
+    border-top: 3px #000000 solid;
+    font-size: 1.2em;
+    font-family: sans-serif;
+    background-color:deepskyblue;
+
+}
+
+footer p#address{
+    margin-bottom: -15px;
+}
+
+.rightCol{
+    position:relative;
+    text-align: right;
+    left:525px;
+    bottom:145px;
+    width:400px;
+}
+
+.leftCol{
+    width:400px;
+}
+
+/*page limiter*/
+body div.contents{
+    width: 960px;
+    margin: 0 auto;
+    background-color: #BDBDBD;
+    padding: 0px 10px;
+    border-top:2px solid black;
+    border-bottom:2px solid black;
+}
+
+
+/*classes and IDs in alphabetical order*/
+main article.Log{
+    font-family:sans-serif;
+    padding: 10px 0px 0px 10px;
+    border-style: solid;
+    border-width: 2px;
+    border-color:gray;
+    border-radius: 3px;
+    background-color: #58D3F7;
+    margin: 0px 300px 10px 10px;
+}
+
+main article.Log p::before{
+    content: open-quote;
+    font-size:1.5em;
+    color:black;
+}
+
+main article.Log p::after{
+    content: close-quote;
+    font-size:1.5em;
+    color:black;
+}
+
+time{
+    font-style: italic;
+}
