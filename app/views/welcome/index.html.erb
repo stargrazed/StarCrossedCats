@@ -11,11 +11,21 @@
         <p id="intro">Welcome to our domain, and we hope you enjoy the visit!</p>
         <nav role="navigation">
         <ul class="navigation">
-            <li><a href="index.html" title="Home Page" class="current">Home</a></li>
-            <li><a href="projects.html" title="Projects">Members</a></li>
-            <li><a href="Maps" title="Map">Maps</a></li>
-            <li><a href="Fun" title="Fun Facts">Fun Facts</a></li>
-            <li><a href="Extra" title="Extra">Learn More</a></li>
+            <li class=:"sub"><%= link_to("Home", {:action => 'index'})%></li>
+            <li><%= link_to("Members", {:action => 'index'})%>
+              <ul>
+                <li><%= link_to("Login", {:action => 'index'})%></li>
+                <li><%= link_to("Sign-Up", {:action => 'index'})%></li>
+              </ul>
+            </li>
+            <li><%= link_to("Maps", {:action => 'index'})%>
+              <ul>
+                <li><%= link_to("Current", {:action => 'index'})%></li>
+                <li><%= link_to("Set", {:action => 'index'})%></li>
+              </ul>
+            </li>
+            <li><%= link_to("Fun-Facts", {:action => 'index'})%></li>
+            <li><%= link_to("Learn More", {:action => 'index'})%></li>
             </ul>
         </nav>
         </header>
