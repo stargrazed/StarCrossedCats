@@ -1,12 +1,12 @@
 <title>Welcome to our wonderful domain!</title>
 <meta name="description" content="A desciption of our website and introduction.">
-<link href="welcome.css.scss" rel="stylesheet" media="screen">
+<%= stylesheet_link_tag('application') %>
 <%= render(:partial => "default")%>
 <% dogs = Time.now.month%>
 
 <p>Current Date is: <%= Time.now.month%>-<%= Time.now.day%>-<%= Time.now.year%></p>
-<p>Current Time is: <%= sprintf("%02d",Time.now.hour%12)%> :
-<%= sprintf("%02d",Time.now.min)%>
+<p>Current Time is: <%= sprintf("%02d",Time.now.hour%12)%>:
+  <%= sprintf("%02d",Time.now.min)%>
   <%if Time.now.hour/12 >= 1%>
     <%= "pm"%>
   <%else%>
