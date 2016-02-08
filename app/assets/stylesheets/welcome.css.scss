@@ -11,18 +11,18 @@ h1 a{
 body{
     background:#2E2E2E;
 }
-body #intro{
+ #intro{
     font-style: italic;
     font-size: 1.2em;
 }
 
-body #intro::before{
+ #intro::before{
     content: open-quote;
     font-size:1.5em;
     color:black;
 }
 
-body #intro::after{
+ #intro::after{
     content: close-quote;
     font-size:1.5em;
     color:black;
@@ -40,8 +40,8 @@ header#mainHeader{
 header#mainHeader nav {
     position: absolute;
     top:0;
-    margin:0px 50px 0px 250px;
-    padding-top:15px;
+    margin:0px 50px 0px 150px;
+    padding-top:1.5em;
 }
 
 nav ul{
@@ -58,12 +58,12 @@ nav > ul > li { /* nested li in nested ul within nav */
 nav ul li a {
     display: inline-block;
     text-decoration: none;
-    width: 125px;
+    width: 5.2em;
 }
 
 nav ul ul {
     display: none;
-    postition: absolute;
+    position: absolute;
     top: 100%;
     background-color: grey;
 }
@@ -74,7 +74,8 @@ header#mainHeader ul {
 
 header#mainHeader ul li {
     margin-left:-0.25em;
-    border:3px black solid;
+    border:2px black solid;
+    border-right: 5px black solid;
     background-color: #1781E5;
     transition-property: background-color;
     transition-duration: 0.5s;
@@ -92,6 +93,7 @@ header#mainHeader ul li a{
     font-size: 1.4em;
     color: #2E2E2E;
     padding: 0px 20px 1px 10px;
+    margin-top: auto;
     border-right: 1px solid #000;
     text-align: center;
 }
@@ -126,7 +128,7 @@ body p#intro{
   padding-left:50px
 }
 
-#pageFooter{
+/*#pageFooter{
     border-top: 3px #000000 solid;
     font-size: 1.2em;
     font-family: sans-serif;
@@ -149,15 +151,13 @@ footer p#address{
 .leftCol{
     width:400px;
 }
-
+*/
 /*page limiter*/
-body div.contents{
+div.contents{
     width: 1600px;
     margin: 0 auto;
     background-color: #BDBDBD;
-    padding: 0px 10px;
-    border-top:2px solid black;
-    border-bottom:2px solid black;
+    padding: 0;
 }
 
 
