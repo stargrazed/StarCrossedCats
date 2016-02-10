@@ -1,3 +1,0 @@
-Star::Application.config.secret_key_base = '0dfc0c77f095f4bd6f82331800fd49e4efae6
-30de25ea2f4fb82416e48ca5b0c4b160caf
-bc0afd1b79145258818f4b289f342d1b5e02808c18140d1213344f2e'
