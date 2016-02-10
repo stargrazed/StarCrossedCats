@@ -13,4 +13,9 @@
   <%else%>
     <%= "am"%>
   <%end%>
+
+  <% if !flash[:notice].blank? %>
+      <p><%= flash[:notice] %></p>
+  <%end%>
+  
 </div>

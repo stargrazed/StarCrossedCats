@@ -9,10 +9,15 @@
     <nav role="navigation">
       <ul class="navigation">
         <li><%= link_to("Home", {:controller => 'welcome', :action => 'index'}, class:"current")%></li>
-        <li><%= link_to("Members", {:action => 'index'})%>
+        <li><%= link_to("Members", {:controller => 'login', :action => 'login'})%>
           <ul>
-            <li><%= link_to("Login", {:controller => 'login', :action => 'login'})%></li>
-            <li><%= link_to("Sign-Up", {:action => 'index'})%></li>
+            <li><% if session[:user_id] %>
+                <%= link_to("Log Out", {:controller => 'login', :action => 'logout'})%>
+                <%else%>
+                <%= link_to("Login", {:controller => 'login', :action => 'login'})%>
+                <%end%>
+            </li>
+            <li><%= link_to("Sign-Up", {:controller => 'login', :action => 'new_user'})%></li>
           </ul>
         </li>
         <li><%= link_to("Maps", {:action => 'index'})%>

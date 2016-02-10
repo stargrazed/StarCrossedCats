@@ -7,6 +7,10 @@
 <%= render(:partial => "default")%>
 
 <div>
+  <% if !flash[:notice].blank? %>
+      <%= flash[:notice] %>
+  <%end%>
+
   <%= form_tag(:action => 'attempt_login') do %>
   <table>
     <tr>

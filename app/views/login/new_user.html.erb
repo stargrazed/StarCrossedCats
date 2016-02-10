@@ -1,0 +1,33 @@
+<title>Welcome to our wonderful domain!</title>
+<meta name="description" content="A desciption of our website and introduction.">
+<%= stylesheet_link_tag('application') %>
+<%= render(:partial => "default")%>
+
+<%= error_messages_for(@user) %>
+  <div>
+    <h2>Fill in the following</h2>
+
+    <%= form_for(:user, :url=> {:action => 'create'}) do |human| %>
+
+    <table>
+      <tr>
+        <th><%= human.label(:name, "Name") %></th>
+        <td><%= human.text_field(:name) %></td>
+      </tr>
+      <tr>
+        <th><%= human.label(:username, "Username") %></th>
+        <td><%= human.text_field(:username) %></td>
+      </tr>
+      <tr>
+        <th><%= human.label(:password, "Password") %></th>
+        <td><%= human.password_field(:password) %></td>
+      </tr>
+    </table>
+
+    <%= submit_tag("Sign-Up")%>
+
+  <%end%>
+
+  </div>
+</div>
+</body>
