@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'welcome#index'
+  get 'admin', :to => "access#index"
   match ':controller(/:action(/:id))', :via => [:get, :post]
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

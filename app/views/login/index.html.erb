@@ -1,0 +1,18 @@
+<% @page_title = "Admin Menu" %>
+
+<title>Welcome to our wonderful domain!</title>
+<meta name="description" content="A desciption of our website and introduction.">
+<%= stylesheet_link_tag('application') %>
+<%= render(:partial => "default")%>
+
+<div>
+  <h2>Admin Menu</h2>
+  <div>Logged in as:</div>
+  <ul>
+    <li><%= link_to("Manage Subjects", :controller => 'subjects') %></li>
+    <li><%= link_to("Manage Pages", :controller => 'pages') %></li>
+    <li><%= link_to("Manage Sections", :controller => 'sections') %></li>
+    <li><%= link_to("Manage Admin Users", '#') %></li>
+    <li><%= link_to("Logout", :action => 'logout') %></li>
+  </ul>
+</div>

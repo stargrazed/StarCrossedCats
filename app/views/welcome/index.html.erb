@@ -1,8 +1,9 @@
+<%= error_messages_for(@user) %>
+
 <title>Welcome to our wonderful domain!</title>
 <meta name="description" content="A desciption of our website and introduction.">
 <%= stylesheet_link_tag('application') %>
 <%= render(:partial => "default")%>
-<% dogs = Time.now.month%>
 
 <p>Current Date is: <%= Time.now.month%>-<%= Time.now.day%>-<%= Time.now.year%></p>
 <p>Current Time is: <%= sprintf("%02d",Time.now.hour%12)%>:
