@@ -14,3 +14,14 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+function getStar(){
+$.getJSON('http://star-api.herokuapp.com/api/v1/stars/Sun', function(data){
+  var items = [];
+  $.each(data, function(key, val) {
+      items.push(key + " ");
+      items.push(val);
+      $(".star_container").append("<li style='list-style-type: none;'>"+items+"</li>");
+      items = [];
+  });
+});
+}
