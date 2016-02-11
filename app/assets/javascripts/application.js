@@ -12,20 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require bootstrap
 //= require turbolinks
 //= require_tree .
-var ready;
-ready = function (){
-  $.getJSON('http://star-api.herokuapp.com/api/v1/stars/Sun', function(data){
-    var items = [];
-    $.each(data, function(key, val) {
-        items.push(key + " ");
-        items.push(val);
-        $(".star_container").append("<li style='list-style-type: none;'>"+items+"</li>");
-        items = [];
-    });
-  });
-}
-
-$(document).ready(ready);
-$(document).on('page:load', ready);
