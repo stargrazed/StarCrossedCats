@@ -14,6 +14,13 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+var ready;
+ready = getStar()
+
+$(document).ready(ready);
+$(document).on('page:load', ready);
+
+
 function getStar(){
 $.getJSON('http://star-api.herokuapp.com/api/v1/stars/Sun', function(data){
   var items = [];

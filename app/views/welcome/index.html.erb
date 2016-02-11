@@ -1,4 +1,7 @@
 <%= error_messages_for(@user) %>
+$(document).on "page:change", ->
+  alert "page has loaded!"
+
 
 <title>Welcome to our wonderful domain!</title>
 <meta name="description" content="A desciption of our website and introduction.">
@@ -18,23 +21,6 @@
       <p><%= flash[:notice] %></p>
   <%end%>
 <div class="star_container"></div>
-<ul>
-<script>getStar()</script>
-</ul>
 
 </body>
 </div>
-
-<script>
-function getStar(){
-$.getJSON('http://star-api.herokuapp.com/api/v1/stars/Sun', function(data){
-  var items = [];
-  $.each(data, function(key, val) {
-      items.push(key + " ");
-      items.push(val);
-      $(".star_container").append("<li style='list-style-type: none;'>"+items+"</li>");
-      items = [];
-  });
-});
-}
-</script>
