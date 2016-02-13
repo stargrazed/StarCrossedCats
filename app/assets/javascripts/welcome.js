@@ -3,6 +3,7 @@
 // You can use CoffeeScript in this file: http://coffeescript.org/
 
 function star(){
+  alert("cats");
   $.getJSON('http://star-api.herokuapp.com/api/v1/stars/Sun', function(data){
     var items = [];
     $.each(data, function(key, val) {
