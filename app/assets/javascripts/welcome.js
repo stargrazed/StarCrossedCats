@@ -2,8 +2,7 @@
 // All this logic will automatically be available in application.js.
 // You can use CoffeeScript in this file: http://coffeescript.org/
 
-
-var ready = function (){
+function star(){
   $.getJSON('http://star-api.herokuapp.com/api/v1/stars/Sun', function(data){
     var items = [];
     $.each(data, function(key, val) {
@@ -14,6 +13,3 @@ var ready = function (){
     });
   });
 }
-
-$(document).ready(ready);
-$(document).on('page:load', ready);
