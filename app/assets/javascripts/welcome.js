@@ -4,7 +4,7 @@
 
 function star(){
   alert("cats");
-  $.getJSON('http://star-api.herokuapp.com/api/v1/stars/Sun', function(data){
+  $.getJSON('https://star-api.herokuapp.com/api/v1/stars/Sun', function(data){
     var items = [];
     $.each(data, function(key, val) {
         items.push(key + " ");
