@@ -25,8 +25,8 @@
             <li><%= link_to("Set", {:action => 'index'})%></li>
           </ul>
         </li>
-        <li><%= link_to("Fun-Facts", {:action => 'index'})%></li>
-        <li><%= link_to("Learn More", {:action => 'index'})%></li>
+        <li><%= link_to("Fun-Facts", {:controller => 'fact', :action => 'index'})%></li>
+        <li><%= link_to("Learn More", {:controller => 'learn', :action => 'index'})%></li>
       </ul>
     </nav>
   </header>
