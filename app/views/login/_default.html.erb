@@ -19,7 +19,7 @@
             <li><%= link_to("Sign-Up", {:controller=> 'login', :action => 'new_user'})%></li>
           </ul>
         </li>
-        <li><%= link_to("Maps", {:action => 'index'})%>
+        <li><%= link_to("Maps", {:controller => 'map', :action => 'index'})%>
           <ul>
             <li><%= link_to("Current", {:action => 'index'})%></li>
             <li><%= link_to("Set", {:action => 'index'})%></li>
