@@ -19,4 +19,6 @@ validates :username, :presence => true,
 validates :password, :presence => true,
   :length => {:within => 5..25},
   :confirmation => true
+
+validates :password_confirmation, :presence => true
 end
