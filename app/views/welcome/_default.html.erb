@@ -8,7 +8,12 @@
     <nav role="navigation">
       <ul class="navigation">
         <li><%= link_to("Home", {:controller => 'welcome', :action => 'index'}, class:"current")%></li>
-        <li><%= link_to("Members", {:controller => 'login', :action => 'login'})%>
+        <li>
+          <% if session[:user_id] %>
+              <%= link_to("Members", {:controller => 'login', :action => 'index', :class => 'current'})%>
+          <%else%>
+              <%= link_to("Members", {:controller => 'login', :action => 'login'})%>
+          <%end%>
           <ul>
             <li><% if session[:user_id] %>
                 <%= link_to("Log Out", {:controller => 'login', :action => 'logout'})%>
