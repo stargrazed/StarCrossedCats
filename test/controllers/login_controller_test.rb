@@ -11,4 +11,5 @@ class LoginControllerTest < ActionController::TestCase
     assert_response :success, @response.body
   end
 
+
 end
