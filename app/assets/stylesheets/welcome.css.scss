@@ -12,6 +12,11 @@ body{
     width: 98%;
     height: 100%
 }
+
+canvas {
+  border: 2px solid black;  
+}
+
  #intro{
     font-style: italic;
     font-size: 1.2em;

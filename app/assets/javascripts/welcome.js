@@ -19,3 +19,22 @@ function star(find_stars){
     });
   });
 }
+
+function multi(){
+  var canvas = document.getElementById('Canvas');
+  var ctx = canvas.getContext('2d');
+  var x, y;
+  x = 40;
+  y = 30;
+  while(x < 900){
+    y=0;
+    while(y < 900){
+      ctx.beginPath();
+      ctx.arc(x, y, 2, 0, Math.PI*2);
+      ctx.fillStyle ='#ff0055';
+      ctx.fill();
+      y+=30;
+    }
+    x+=30;
+  }
+}
