@@ -6,16 +6,27 @@ function star(find_stars){
   $.getJSON(find_stars, function(data){
     var items = [];
     $.each(data, function(index, val) {
-      if(val.label){
         console.log(val);
-        items.push(index);
         items.push(" "+val.label+" ");
         items.push(" x: "+val.x);
         items.push(" y: "+val.y);
         items.push(" z: "+val.z);
         $(".star_container").append("<li style='list-style-type: none;'>"+items+"</li>");
         items = [];
-      }
+    });
+  });
+}
+
+function constell(constellation){
+  $.getJSON(constellation, function(data){
+    var items = [];
+    $.each(data, function(index, val) {
+        console.log(val);
+        items.push(index);
+        items.push(" Name: "+val.name);
+        items.push("   Galaxy: "+val.galaxy);
+        $(".star_container").append("<li style='list-style-type: none;'>"+items+"</li>");
+        items = [];
     });
   });
 }
@@ -38,3 +49,25 @@ function multi(){
     x+=30;
   }
 }
+
+function drawStar(x,y){
+  var canvas = document.getElementById('Canvas');
+  var ctx = canvas.getContext('2d');
+  ctx.beginPath();
+  ctx.arc(x*3+300, y*3, 2, 0, Math.PI*2);
+  ctx.fillStyle ='#ff0055';
+  ctx.fill();
+}
+
+function drawStar2(){
+  $(".test").append('<circle cx="400" cy="250" r="30" stroke="black" stroke-width="2" fill="yellow"/>');
+  //element.append('<circle cx="400" cy="250" r="30" stroke="black" stroke-width="2" fill="yellow"/>');
+}
+
+
+function test(x,y){
+  return x*y;
+}
+//https://star-api.herokuapp.com/api/v1/constellation_star_unions
+//https://star-api.herokuapp.com/api/v1/constellation_star_unions?min[constellation_id]=137&max[constellation_id]=139
+//https://star-api.herokuapp.com/api/v1/constellations

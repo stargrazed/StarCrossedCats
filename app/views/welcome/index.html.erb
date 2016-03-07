@@ -18,8 +18,22 @@
       <p><%= flash[:notice] %></p>
   <%end%>
 <div class="star_container"></div>
+<p id='demo'>cats</p>
 </div>
 
-
-<script>star('https://star-api.herokuapp.com/api/v1/stars?min[appmag]=-2.5&max[appmag]=6.5');</script>
+<script>
+document.getElementById("demo").innerHTML = test(4, 3);
+star('https://star-api.herokuapp.com/api/v1/stars?min[id]=63922&max[id]=63924');
+</script>
+<!--
+<script>
+star('https://star-api.herokuapp.com/api/v1/stars?min[id]=63922&max[id]=63924');
+star('https://star-api.herokuapp.com/api/v1/stars?min[id]=126950&max[id]=126952');
+star('https://star-api.herokuapp.com/api/v1/stars?min[id]=123795&max[id]=123797');
+star('https://star-api.herokuapp.com/api/v1/stars?min[id]=119507&max[id]=119509');
+star('https://star-api.herokuapp.com/api/v1/stars?min[id]=121851&max[id]=121853');
+star('https://star-api.herokuapp.com/api/v1/stars?min[id]=117826&max[id]=117828');
+star('https://star-api.herokuapp.com/api/v1/stars?min[id]=115704&max[id]=115706');
+</script>
+-->
 <script src="welcome.js"></script>
