@@ -22,9 +22,18 @@
 </canvas>
 -->
 <svg class='test' width="1000" height="800" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+   <filter id="f1" x="0" y=0>
+     <feGaussianBlur in="SourceGraphic" stdDeviation="2" />
+   </filter>
+  </defs>
+
   <% coord=Array[[64,99], [24,43], [38,82], [35,105], [8,23], [36,86], [11,27]]%>
   <% coord.each do |i|%>
-    <circle cx="<%=i[0]*5%>" cy="<%=i[1]*5%>" r="10" stroke="black" stroke-width="2" fill="red"/>
+    <circle cx="<%=i[0]*5%>" cy="<%=i[1]*5%>" r="5" opacity="1" style="fill:yellow; filter:url(#f1)">
+      <animateTransform attributeName="transform" type="rotate" dur="3s"
+      from="0 <%=i[0]*5%> <%=i[1]*5%>" to="360 <%=i[0]*5%> <%=i[1]*5%>" repeatCount="indefinite"/>
+    </circle>
   <%end%>
 </svg>
 
