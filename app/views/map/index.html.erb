@@ -15,31 +15,39 @@
   drawStar(36,86);
   drawStar(11,27);
   </script>
-
-
   <circle cx="50" cy="25" r="30" stroke="black" stroke-width="2" fill="green"/>
   <circle cx="150" cy="250" r="30" stroke="black" stroke-width="2" fill="red"/>
 </canvas>
 -->
-<svg class='test' width="1000" height="800" version="1.1" xmlns="http://www.w3.org/2000/svg">
+
+<div>
+<%@star_index.each do |i|%>
+  <%=i%>
+<%end%>
+</div>
+
+<svg id='test' width="1000" height="800" version="1.1" xmlns="http://www.w3.org/2000/svg">
   <defs>
    <filter id="f1" x="0" y=0>
-     <feGaussianBlur in="SourceGraphic" stdDeviation="2" />
+     <feGaussianBlur in="SourceGraphic" stdDeviation="1" />
    </filter>
   </defs>
 
-  <% coord=Array[[64,99], [24,43], [38,82], [35,105], [8,23], [36,86], [11,27]]%>
-  <% coord.each do |i|%>
-    <circle cx="<%=i[0]*5%>" cy="<%=i[1]*5%>" r="5" opacity="1" style="fill:yellow; filter:url(#f1)">
-      <animateTransform attributeName="transform" type="rotate" dur="3s"
-      from="0 <%=i[0]*5%> <%=i[1]*5%>" to="360 <%=i[0]*5%> <%=i[1]*5%>" repeatCount="indefinite"/>
+  <%@star_index.each do |i|%>
+    <circle id="circle"+"<%=i[0]%>" cx="<%=i[1]*5%>" cy="<%=i[2]*5%>" r="5" opacity="1" style="filter:url(#f1)" onclick="Click(<%=i[0]%>)">
+      <animateTransform attributeName="transform" type="rotate" dur="1s"
+      from="0 <%=i[1]*5%> <%=i[2]*5%>" to="360 <%=i[1]*5%> <%=i[2]*5%>" repeatCount="indefinite"/>
     </circle>
-  <%end%>
+    <%end%>
+    <line id="line0" x1="0" y1="0" x2="0" y2="0"/>
+    <line id="line1" x1="<%=8*5%>" y1="<%=23*5%>" x2="<%=11*5%>" y2="<%=27*5%>"/>
+    <line id="line2" x1="<%=11*5%>" y1="<%=27*5%>" x2="<%=24*5%>" y2="<%=43*5%>"/>
+    <line id="line3" x1="<%=24*5%>" y1="<%=43*5%>" x2="<%=36*5%>" y2="<%=86*5%>"/>
+    <line id="line4" x1="<%=36*5%>" y1="<%=86*5%>" x2="<%=38*5%>" y2="<%=82*5%>"/>
+    <line id="line5" x1="<%=38*5%>" y1="<%=82*5%>" x2="<%=64*5%>" y2="<%=99*5%>"/>
+    <line id="line6" x1="<%=64*5%>" y1="<%=99*5%>" x2="<%=35*5%>" y2="<%=105*5%>"/>
+    <line id="line7" x1="<%=35*5%>" y1="<%=105*5%>" x2="<%=36*5%>" y2="<%=86*5%>" visibility="visible"/>
 </svg>
 
-<script>drawStar2();</script>
-
-
-
-<script src="welcome.js"></script>
+<script src="map.js"></script>
 </div>
