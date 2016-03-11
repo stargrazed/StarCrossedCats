@@ -59,15 +59,6 @@ function drawStar(x,y){
   ctx.fill();
 }
 
-function drawStar2(){
-  $(".test").append('<circle cx="400" cy="250" r="30" stroke="black" stroke-width="2" fill="yellow"/>');
-  //element.append('<circle cx="400" cy="250" r="30" stroke="black" stroke-width="2" fill="yellow"/>');
-}
-
-
-function test(x,y){
-  return x*y;
-}
 //https://star-api.herokuapp.com/api/v1/constellation_star_unions
 //https://star-api.herokuapp.com/api/v1/constellation_star_unions?min[constellation_id]=137&max[constellation_id]=139
 //https://star-api.herokuapp.com/api/v1/constellations

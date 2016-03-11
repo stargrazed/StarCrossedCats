@@ -12,10 +12,30 @@ body{
     width: 98%;
     height: 100%
 }
-
-canvas {
-  border: 2px solid black;  
+//svg***********************************
+svg {
+  background-color: black;
 }
+
+circle{
+  fill: yellow;
+}
+
+circle:hover {
+  fill: orange;
+}
+
+line {
+    stroke: blue;
+    stroke-width: 2px;
+    visibility: hidden;
+}
+
+line#line7{
+  visibility: visible;;
+}
+
+//end svg*******************************
 
  #intro{
     font-style: italic;
