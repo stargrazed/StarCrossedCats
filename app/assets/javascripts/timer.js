@@ -1,11 +1,14 @@
 function clickedSkymap(){
+    var clickCnt = 0;
     var skymap = document.getElementById("test");
     skymap.addEventListener('click', function(event){
-        startTimer();
+        clickCnt += 1;
+        if(clickCnt == 1)
+            startTimer();
     }, false);
 }
 
 function startTimer(){
     var x = document.getElementById("timer");
-    x.innerHTML = "Time has started counting";
+    
 }
