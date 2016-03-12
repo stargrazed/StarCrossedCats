@@ -4,16 +4,6 @@
 <%= render(:partial => "default")%>
 
 <p>This is maps.</p>
-<!--
-    <line id="line0" x1="0" y1="0" x2="0" y2="0"/>
-    <line id="line1" x1="<%=10+500%>" y1="<%=8+500%>" x2="<%=-7+500%>" y2="<%=-59+500%>"/>
-    <line id="line2" x1="<%=-7+500%>" y1="<%=-59+500%>" x2="<%=-43+500%>" y2="<%=-131+500%>"/>
-    <line id="line3" x1="<%=-43+500%>" y1="<%=-131+500%>" x2="<%=-118+500%>" y2="<%=-175+500%>"/>
-    <line id="line4" x1="<%=-118+500%>" y1="<%=-175+500%>" x2="<%=-200+500%>" y2="<%=-185+500%>"/>
-    <line id="line5" x1="<%=-200+500%>" y1="<%=-185+500%>" x2="<%=-199+500%>" y2="<%=-239+500%>"/>
-    <line id="line6" x1="<%=-199+500%>" y1="<%=-239+500%>" x2="<%=-106+500%>" y2="<%=-222+500%>"/>
-    <line id="line7" x1="<%=-106+500%>" y1="<%=-222+500%>" x2="<%=-118+500%>" y2="<%=-175+500%>"/>
--->
 
 <svg id='test' width="1000" height="800" version="1.1" xmlns="http://www.w3.org/2000/svg">
   <defs>
@@ -22,19 +12,35 @@
    </filter>
   </defs>
 
-  <%@ursa_minor.each do |i|%>
-    <circle id="circle"+"<%=i[0]%>" cx="<%=i[1]*(-5)%>" cy="<%=i[2]*5%>" r="5" opacity="1" style="filter:url(#f1)" onclick="Click(<%=i[0]%>)">
+  <%i = 0%>
+  <%while @ursa_minor[i] != nil%>
+    <circle id="circle<%=i%>" cx="<%=@ursa_minor[i][0]*(-5)%>" cy="<%=@ursa_minor[i][1]*5%>" r="5" opacity="1" style="filter:url(#f1)" onclick="Click(<%=i%>)">
       <animateTransform attributeName="transform" type="rotate" dur="1s"
-      from="0 <%=i[1]*(-5)%> <%=i[2]*5%>" to="360 <%=i[1]*(-5)%> <%=i[2]*5%>" repeatCount="indefinite"/>
+      from="0 <%=@ursa_minor[i][0]*(-5)%> <%=@ursa_minor[i][1]*5%>" to="360 <%=@ursa_minor[i][0]*(-5)%> <%=i[1]*5%>" repeatCount="indefinite"/>
     </circle>
+    <%if i > 0%>
+      <line id="line<%=i%>" x1="<%=@ursa_minor[i-1][0]*(-5)%>" y1="<%=@ursa_minor[i-1][1]*5%>"
+        x2="<%=@ursa_minor[i][0]*(-5)%>" y2="<%=@ursa_minor[i][1]*5%>"/>
+    <%else%>
+      <line id="line0" x1="0" y1="0" x2="0" y2="0"/>
     <%end%>
+    <%i = i+1%>
+  <%end%>
 
-    <%@cass.each do |i|%>
-      <circle id="circle"+"<%=i[0]%>" cx="<%=i[1]*(-5)%>" cy="<%=i[2]*5%>" r="5" opacity="1" style="filter:url(#f1)" onclick="Click(<%=i[0]%>)">
-        <animateTransform attributeName="transform" type="rotate" dur="1s"
-        from="0 <%=i[1]*(-5)%> <%=i[2]*5%>" to="360 <%=i[1]*(-5)%> <%=i[2]*5%>" repeatCount="indefinite"/>
-      </circle>
-      <%end%>
+  <%i = 0%>
+  <%while @cass[i] != nil%>
+    <circle id="circle+<%=i+7%>" cx="<%=@cass[i][0]*(-5)%>" cy="<%=@cass[i][1]*5%>" r="5" opacity="1" style="filter:url(#f1)" onclick="Click(<%=i+8%>)">
+      <animateTransform attributeName="transform" type="rotate" dur="1s"
+      from="0 <%=@cass[i][0]*(-5)%> <%=@cass[i][1]*5%>" to="360 <%=@cass[i][0]*(-5)%> <%=@cass[i][1]*5%>" repeatCount="indefinite"/>
+    </circle>
+    <%if i > 0%>
+      <line id="line<%=i+7%>" x1="<%=@cass[i-1][0]*(-5)%>" y1="<%=@cass[i-1][1]*5%>"
+        x2="<%=@cass[i][0]*(-5)%>" y2="<%=@cass[i][1]*5%>"/>
+    <%else%>
+      <line id="line0" x1="0" y1="0" x2="0" y2="0"/>
+    <%end%>
+    <%i = i+1%>
+  <%end%>
 
 </svg>
 
