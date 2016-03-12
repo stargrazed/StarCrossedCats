@@ -5,39 +5,6 @@
 
 <p>This is maps.</p>
 <!--
-<canvas id="Canvas" width='1000px' height='1000px'>
-  <script>
-  drawStar(64,99); //polaris
-  drawStar(24,43);
-  drawStar(38,82);
-  drawStar(35,105);
-  drawStar(8,23);
-  drawStar(36,86);
-  drawStar(11,27);
-  </script>
-  <circle cx="50" cy="25" r="30" stroke="black" stroke-width="2" fill="green"/>
-  <circle cx="150" cy="250" r="30" stroke="black" stroke-width="2" fill="red"/>
-</canvas>
--->
-<div>
-<%@star_index.each do |i|%>
-  <%=i%>
-<%end%>
-</div>
-
-<svg id='test' width="1000" height="800" version="1.1" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-   <filter id="f1" x="0" y=0>
-     <feGaussianBlur in="SourceGraphic" stdDeviation="1" />
-   </filter>
-  </defs>
-
-  <%@star_index_2.each do |i|%>
-    <circle id="circle"+"<%=i[0]*1000%>" cx="<%=i[1]*1000+500%>" cy="<%=i[2]*1000+500%>" r="5" opacity="1" style="filter:url(#f1)" onclick="Click(<%=i[0]%>)">
-      <animateTransform attributeName="transform" type="rotate" dur="1s"
-      from="0 <%=i[1]*1000+500%> <%=i[2]*1000+500%>" to="360 <%=i[1]*1000+500%> <%=i[2]*1000+500%>" repeatCount="indefinite"/>
-    </circle>
-    <%end%>
     <line id="line0" x1="0" y1="0" x2="0" y2="0"/>
     <line id="line1" x1="<%=10+500%>" y1="<%=8+500%>" x2="<%=-7+500%>" y2="<%=-59+500%>"/>
     <line id="line2" x1="<%=-7+500%>" y1="<%=-59+500%>" x2="<%=-43+500%>" y2="<%=-131+500%>"/>
@@ -46,6 +13,29 @@
     <line id="line5" x1="<%=-200+500%>" y1="<%=-185+500%>" x2="<%=-199+500%>" y2="<%=-239+500%>"/>
     <line id="line6" x1="<%=-199+500%>" y1="<%=-239+500%>" x2="<%=-106+500%>" y2="<%=-222+500%>"/>
     <line id="line7" x1="<%=-106+500%>" y1="<%=-222+500%>" x2="<%=-118+500%>" y2="<%=-175+500%>"/>
+-->
+
+<svg id='test' width="1000" height="800" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+   <filter id="f1" x="0" y=0>
+     <feGaussianBlur in="SourceGraphic" stdDeviation="1" />
+   </filter>
+  </defs>
+
+  <%@ursa_minor.each do |i|%>
+    <circle id="circle"+"<%=i[0]%>" cx="<%=i[1]*(-5)%>" cy="<%=i[2]*5%>" r="5" opacity="1" style="filter:url(#f1)" onclick="Click(<%=i[0]%>)">
+      <animateTransform attributeName="transform" type="rotate" dur="1s"
+      from="0 <%=i[1]*(-5)%> <%=i[2]*5%>" to="360 <%=i[1]*(-5)%> <%=i[2]*5%>" repeatCount="indefinite"/>
+    </circle>
+    <%end%>
+
+    <%@cass.each do |i|%>
+      <circle id="circle"+"<%=i[0]%>" cx="<%=i[1]*(-5)%>" cy="<%=i[2]*5%>" r="5" opacity="1" style="filter:url(#f1)" onclick="Click(<%=i[0]%>)">
+        <animateTransform attributeName="transform" type="rotate" dur="1s"
+        from="0 <%=i[1]*(-5)%> <%=i[2]*5%>" to="360 <%=i[1]*(-5)%> <%=i[2]*5%>" repeatCount="indefinite"/>
+      </circle>
+      <%end%>
+
 </svg>
 
 <script src="map.js"></script>
