@@ -3,7 +3,10 @@
 <%= stylesheet_link_tag('application') %>
 <%= render(:partial => "default")%>
 
-<script src="timer.js"></script>
+
+<div id="timer">
+  00:00:00
+</div>
 <!--
 <canvas id="Canvas" width='1000px' height='1000px'>
   <script>
@@ -49,4 +52,5 @@
 </svg>
 
 <script src="map.js"></script>
+<script>clickedSkymap()</script>
 </div>
