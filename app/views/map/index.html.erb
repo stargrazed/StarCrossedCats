@@ -4,6 +4,9 @@
 <%= render(:partial => "default")%>
 
 <p>This is maps.</p>
+<div id="timer">
+  <span>00:00:00</span>
+</div>
 
 <svg id='test' width="1000" height="800" version="1.1" xmlns="http://www.w3.org/2000/svg">
   <defs>
@@ -45,4 +48,5 @@
 </svg>
 
 <script src="map.js"></script>
+<script>clickedSkymap()</script>
 </div>
