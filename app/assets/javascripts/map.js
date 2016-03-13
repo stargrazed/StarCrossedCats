@@ -1,22 +1,14 @@
 function createCircle(x, y) {
-    var svg, circle;
-    svg = document.getElementById("test");
+    var area, circle;
+    area = document.getElementById("test");
 
     circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
     circle.setAttribute('cx', x);
     circle.setAttribute('cy', y);
-    circle.setAttribute('r', 50);
+    circle.setAttribute('r', 20);
 
-    svg.appendChild(circle);
-}
-
-
-function test(x,y, star_index){
-  var arr = [x,y];
-  star_index[0] = arr;
-  star_index[1] = arr;
-  return;
-}
+    area.appendChild(circle);
+  }
 
 function Click(id) {
     if (id > 0) {
@@ -37,4 +29,27 @@ function Click(id) {
         document.getElementById("image").style.visibility = 'visible'; //show png or message
     }
     */
+}
+
+
+function star(find_stars){
+  $.getJSON(find_stars, function(data){
+    var items = [];
+    $.each(data, function(index, val) {
+        console.log(val);
+        items.push(" "+val.label+" ");
+        items.push(" x: "+val.x);
+        items.push(" y: "+val.y);
+        items.push(" z: "+val.z);
+        $(".star_container").append("<li style='list-style-type: none;'>"+items+"</li>");
+        items = [];
+    });
+  });
+}
+
+function test(x,y, star_index){
+  var arr = [x,y];
+  star_index[0] = arr;
+  star_index[1] = arr;
+  return;
 }

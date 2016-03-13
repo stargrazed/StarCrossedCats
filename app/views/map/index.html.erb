@@ -8,7 +8,7 @@
 <svg id='test' width="1000" height="800" version="1.1" xmlns="http://www.w3.org/2000/svg">
   <defs>
    <filter id="f1" x="0" y=0>
-     <feGaussianBlur in="SourceGraphic" stdDeviation="1" />
+     <feGaussianBlur in="SourceGraphic" stdDeviation="1"/>
    </filter>
   </defs>
 
@@ -16,7 +16,7 @@
   <%while @ursa_minor[i] != nil%>
     <circle id="circle<%=i%>" cx="<%=@ursa_minor[i][0]*(-5)%>" cy="<%=@ursa_minor[i][1]*5%>" r="5" opacity="1" style="filter:url(#f1)" onclick="Click(<%=i%>)">
       <animateTransform attributeName="transform" type="rotate" dur="1s"
-      from="0 <%=@ursa_minor[i][0]*(-5)%> <%=@ursa_minor[i][1]*5%>" to="360 <%=@ursa_minor[i][0]*(-5)%> <%=i[1]*5%>" repeatCount="indefinite"/>
+      from="0 <%=@ursa_minor[i][0]*(-5)%> <%=@ursa_minor[i][1]*5%>" to="360 <%=@ursa_minor[i][0]*(-5)%> <%=@ursa_minor[1]*5%>" repeatCount="indefinite"/>
     </circle>
     <%if i > 0%>
       <line id="line<%=i%>" x1="<%=@ursa_minor[i-1][0]*(-5)%>" y1="<%=@ursa_minor[i-1][1]*5%>"
@@ -34,15 +34,24 @@
       from="0 <%=@cass[i][0]*(-5)%> <%=@cass[i][1]*5%>" to="360 <%=@cass[i][0]*(-5)%> <%=@cass[i][1]*5%>" repeatCount="indefinite"/>
     </circle>
     <%if i > 0%>
-      <line id="line<%=i+7%>" x1="<%=@cass[i-1][0]*(-5)%>" y1="<%=@cass[i-1][1]*5%>"
-        x2="<%=@cass[i][0]*(-5)%>" y2="<%=@cass[i][1]*5%>"/>
+      <line id="line<%=i+7%>" x1="<%=@cass[i-1][0]*(5)%>" y1="<%=@cass[i-1][1]*5%>"
+        x2="<%=@cass[i][0]*(5)%>" y2="<%=@cass[i][1]*5%>"/>
     <%else%>
       <line id="line0" x1="0" y1="0" x2="0" y2="0"/>
     <%end%>
     <%i = i+1%>
   <%end%>
 
+<%i = 0%>
+  <%while @herc[i] != nil%>
+    <circle id="circle+<%=i+12%>" cx="<%=@herc[i][0]*(-5)+1000%>" cy="<%=@herc[i][1]*5%>" r="5" opacity="1" style="filter:url(#f1)" onclick="Click(<%=i+13%>)">
+      <animateTransform attributeName="transform" type="rotate" dur="1s"
+      from="0 <%=@herc[i][0]*(-5)+1000%> <%=@herc[i][1]*5%>" to="360 <%=@herc[i][0]*(-5)+1000%> <%=@herc[i][1]*5%>" repeatCount="indefinite"/>
+    </circle>
+    <%i = i+1%>
+  <%end%>
 </svg>
+
 
 <script src="map.js"></script>
 </div>
