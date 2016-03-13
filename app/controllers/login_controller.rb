@@ -10,6 +10,10 @@ class LoginController < ApplicationController
   def login
   end
 
+  def show
+    @user = User.find(params[:username])
+  end
+
   def new_user
     @user = User.new
   end
@@ -24,6 +28,7 @@ class LoginController < ApplicationController
     if authorized_user
       session[:user_id] = authorized_user.id
       session[:username] = authorized_user.username
+      log_in found
       flash[:notice] = "Logged in as "+found.username
       redirect_to(:controller => 'welcome', :action => 'index')
     else

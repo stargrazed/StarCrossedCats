@@ -11,6 +11,7 @@
       <%= flash[:notice] %>
   <%end%>
   <ul>
+    <li><%= link_to "Profile", current_user %></li>
     <li><%= link_to("Manage Admin Users", '#') %></li>
     <li><%= link_to("Logout", :action => 'logout') %></li>
   </ul>
