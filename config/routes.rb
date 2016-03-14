@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-
+resources :user
   #get 'welcome/index' => 'welcome#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
@@ -9,15 +9,7 @@ Rails.application.routes.draw do
   root 'welcome#index'
   get 'admin', :to => "access#index"
   match ':controller(/:action(/:id))', :via => [:get, :post]
-  get 'help' => 'static_pages#help'
-  get 'about' =>'static_pages#about'
-  get 'contact' => 'static_pages#contact'
-  get 'signup' => 'user#new'
-  get 'login' => 'sessions#new'
-  post 'login' => 'sessions#create'
-  delete 'logout' => 'sessions#destroy'
 
-  resources :users
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
