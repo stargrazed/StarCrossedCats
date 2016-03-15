@@ -18,6 +18,27 @@
 <%x_scale = -5%>
 <%x_shift = 500%>
 
+<%def draw_const(const) %>
+  <%x_scale = -5%>
+  <%x_shift = 500%>
+
+  <%i = 0%>
+  <%while const[i] != nil%>
+    <circle id="circle+<%=i+12%>" cx="<%=const[i][0]*x_scale+x_shift%>" cy="<%=const[i][1]*5%>"
+      r="<%=7-const[i][2]%>" opacity="1" style="filter:url(#f1)" onclick="Click(<%=i+13%>)">
+    </circle>
+    <%i = i+1%>
+  <%end%>
+  <%return%>
+<%end%>
+
+<%draw_const(@herc)%>
+<%draw_const(@ursa_minor)%>
+<%draw_const(@cygnus)%>
+<%draw_const(@bootes)%>
+<%draw_const(@cass)%>
+<%draw_const(@cep)%>
+<!--
   <%i = 0%>
   <%while @ursa_minor[i] != nil%>
     <circle id="circle<%=i%>" cx="<%=@ursa_minor[i][0]*x_scale+x_shift%>" cy="<%=@ursa_minor[i][1]*5%>" r="<%=(7-@ursa_minor[i][2])%>" opacity="1" style="filter:url(#f1)" onclick="Click(<%=i%>)">
@@ -76,7 +97,7 @@
     </circle>
     <%i = i+1%>
   <%end%>
-
+-->
 <!--
   <%i = 0%>
   <%while @test_all[i] != nil%>
