@@ -17,9 +17,7 @@
 
   <%i = 0%>
   <%while @ursa_minor[i] != nil%>
-    <circle id="circle<%=i%>" cx="<%=@ursa_minor[i][0]*(-5)%>" cy="<%=@ursa_minor[i][1]*5%>" r="5" opacity="1" style="filter:url(#f1)" onclick="Click(<%=i%>)">
-      <animateTransform attributeName="transform" type="rotate" dur="1s"
-      from="0 <%=@ursa_minor[i][0]*(-5)%> <%=@ursa_minor[i][1]*5%>" to="360 <%=@ursa_minor[i][0]*(-5)%> <%=@ursa_minor[1]*5%>" repeatCount="indefinite"/>
+    <circle id="circle<%=i%>" cx="<%=@ursa_minor[i][0]*(-5)%>" cy="<%=@ursa_minor[i][1]*5%>" r="<%=(7-@ursa_minor[i][2])%>" opacity="1" style="filter:url(#f1)" onclick="Click(<%=i%>)">
     </circle>
     <%if i > 0%>
       <line id="line<%=i%>" x1="<%=@ursa_minor[i-1][0]*(-5)%>" y1="<%=@ursa_minor[i-1][1]*5%>"
@@ -32,30 +30,34 @@
 
   <%i = 0%>
   <%while @cass[i] != nil%>
-    <circle id="circle+<%=i+7%>" cx="<%=@cass[i][0]*(-5)%>" cy="<%=@cass[i][1]*5%>" r="5" opacity="1" style="filter:url(#f1)" onclick="Click(<%=i+8%>)">
-      <animateTransform attributeName="transform" type="rotate" dur="1s"
-      from="0 <%=@cass[i][0]*(-5)%> <%=@cass[i][1]*5%>" to="360 <%=@cass[i][0]*(-5)%> <%=@cass[i][1]*5%>" repeatCount="indefinite"/>
+    <circle id="circle+<%=i+7%>" cx="<%=@cass[i][0]*(-5)%>" cy="<%=@cass[i][1]*5%>" r="<%=7-@cass[i][2]%>" opacity="1" style="filter:url(#f1)" onclick="Click(<%=i+8%>)">
     </circle>
     <%if i > 0%>
-      <line id="line<%=i+7%>" x1="<%=@cass[i-1][0]*(5)%>" y1="<%=@cass[i-1][1]*5%>"
-        x2="<%=@cass[i][0]*(5)%>" y2="<%=@cass[i][1]*5%>"/>
+      <line id="line<%=i+7%>" x1="<%=@cass[i-1][0]*(-5)%>" y1="<%=@cass[i-1][1]*5%>"
+        x2="<%=@cass[i][0]*(-5)%>" y2="<%=@cass[i][1]*5%>"/>
     <%else%>
       <line id="line0" x1="0" y1="0" x2="0" y2="0"/>
     <%end%>
     <%i = i+1%>
   <%end%>
 
-<%i = 0%>
+  <%i = 0%>
   <%while @herc[i] != nil%>
-    <circle id="circle+<%=i+12%>" cx="<%=@herc[i][0]*(-5)+1000%>" cy="<%=@herc[i][1]*5%>" r="5" opacity="1" style="filter:url(#f1)" onclick="Click(<%=i+13%>)">
-      <animateTransform attributeName="transform" type="rotate" dur="1s"
-      from="0 <%=@herc[i][0]*(-5)+1000%> <%=@herc[i][1]*5%>" to="360 <%=@herc[i][0]*(-5)+1000%> <%=@herc[i][1]*5%>" repeatCount="indefinite"/>
+    <circle id="circle+<%=i+12%>" cx="<%=@herc[i][0]*(-5)+1000%>" cy="<%=@herc[i][1]*5%>" r="<%=7-@herc[i][2]%>" opacity="1" style="filter:url(#f1)" onclick="Click(<%=i+13%>)">
     </circle>
     <%i = i+1%>
   <%end%>
+
+  <%i = 0%>
+  <%while @test_all[i] != nil%>
+    <circle id="circle+<%=i+100%>" cx="<%=@test_all[i][0]*(-5)+500%>" cy="<%=@test_all[i][1]*5%>" r="<%=7-@test_all[i][2]%>" opacity="1" style="filter:url(#f1)" onclick="Click(<%=i+100%>)">
+    </circle>
+    <%i = i+1%>
+  <%end%>
+
 </svg>
 
-
-<script src="map.js"></script>
 <script>clickedSkymap()</script>
+<script src=timer.js></script>
+<script src="map.js"></script>
 </div>

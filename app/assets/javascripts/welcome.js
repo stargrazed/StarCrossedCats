@@ -11,6 +11,8 @@ function star(find_stars){
         items.push(" x: "+val.x);
         items.push(" y: "+val.y);
         items.push(" z: "+val.z);
+        items.push(" color: "+val.colorb_v);
+        items.push(" App_Mag: "+val.appmag);
         $(".star_container").append("<li style='list-style-type: none;'>"+items+"</li>");
         items = [];
     });
@@ -20,13 +22,27 @@ function star(find_stars){
 function star2(find_stars){ //for copying into an array more easily
   $.getJSON(find_stars, function(data){
     var items = [];
+    var star = [];
+    var radius;
     $.each(data, function(index, val) {
         console.log(val);
-        items.push("["+val.x);
+        items.push(val.x);
         items.push(val.y);
-        items.push(val.z+"]");
-        $(".star_container").append("<li style='list-style-type: none;'>"+items+"</li>");
+        items.push(val.z);
+
+        radius = Math.sqrt(items[0]*items[0]+items[1]*items[1]+items[2]*items[2]);
+        items[0] = radius;
+        items[1] = 180*(Math.atan((val.y/val.x)))/Math.PI;
+        items[2] = 180*(Math.acos((val.z/radius)))/Math.PI;
+
+        star.push("["+items[1]);
+        star.push(" "+items[2]);
+        star.push(" "+val.appmag);
+        star.push(" "+val.colorb_v+"],");
+
+        $(".star_container").append("<li style='list-style-type: none;'>"+star+"</li>");
         items = [];
+        star = [];
     });
   });
 }
