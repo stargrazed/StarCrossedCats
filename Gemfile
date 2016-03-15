@@ -39,7 +39,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :jruby]
 
 gem 'puma'
-
+gem 'jasmine', '~> 2.4'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

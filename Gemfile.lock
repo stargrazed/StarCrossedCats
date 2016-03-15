@@ -55,6 +55,12 @@ GEM
     execjs (2.6.0)
     hike (1.2.3)
     i18n (0.7.0)
+    jasmine (2.4.0)
+      jasmine-core (~> 2.4)
+      phantomjs
+      rack (>= 1.2.1)
+      rake
+    jasmine-core (2.4.1)
     jbuilder (2.4.0)
       activesupport (>= 3.0.0, < 5.1)
       multi_json (~> 1.2)
@@ -73,6 +79,7 @@ GEM
     mime-types (2.99)
     minitest (5.8.4)
     multi_json (1.11.2)
+    phantomjs (2.1.1.0)
     puma (2.9.1-java)
       rack (>= 1.1, < 2.0)
     rack (1.5.5)
@@ -145,6 +152,7 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   coffee-script-source (= 1.8.0)
   cowsay
+  jasmine (~> 2.4)
   jbuilder (~> 2.0)
   jquery-rails
   jquery-turbolinks
