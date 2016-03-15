@@ -40,6 +40,13 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :jruby]
 
 gem 'puma'
 
+#helps with testing view files
+group :development, :test do
+  gem 'rspec-rails', '~>3.0'
+end
+
+gem 'jasmine', '~> 2.4'
+gem 'capybara', '~> 2.6', '>= 2.6.2'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
