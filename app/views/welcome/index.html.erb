@@ -24,21 +24,4 @@
 constell_to_star('https://star-api.herokuapp.com/api/v1/constellation_star_unions?min[constellation_id]=0&max[constellation_id]=3');
 </script>
 
-<!--
-<script>
-//constell_to_star('https://star-api.herokuapp.com/api/v1/constellation_star_unions?min[constellation_id]=61&max[constellation_id]=67');
-//alert((Math.cos(90*Math.PI/180)));
-for(i = 0; i < 23; i++){
-  items = [];
-  radius = Math.sqrt(array[i][0]*array[i][0]+array[i][1]*array[i][1]+array[i][2]*array[i][2]);
-  array_2[i][0] = radius;
-  array_2[i][1] = 180*(Math.atan((array[i][1]/array[i][0])))/Math.PI;
-  array_2[i][2] = 180*(Math.acos((array[i][2]/radius)))/Math.PI;
-
-  items.push("["+array_2[i][1]+", ");
-  items.push(array_2[i][2]+"],");
-  $(".star_container").append("<li style='list-style-type: none;'>"+items+"</li>");
-}
-</script>
--->
 <script src="welcome.js"></script>

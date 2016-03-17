@@ -17,7 +17,7 @@
 
 <%x_scale = -5%>
 <%x_shift = 500%>
-<<<<<<< HEAD
+
 <%y_scale = 1%>
 <%y_shift = 0%>
 
@@ -72,98 +72,7 @@
 <%draw_const(@bootes)%>
 <%draw_const(@cass)%>
 <%draw_const(@cep)%>
-<!--
-=======
 
->>>>>>> 5993b4504a2dae3797224a22dfde5e1df88b89d3
-  <%i = 0%>
-  <%while @ursa_minor[i] != nil%>
-    <circle id="circle<%=i%>" cx="<%=@ursa_minor[i][0]*x_scale+x_shift%>" cy="<%=@ursa_minor[i][1]*5%>" r="<%=(7-@ursa_minor[i][2])%>" opacity="1" style="filter:url(#f1)" onclick="Click(<%=i%>)">
-    </circle>
-    <%if i > 0%>
-      <line id="line<%=i%>" x1="<%=@ursa_minor[i-1][0]*x_scale+x_shift%>" y1="<%=@ursa_minor[i-1][1]*5%>"
-        x2="<%=@ursa_minor[i][0]*x_scale+x_shift%>" y2="<%=@ursa_minor[i][1]*5%>"/>
-    <%else%>
-      <line id="line0" x1="0" y1="0" x2="0" y2="0"/>
-    <%end%>
-    <%i = i+1%>
-  <%end%>
-
-  <%i = 0%>
-  <%while @cass[i] != nil%>
-    <circle id="circle+<%=i+7%>" cx="<%=@cass[i][0]*x_scale+x_shift%>" cy="<%=@cass[i][1]*5%>"
-      r="<%=7-@cass[i][2]%>" opacity="1" style="filter:url(#f1)" onclick="Click(<%=i+8%>)">
-    </circle>
-    <%if i > 0%>
-      <line id="line<%=i+7%>" x1="<%=@cass[i-1][0]*x_scale+x_shift%>" y1="<%=@cass[i-1][1]*5%>"
-        x2="<%=@cass[i][0]*x_scale+x_shift%>" y2="<%=@cass[i][1]*5%>"/>
-    <%else%>
-      <line id="line0" x1="0" y1="0" x2="0" y2="0"/>
-    <%end%>
-    <%i = i+1%>
-  <%end%>
-
-  <%i = 0%>
-  <%while @herc[i] != nil%>
-    <circle id="circle+<%=i+12%>" cx="<%=@herc[i][0]*x_scale+x_shift%>" cy="<%=@herc[i][1]*5%>"
-      r="<%=7-@herc[i][2]%>" opacity="1" style="filter:url(#f1)" onclick="Click(<%=i+13%>)">
-<<<<<<< HEAD
-=======
-    </circle>
-    <%i = i+1%>
-  <%end%>
-
-  <%i = 0 %>
-  <%while @cygnus[i] != nil%>
-    <circle id="circle+<%=i+12%>" cx="<%=@cygnus[i][0]*x_scale+x_shift%>" cy="<%=@cygnus[i][1]*5%>"
-      r="<%=7-@cygnus[i][2]%>" opacity="1" style="filter:url(#f1)" onclick="Click(<%=i+13%>)">
->>>>>>> 5993b4504a2dae3797224a22dfde5e1df88b89d3
-    </circle>
-    <%i = i+1%>
-  <%end%>
-
-  <%i = 0 %>
-<<<<<<< HEAD
-  <%while @cygnus[i] != nil%>
-    <circle id="circle+<%=i+12%>" cx="<%=@cygnus[i][0]*x_scale+x_shift%>" cy="<%=@cygnus[i][1]*5%>"
-      r="<%=7-@cygnus[i][2]%>" opacity="1" style="filter:url(#f1)" onclick="Click(<%=i+13%>)">
-    </circle>
-    <%i = i+1%>
-  <%end%>
-
-  <%i = 0 %>
-=======
->>>>>>> 5993b4504a2dae3797224a22dfde5e1df88b89d3
-  <%while @cep[i] != nil%>
-    <circle id="circle+<%=i+12%>" cx="<%=@cep[i][0]*x_scale+x_shift%>" cy="<%=@cep[i][1]*5%>"
-      r="<%=7-@cep[i][2]%>" opacity="1" style="filter:url(#f1)" onclick="Click(<%=i+13%>)">
-    </circle>
-    <%i = i+1%>
-  <%end%>
-
-  <%i = 0 %>
-  <%while @bootes[i] != nil%>
-    <circle id="circle+<%=i+12%>" cx="<%=@bootes[i][0]*x_scale+x_shift%>" cy="<%=@bootes[i][1]*5%>"
-      r="<%=7-@bootes[i][2]%>" opacity="1" style="filter:url(#f1)" onclick="Click(<%=i+13%>)">
-    </circle>
-    <%i = i+1%>
-  <%end%>
-<<<<<<< HEAD
--->
-=======
-
->>>>>>> 5993b4504a2dae3797224a22dfde5e1df88b89d3
-<!--
-  <%i = 0%>
-  <%while @test_all[i] != nil%>
-    <circle id="circle+<%=i+100%>" cx="<%=@test_all[i][0]*x_scale+x_shift%>" cy="<%=@test_all[i][1]*5%>" r="<%=7-@test_all[i][2]%>" opacity="0.5" style="filter:url(#f1)" onclick="Click(<%=i+100%>)">
-    <animateTransform attributeName="transform" type="rotate" dur="1s"
-    from="0 <%=@test_all[i][0]*x_scale+x_shift%> <%=@test_all[i][1]*5%>" to="360 <%=@test_all[i][0]*x_scale+x_shift%> <%=@test_all[i][1]*5%>" repeatCount="indefinite"/>
-
-    </circle>
-    <%i = i+1%>
-  <%end%>
--->
 </svg>
 
 <script>clickedSkymap()</script>
