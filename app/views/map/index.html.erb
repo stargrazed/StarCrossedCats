@@ -8,7 +8,7 @@
   <span>00:00:00</span>
 </div>
 
-<svg id='test' width="1000" height="800" version="1.1" xmlns="http://www.w3.org/2000/svg">
+<svg id='test' width="1000" height="1000" version="1.1" xmlns="http://www.w3.org/2000/svg">
   <defs>
    <filter id="f1" x="0" y=0>
      <feGaussianBlur in="SourceGraphic" stdDeviation="1"/>
@@ -17,6 +17,7 @@
 
 <%x_scale = -5%>
 <%x_shift = 500%>
+<<<<<<< HEAD
 <%y_scale = 1%>
 <%y_shift = 0%>
 
@@ -72,6 +73,9 @@
 <%draw_const(@cass)%>
 <%draw_const(@cep)%>
 <!--
+=======
+
+>>>>>>> 5993b4504a2dae3797224a22dfde5e1df88b89d3
   <%i = 0%>
   <%while @ursa_minor[i] != nil%>
     <circle id="circle<%=i%>" cx="<%=@ursa_minor[i][0]*x_scale+x_shift%>" cy="<%=@ursa_minor[i][1]*5%>" r="<%=(7-@ursa_minor[i][2])%>" opacity="1" style="filter:url(#f1)" onclick="Click(<%=i%>)">
@@ -103,6 +107,8 @@
   <%while @herc[i] != nil%>
     <circle id="circle+<%=i+12%>" cx="<%=@herc[i][0]*x_scale+x_shift%>" cy="<%=@herc[i][1]*5%>"
       r="<%=7-@herc[i][2]%>" opacity="1" style="filter:url(#f1)" onclick="Click(<%=i+13%>)">
+<<<<<<< HEAD
+=======
     </circle>
     <%i = i+1%>
   <%end%>
@@ -111,11 +117,23 @@
   <%while @cygnus[i] != nil%>
     <circle id="circle+<%=i+12%>" cx="<%=@cygnus[i][0]*x_scale+x_shift%>" cy="<%=@cygnus[i][1]*5%>"
       r="<%=7-@cygnus[i][2]%>" opacity="1" style="filter:url(#f1)" onclick="Click(<%=i+13%>)">
+>>>>>>> 5993b4504a2dae3797224a22dfde5e1df88b89d3
     </circle>
     <%i = i+1%>
   <%end%>
 
   <%i = 0 %>
+<<<<<<< HEAD
+  <%while @cygnus[i] != nil%>
+    <circle id="circle+<%=i+12%>" cx="<%=@cygnus[i][0]*x_scale+x_shift%>" cy="<%=@cygnus[i][1]*5%>"
+      r="<%=7-@cygnus[i][2]%>" opacity="1" style="filter:url(#f1)" onclick="Click(<%=i+13%>)">
+    </circle>
+    <%i = i+1%>
+  <%end%>
+
+  <%i = 0 %>
+=======
+>>>>>>> 5993b4504a2dae3797224a22dfde5e1df88b89d3
   <%while @cep[i] != nil%>
     <circle id="circle+<%=i+12%>" cx="<%=@cep[i][0]*x_scale+x_shift%>" cy="<%=@cep[i][1]*5%>"
       r="<%=7-@cep[i][2]%>" opacity="1" style="filter:url(#f1)" onclick="Click(<%=i+13%>)">
@@ -130,7 +148,11 @@
     </circle>
     <%i = i+1%>
   <%end%>
+<<<<<<< HEAD
 -->
+=======
+
+>>>>>>> 5993b4504a2dae3797224a22dfde5e1df88b89d3
 <!--
   <%i = 0%>
   <%while @test_all[i] != nil%>
