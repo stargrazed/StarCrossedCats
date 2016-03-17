@@ -10,6 +10,10 @@ class LoginController < ApplicationController
   def login
   end
 
+  def profile
+    @user = User.find_by(id: session[:user_id])
+  end
+
   def new_user
     @user = User.new
   end
@@ -52,7 +56,7 @@ class LoginController < ApplicationController
 
 private
   def user_params
-    params.require(:user).permit(:name, :username, :password)
+    params.require(:user).permit(:name, :username, :password, :password_confirmation)
   end
 
 end

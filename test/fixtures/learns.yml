@@ -9,8 +9,3 @@ one: {}
 #
 two: {}
 #  column: value
-
-user:
-  name: johnscott
-  username: johnscott
-  password: asdfasdf

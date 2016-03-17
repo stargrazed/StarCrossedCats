@@ -1,0 +1,81 @@
+<title>Welcome to our wonderful domain!</title>
+<meta name="description" content="A desciption of our website and introduction.">
+<%= stylesheet_link_tag('application') %>
+<%= render(:partial => "default")%>
+
+<p>This is maps.</p>
+<div id="timer">
+  <span>00:00:00</span>
+</div>
+
+<svg id='test' width="1000" height="1000" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+   <filter id="f1" x="0" y=0>
+     <feGaussianBlur in="SourceGraphic" stdDeviation="1"/>
+   </filter>
+  </defs>
+
+<%x_scale = -5%>
+<%x_shift = 500%>
+
+<%y_scale = 1%>
+<%y_shift = 0%>
+
+
+<%def star_red(b_index)%>
+  <%color1 = 250 + 100*b_index%>
+  <%if color1 > 255%>
+    <%color1 = 255%>
+  <%end%>
+  <%return (color1*100).round/100%>
+<%end%>
+
+<%def star_green(b_index)%>
+  <%color2 = 250 - 80*(b_index.abs)%>
+  <%return (color2*100).round/100%>
+<%end%>
+
+<%def star_blue(b_index)%>
+  <%color3 = 250 - 100*(b_index)%>
+  <%if color3 > 255 %>
+    <%color3 = 255%>
+  <%end%>
+  <%return (color3*100).round/100%>
+<%end%>
+
+<%def draw_const(const) %>
+  <%x_scale = -5%>
+  <%x_shift = 500%>
+
+  <%i = 0%>
+  <%while const[i] != nil%>
+    <%red = star_red(const[i][3])%>
+    <%green = star_green(const[i][3])%>
+    <%blue = star_blue(const[i][3])%>
+    <circle id="circle+<%=i+12%>" cx="<%=const[i][0]*x_scale+x_shift%>" cy="<%=const[i][1]*5%>"
+      r="<%=7-const[i][2]%>" opacity="1" style="filter:url(#f1)"
+      fill="rgb(<%=red%>,<%=green%>, <%=blue%>)" onclick="Click(<%=i+13%>)">
+      <animateTransform attributeName="transform" type="rotate" dur="6s"from="0
+      <%=const[i][0]*x_scale+x_shift%> <%=const[i][1]*5%>" to="360
+      <%=const[i][0]*x_scale+x_shift%> <%=const[i][1]*5%>" repeatCount="indefinite"/>
+    </circle>
+    <%i = i+1%>
+  <%end%>
+  <%return%>
+<%end%>
+
+<%draw_const(@andro)%>
+<%draw_const(@herc)%>
+<%draw_const(@ursa_minor)%>
+<%draw_const(@ursa_major)%>
+<%draw_const(@cygnus)%>
+<%draw_const(@bootes)%>
+<%draw_const(@cass)%>
+<%draw_const(@cep)%>
+
+</svg>
+
+<script>clickedSkymap()</script>
+<script src=timer.js></script>
+<script src="map.js"></script>
+</div>

@@ -1,18 +1,46 @@
-// Place all the behaviors and hooks related to the matching controller here.
-// All this logic will automatically be available in application.js.
-// You can use CoffeeScript in this file: http://coffeescript.org/
+function createCircle(x, y) {
+    var area, circle;
+    area = document.getElementById("test");
+
+    circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+    circle.setAttribute('cx', x);
+    circle.setAttribute('cy', y);
+    circle.setAttribute('r', 20);
+
+    area.appendChild(circle);
+  }
+
+function Click(id) {
+    if (id > 0) {
+        document.getElementById("line" + id).style.visibility = 'visible';
+    }
+    document.getElementById("circle"+id).onclick = ""; //do nothing now
+/*
+    if (id + 1 < points.length) {
+        newClick = function() { dotClick(id + 1); }
+        document.getElementById("circle" + (id + 1)).onclick = newClick;
+        document.getElementById("text" + (id + 1)).onclick = newClick;
+    }
+    else {
+        for (i = 0; i < points.length; i++) { //hide everything
+            document.getElementById("circle" + i).style.visibility = 'hidden';
+            document.getElementById("line" + i).style.visibility = 'hidden';
+        }
+        document.getElementById("image").style.visibility = 'visible'; //show png or message
+    }
+    */
+}
+
 
 function star(find_stars){
   $.getJSON(find_stars, function(data){
     var items = [];
     $.each(data, function(index, val) {
         console.log(val);
-        items.push(val.label);
+        items.push(" "+val.label+" ");
         items.push(" x: "+val.x);
         items.push(" y: "+val.y);
         items.push(" z: "+val.z);
-        items.push(" color: "+val.colorb_v);
-        items.push(" App_Mag: "+val.appmag);
         $(".star_container").append("<li style='list-style-type: none;'>"+items+"</li>");
         items = [];
     });
@@ -22,27 +50,13 @@ function star(find_stars){
 function star2(find_stars){ //for copying into an array more easily
   $.getJSON(find_stars, function(data){
     var items = [];
-    var star = [];
-    var radius;
     $.each(data, function(index, val) {
         console.log(val);
-        items.push(val.x);
+        items.push("["+val.x);
         items.push(val.y);
-        items.push(val.z);
-
-        radius = Math.sqrt(items[0]*items[0]+items[1]*items[1]+items[2]*items[2]);
-        items[0] = radius;
-        items[1] = 180*(Math.atan((val.y/val.x)))/Math.PI;
-        items[2] = 180*(Math.acos((val.z/radius)))/Math.PI;
-
-        star.push("["+items[1]);
-        star.push(" "+items[2]);
-        star.push(" "+val.appmag);
-        star.push(" "+val.colorb_v+"],");
-
-        $(".star_container").append("<li style='list-style-type: none;'>"+star+"</li>");
+        items.push(val.z+"]");
+        $(".star_container").append("<li style='list-style-type: none;'>"+items+"</li>");
         items = [];
-        star = [];
     });
   });
 }
@@ -85,9 +99,3 @@ function constell_to_star(link){
     });
   });
 }
-
-//parseInt() turn string into int
-//toString() turn int into string
-//https://star-api.herokuapp.com/api/v1/constellation_star_unions
-//https://star-api.herokuapp.com/api/v1/constellation_star_unions?min[constellation_id]=137&max[constellation_id]=139
-//https://star-api.herokuapp.com/api/v1/constellations

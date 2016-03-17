@@ -18,5 +18,10 @@
       <p><%= flash[:notice] %></p>
   <%end%>
 <div class="star_container"></div>
-
 </div>
+
+<script>
+constell_to_star('https://star-api.herokuapp.com/api/v1/constellation_star_unions?min[constellation_id]=0&max[constellation_id]=3');
+</script>
+
+<script src="welcome.js"></script>

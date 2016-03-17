@@ -16,7 +16,6 @@ validates :username, :presence => true,
   :length => {:within => 4..20},
   :uniqueness => true
 
-validates :password, :presence => true,
-  :length => {:within => 5..25},
-  :confirmation => true
+validates :password,
+  :length => {:within => 5..25}
 end

@@ -12,6 +12,27 @@ body{
     width: 98%;
     height: 100%
 }
+//svg***********************************
+svg {
+  background-color: black;
+}
+
+circle:hover {
+  fill: yellow;
+}
+
+line {
+    stroke: red;
+    stroke-width: 1px;
+    visibility: hidden;
+}
+
+line#line7{
+  visibility: visible;;
+}
+
+//end svg*******************************
+
  #intro{
     font-style: italic;
     font-size: 1.2em;
