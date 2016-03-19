@@ -31,6 +31,115 @@ function Click(id) {
     */
 }
 
+function ursa_minor_Click(id) {
+  var i;
+  if (id > 0) {
+    var change = document.getElementsByClassName("ursa_minor"+id);
+    for(i=0; i<change.length; i++){
+      change[i].style.visibility = 'visible';
+    }
+  }
+    document.getElementsByClassName("ursa_minor"+id).onclick = ""; //do nothing now
+}
+
+function ursa_major_Click(id) {
+  var i;
+  if (id > 0) {
+    var change = document.getElementsByClassName("ursa_major"+id);
+    for(i=0; i<change.length; i++){
+      change[i].style.visibility = 'visible';
+    }
+  }
+    document.getElementsByClassName("ursa_major"+id).onclick = ""; //do nothing now
+}
+
+function aqu_Click(id) {
+  var i;
+  if (id > 0) {
+    var change = document.getElementsByClassName("aqu"+id);
+    for(i=0; i<change.length; i++){
+      change[i].style.visibility = 'visible';
+    }
+  }
+    document.getElementsByClassName("aqu"+id).onclick = ""; //do nothing now
+}
+
+function cass_Click(id) {
+  var i;
+  if (id > 0) {
+    var change = document.getElementsByClassName("cass"+id);
+    for(i=0; i<change.length; i++){
+      change[i].style.visibility = 'visible';
+    }
+  }
+    document.getElementsByClassName("cass"+id).onclick = ""; //do nothing now
+}
+
+function herc_Click(id) {
+  var i;
+  if (id > 0) {
+    var change = document.getElementsByClassName("herc"+id);
+    for(i=0; i<change.length; i++){
+      change[i].style.visibility = 'visible';
+    }
+  }
+    document.getElementsByClassName("herc"+id).onclick = ""; //do nothing now
+}
+
+function cygnus_Click(id) {
+  var i;
+  if (id > 0) {
+    var change = document.getElementsByClassName("cygnus"+id);
+    for(i=0; i<change.length; i++){
+      change[i].style.visibility = 'visible';
+    }
+  }
+    document.getElementsByClassName("cygnus"+id).onclick = ""; //do nothing now
+}
+
+function cep_Click(id) {
+  var i;
+  if (id > 0) {
+    var change = document.getElementsByClassName("cep"+id);
+    for(i=0; i<change.length; i++){
+      change[i].style.visibility = 'visible';
+    }
+  }
+    document.getElementsByClassName("cep"+id).onclick = ""; //do nothing now
+}
+
+function bootes_Click(id) {
+  var i;
+  if (id > 0) {
+    var change = document.getElementsByClassName("bootes"+id);
+    for(i=0; i<change.length; i++){
+      change[i].style.visibility = 'visible';
+    }
+  }
+    document.getElementsByClassName("bootes"+id).onclick = ""; //do nothing now
+}
+
+function pers_Click(id) {
+  var i;
+  if (id > 0) {
+    var change = document.getElementsByClassName("pers"+id);
+    for(i=0; i<change.length; i++){
+      change[i].style.visibility = 'visible';
+    }
+  }
+    document.getElementsByClassName("pers"+id).onclick = ""; //do nothing now
+}
+
+function taur_Click(id) {
+  var i;
+  if (id > 0) {
+    var change = document.getElementsByClassName("taur"+id);
+    for(i=0; i<change.length; i++){
+      change[i].style.visibility = 'visible';
+    }
+  }
+    document.getElementsByClassName("taur"+id).onclick = ""; //do nothing now
+}
 
 function star(find_stars){
   $.getJSON(find_stars, function(data){
