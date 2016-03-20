@@ -26,8 +26,9 @@
         </li>
         <li><%= link_to("Maps", {:controller => 'map', :action => 'index'}, class:"current")%>
           <ul>
-            <li><%= link_to("Current", {:action => 'index'})%></li>
-            <li><%= link_to("Set", {:action => 'index'})%></li>
+            <li><%= link_to("Index", {:action => 'index'})%></li>
+            <li><%= link_to("West Night", {:action => 'west'})%></li>
+            <li><%= link_to("East Night", {:action => 'east'})%></li>
           </ul>
         </li>
         <li><%= link_to("Fun-Facts", {:controller => 'fact', :action => 'index'})%></li>

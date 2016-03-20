@@ -75,6 +75,17 @@ function cass_Click(id) {
     document.getElementsByClassName("cass"+id).onclick = ""; //do nothing now
 }
 
+function draco_Click(id) {
+  var i;
+  if (id > 0) {
+    var change = document.getElementsByClassName("draco"+id);
+    for(i=0; i<change.length; i++){
+      change[i].style.visibility = 'visible';
+    }
+  }
+    document.getElementsByClassName("draco"+id).onclick = ""; //do nothing now
+}
+
 function herc_Click(id) {
   var i;
   if (id > 0) {
@@ -128,6 +139,17 @@ function pers_Click(id) {
     }
   }
     document.getElementsByClassName("pers"+id).onclick = ""; //do nothing now
+}
+
+function pegas_Click(id) {
+  var i;
+  if (id > 0) {
+    var change = document.getElementsByClassName("pegas"+id);
+    for(i=0; i<change.length; i++){
+      change[i].style.visibility = 'visible';
+    }
+  }
+    document.getElementsByClassName("pegas"+id).onclick = ""; //do nothing now
 }
 
 function taur_Click(id) {

@@ -1,209 +1,27 @@
+<%= error_messages_for(@user) %>
+
 <title>Welcome to our wonderful domain!</title>
 <meta name="description" content="A desciption of our website and introduction.">
 <%= stylesheet_link_tag('application') %>
 <%= render(:partial => "default")%>
 
-<p>This is maps.</p>
-<div id="timer">
-  <span>00:00:00</span>
+<p>Current Date is: <%= Time.now.month%>-<%= Time.now.day%>-<%= Time.now.year%></p>
+<p>Current Time is: <%= sprintf("%02d",Time.now.hour%12)%>:
+  <%= sprintf("%02d",Time.now.min)%>
+  <%if Time.now.hour/12 >= 1%>
+    <%= "pm"%>
+  <%else%>
+    <%= "am"%>
+  <%end%>
+
+  <% if !flash[:notice].blank? %>
+      <p><%= flash[:notice] %></p>
+  <%end%>
+<div class="star_container"></div>
 </div>
 
-<svg id='test' width="1000" height="1000" version="1.1" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-   <filter id="f1" x="0" y=0>
-     <feGaussianBlur in="SourceGraphic" stdDeviation="1"/>
-   </filter>
-  </defs>
+<script>
+constell_to_star('https://star-api.herokuapp.com/api/v1/constellation_star_unions?min[constellation_id]=94&max[constellation_id]=99');
+</script>
 
-<%x_scale = -5%>
-<%x_shift = 500%>
-
-<%y_scale = 5%>
-<%y_shift = 0%>
-
-
-<%def star_red(b_index)%>
-  <%color1 = 250 + 100*b_index%>
-  <%if color1 > 255%>
-    <%color1 = 255%>
-  <%end%>
-  <%return (color1*100).round/100%>
-<%end%>
-
-<%def star_green(b_index)%>
-  <%color2 = 250 - 80*(b_index.abs)%>
-  <%return (color2*100).round/100%>
-<%end%>
-
-<%def star_blue(b_index)%>
-  <%color3 = 250 - 100*(b_index)%>
-  <%if color3 > 255 %>
-    <%color3 = 255%>
-  <%end%>
-  <%return (color3*100).round/100%>
-<%end%>
-
-<%def draw_const(const, const_name) %>
-  <%x_scale = -5%>
-  <%x_shift = 500%>
-
-  <%i = 0%>
-  <%while const[i] != nil%>
-    <%red = star_red(const[i][3])%>
-    <%green = star_green(const[i][3])%>
-    <%blue = star_blue(const[i][3])%>
-    <circle id="const_name<%=i%>" cx="<%=const[i][0]*x_scale+x_shift%>" cy="<%=const[i][1]*5%>"
-      r="<%=7-const[i][2]%>" opacity="1" style="filter:url(#f1)"
-      fill="rgb(<%=red%>,<%=green%>, <%=blue%>)" onclick="<%=const_name%>_Click(<%=i%>)">
-      <animateTransform attributeName="transform" type="rotate" dur="6s"from="0
-      <%=const[i][0]*x_scale+x_shift%> <%=const[i][1]*5%>" to="360
-      <%=const[i][0]*x_scale+x_shift%> <%=const[i][1]*5%>" repeatCount="indefinite"/>
-    </circle>
-    <%i = i+1%>
-  <%end%>
-  <%return%>
-<%end%>
-
-<%draw_const(@andro, "andro")%>
-<!-- don't draw Andromeda-->
-
-<%draw_const(@herc, "herc")%>
-<line class="herc1" x1="<%=@herc[0][0]*x_scale+x_shift%>" y1="<%=@herc[0][1]*y_scale+y_shift%>" x2="<%=@herc[1][0]*x_scale+x_shift%>" y2="<%=@herc[1][1]*y_scale+y_shift%>"/>
-<line class="herc2" x1="<%=@herc[1][0]*x_scale+x_shift%>" y1="<%=@herc[1][1]*y_scale+y_shift%>" x2="<%=@herc[2][0]*x_scale+x_shift%>" y2="<%=@herc[2][1]*y_scale+y_shift%>"/>
-<line class="herc14" x1="<%=@herc[2][0]*x_scale+x_shift%>" y1="<%=@herc[2][1]*y_scale+y_shift%>" x2="<%=@herc[14][0]*x_scale+x_shift%>" y2="<%=@herc[14][1]*y_scale+y_shift%>"/>
-<line class="herc15" x1="<%=@herc[15][0]*x_scale+x_shift%>" y1="<%=@herc[15][1]*y_scale+y_shift%>" x2="<%=@herc[3][0]*x_scale+x_shift%>" y2="<%=@herc[3][1]*y_scale+y_shift%>"/>
-<line class="herc4" x1="<%=@herc[3][0]*x_scale+x_shift%>" y1="<%=@herc[3][1]*y_scale+y_shift%>" x2="<%=@herc[4][0]*x_scale+x_shift%>" y2="<%=@herc[4][1]*y_scale+y_shift%>"/>
-<line class="herc5" x1="<%=@herc[4][0]*x_scale+x_shift%>" y1="<%=@herc[4][1]*y_scale+y_shift%>" x2="<%=@herc[5][0]*x_scale+x_shift%>" y2="<%=@herc[5][1]*y_scale+y_shift%>"/>
-<line class="herc10" x1="<%=@herc[16][0]*x_scale+x_shift%>" y1="<%=@herc[16][1]*y_scale+y_shift%>" x2="<%=@herc[10][0]*x_scale+x_shift%>" y2="<%=@herc[10][1]*y_scale+y_shift%>"/>
-<line class="herc6" x1="<%=@herc[6][0]*x_scale+x_shift%>" y1="<%=@herc[6][1]*y_scale+y_shift%>" x2="<%=@herc[7][0]*x_scale+x_shift%>" y2="<%=@herc[7][1]*y_scale+y_shift%>"/>
-<line class="herc7" x1="<%=@herc[7][0]*x_scale+x_shift%>" y1="<%=@herc[7][1]*y_scale+y_shift%>" x2="<%=@herc[8][0]*x_scale+x_shift%>" y2="<%=@herc[8][1]*y_scale+y_shift%>"/>
-<line class="herc8" x1="<%=@herc[8][0]*x_scale+x_shift%>" y1="<%=@herc[8][1]*y_scale+y_shift%>" x2="<%=@herc[9][0]*x_scale+x_shift%>" y2="<%=@herc[9][1]*y_scale+y_shift%>"/>
-<line class="herc10" x1="<%=@herc[10][0]*x_scale+x_shift%>" y1="<%=@herc[10][1]*y_scale+y_shift%>" x2="<%=@herc[12][0]*x_scale+x_shift%>" y2="<%=@herc[12][1]*y_scale+y_shift%>"/>
-<line class="herc10" x1="<%=@herc[9][0]*x_scale+x_shift%>" y1="<%=@herc[9][1]*y_scale+y_shift%>" x2="<%=@herc[10][0]*x_scale+x_shift%>" y2="<%=@herc[10][1]*y_scale+y_shift%>"/>
-<line class="herc11" x1="<%=@herc[14][0]*x_scale+x_shift%>" y1="<%=@herc[14][1]*y_scale+y_shift%>" x2="<%=@herc[15][0]*x_scale+x_shift%>" y2="<%=@herc[15][1]*y_scale+y_shift%>"/>
-<line class="herc11" x1="<%=@herc[15][0]*x_scale+x_shift%>" y1="<%=@herc[15][1]*y_scale+y_shift%>" x2="<%=@herc[11][0]*x_scale+x_shift%>" y2="<%=@herc[11][1]*y_scale+y_shift%>"/>
-<line class="herc14" x1="<%=@herc[16][0]*x_scale+x_shift%>" y1="<%=@herc[16][1]*y_scale+y_shift%>" x2="<%=@herc[14][0]*x_scale+x_shift%>" y2="<%=@herc[14][1]*y_scale+y_shift%>"/>
-<line class="herc16" x1="<%=@herc[16][0]*x_scale+x_shift%>" y1="<%=@herc[16][1]*y_scale+y_shift%>" x2="<%=@herc[11][0]*x_scale+x_shift%>" y2="<%=@herc[11][1]*y_scale+y_shift%>"/>
-<line class="herc11" x1="<%=@herc[11][0]*x_scale+x_shift%>" y1="<%=@herc[11][1]*y_scale+y_shift%>" x2="<%=@herc[17][0]*x_scale+x_shift%>" y2="<%=@herc[17][1]*y_scale+y_shift%>"/>
-<line class="herc11" x1="<%=@herc[12][0]*x_scale+x_shift%>" y1="<%=@herc[12][1]*y_scale+y_shift%>" x2="<%=@herc[17][0]*x_scale+x_shift%>" y2="<%=@herc[17][1]*y_scale+y_shift%>"/>
-<line class="herc11" x1="<%=@herc[13][0]*x_scale+x_shift%>" y1="<%=@herc[13][1]*y_scale+y_shift%>" x2="<%=@herc[17][0]*x_scale+x_shift%>" y2="<%=@herc[17][1]*y_scale+y_shift%>"/>
-
-
-<%draw_const(@ursa_minor, "ursa_minor")%>
-<line class="ursa_minor1" x1="<%=@ursa_minor[0][0]*x_scale+x_shift%>" y1="<%=@ursa_minor[0][1]*y_scale+y_shift%>" x2="<%=@ursa_minor[1][0]*x_scale+x_shift%>" y2="<%=@ursa_minor[1][1]*y_scale+y_shift%>"/>
-<line class="ursa_minor2" x1="<%=@ursa_minor[1][0]*x_scale+x_shift%>" y1="<%=@ursa_minor[1][1]*y_scale+y_shift%>" x2="<%=@ursa_minor[2][0]*x_scale+x_shift%>" y2="<%=@ursa_minor[2][1]*y_scale+y_shift%>"/>
-<line class="ursa_minor3" x1="<%=@ursa_minor[2][0]*x_scale+x_shift%>" y1="<%=@ursa_minor[2][1]*y_scale+y_shift%>" x2="<%=@ursa_minor[3][0]*x_scale+x_shift%>" y2="<%=@ursa_minor[3][1]*y_scale+y_shift%>"/>
-<line class="ursa_minor4" x1="<%=@ursa_minor[3][0]*x_scale+x_shift%>" y1="<%=@ursa_minor[3][1]*y_scale+y_shift%>" x2="<%=@ursa_minor[4][0]*x_scale+x_shift%>" y2="<%=@ursa_minor[4][1]*y_scale+y_shift%>"/>
-<line class="ursa_minor5" x1="<%=@ursa_minor[4][0]*x_scale+x_shift%>" y1="<%=@ursa_minor[4][1]*y_scale+y_shift%>" x2="<%=@ursa_minor[5][0]*x_scale+x_shift%>" y2="<%=@ursa_minor[5][1]*y_scale+y_shift%>"/>
-<line class="ursa_minor6" x1="<%=@ursa_minor[5][0]*x_scale+x_shift%>" y1="<%=@ursa_minor[5][1]*y_scale+y_shift%>" x2="<%=@ursa_minor[6][0]*x_scale+x_shift%>" y2="<%=@ursa_minor[6][1]*y_scale+y_shift%>"/>
-<line class="ursa_minor3" x1="<%=@ursa_minor[3][0]*x_scale+x_shift%>" y1="<%=@ursa_minor[3][1]*y_scale+y_shift%>" x2="<%=@ursa_minor[6][0]*x_scale+x_shift%>" y2="<%=@ursa_minor[6][1]*y_scale+y_shift%>"/>
-
-<%draw_const(@ursa_major, "ursa_major")%>
-<line class="ursa_major1" x1="<%=@ursa_major[0][0]*x_scale+x_shift%>" y1="<%=@ursa_major[0][1]*y_scale+y_shift%>" x2="<%=@ursa_major[1][0]*x_scale+x_shift%>" y2="<%=@ursa_major[1][1]*y_scale+y_shift%>"/>
-<line class="ursa_major2" x1="<%=@ursa_major[1][0]*x_scale+x_shift%>" y1="<%=@ursa_major[1][1]*y_scale+y_shift%>" x2="<%=@ursa_major[2][0]*x_scale+x_shift%>" y2="<%=@ursa_major[2][1]*y_scale+y_shift%>"/>
-<line class="ursa_major3" x1="<%=@ursa_major[2][0]*x_scale+x_shift%>" y1="<%=@ursa_major[2][1]*y_scale+y_shift%>" x2="<%=@ursa_major[3][0]*x_scale+x_shift%>" y2="<%=@ursa_major[3][1]*y_scale+y_shift%>"/>
-<line class="ursa_major5" x1="<%=@ursa_major[3][0]*x_scale+x_shift%>" y1="<%=@ursa_major[3][1]*y_scale+y_shift%>" x2="<%=@ursa_major[5][0]*x_scale+x_shift%>" y2="<%=@ursa_major[5][1]*y_scale+y_shift%>"/>
-<line class="ursa_major6" x1="<%=@ursa_major[3][0]*x_scale+x_shift%>" y1="<%=@ursa_major[3][1]*y_scale+y_shift%>" x2="<%=@ursa_major[6][0]*x_scale+x_shift%>" y2="<%=@ursa_major[6][1]*y_scale+y_shift%>"/>
-<line class="ursa_major4" x1="<%=@ursa_major[4][0]*x_scale+x_shift%>" y1="<%=@ursa_major[4][1]*y_scale+y_shift%>" x2="<%=@ursa_major[9][0]*x_scale+x_shift%>" y2="<%=@ursa_major[9][1]*y_scale+y_shift%>"/>
-<line class="ursa_major4" x1="<%=@ursa_major[4][0]*x_scale+x_shift%>" y1="<%=@ursa_major[4][1]*y_scale+y_shift%>" x2="<%=@ursa_major[5][0]*x_scale+x_shift%>" y2="<%=@ursa_major[5][1]*y_scale+y_shift%>"/>
-<line class="ursa_major6" x1="<%=@ursa_major[6][0]*x_scale+x_shift%>" y1="<%=@ursa_major[6][1]*y_scale+y_shift%>" x2="<%=@ursa_major[7][0]*x_scale+x_shift%>" y2="<%=@ursa_major[7][1]*y_scale+y_shift%>"/>
-<line class="ursa_major6" x1="<%=@ursa_major[6][0]*x_scale+x_shift%>" y1="<%=@ursa_major[6][1]*y_scale+y_shift%>" x2="<%=@ursa_major[4][0]*x_scale+x_shift%>" y2="<%=@ursa_major[4][1]*y_scale+y_shift%>"/>
-<line class="ursa_major7" x1="<%=@ursa_major[7][0]*x_scale+x_shift%>" y1="<%=@ursa_major[7][1]*y_scale+y_shift%>" x2="<%=@ursa_major[8][0]*x_scale+x_shift%>" y2="<%=@ursa_major[8][1]*y_scale+y_shift%>"/>
-<line class="ursa_major7" x1="<%=@ursa_major[7][0]*x_scale+x_shift%>" y1="<%=@ursa_major[7][1]*y_scale+y_shift%>" x2="<%=@ursa_major[9][0]*x_scale+x_shift%>" y2="<%=@ursa_major[9][1]*y_scale+y_shift%>"/>
-<line class="ursa_major9" x1="<%=@ursa_major[8][0]*x_scale+x_shift%>" y1="<%=@ursa_major[8][1]*y_scale+y_shift%>" x2="<%=@ursa_major[9][0]*x_scale+x_shift%>" y2="<%=@ursa_major[9][1]*y_scale+y_shift%>"/>
-<line class="ursa_major10" x1="<%=@ursa_major[9][0]*x_scale+x_shift%>" y1="<%=@ursa_major[9][1]*y_scale+y_shift%>" x2="<%=@ursa_major[10][0]*x_scale+x_shift%>" y2="<%=@ursa_major[10][1]*y_scale+y_shift%>"/>
-<line class="ursa_major12" x1="<%=@ursa_major[10][0]*x_scale+x_shift%>" y1="<%=@ursa_major[10][1]*y_scale+y_shift%>" x2="<%=@ursa_major[12][0]*x_scale+x_shift%>" y2="<%=@ursa_major[12][1]*y_scale+y_shift%>"/>
-<line class="ursa_major11" x1="<%=@ursa_major[11][0]*x_scale+x_shift%>" y1="<%=@ursa_major[11][1]*y_scale+y_shift%>" x2="<%=@ursa_major[12][0]*x_scale+x_shift%>" y2="<%=@ursa_major[12][1]*y_scale+y_shift%>"/>
-<line class="ursa_major13" x1="<%=@ursa_major[5][0]*x_scale+x_shift%>" y1="<%=@ursa_major[5][1]*y_scale+y_shift%>" x2="<%=@ursa_major[13][0]*x_scale+x_shift%>" y2="<%=@ursa_major[13][1]*y_scale+y_shift%>"/>
-<line class="ursa_major15" x1="<%=@ursa_major[13][0]*x_scale+x_shift%>" y1="<%=@ursa_major[13][1]*y_scale+y_shift%>" x2="<%=@ursa_major[15][0]*x_scale+x_shift%>" y2="<%=@ursa_major[15][1]*y_scale+y_shift%>"/>
-<line class="ursa_major15" x1="<%=@ursa_major[14][0]*x_scale+x_shift%>" y1="<%=@ursa_major[14][1]*y_scale+y_shift%>" x2="<%=@ursa_major[15][0]*x_scale+x_shift%>" y2="<%=@ursa_major[15][1]*y_scale+y_shift%>"/>
-<line class="ursa_major16" x1="<%=@ursa_major[13][0]*x_scale+x_shift%>" y1="<%=@ursa_major[13][1]*y_scale+y_shift%>" x2="<%=@ursa_major[16][0]*x_scale+x_shift%>" y2="<%=@ursa_major[16][1]*y_scale+y_shift%>"/>
-<line class="ursa_major17" x1="<%=@ursa_major[16][0]*x_scale+x_shift%>" y1="<%=@ursa_major[16][1]*y_scale+y_shift%>" x2="<%=@ursa_major[17][0]*x_scale+x_shift%>" y2="<%=@ursa_major[17][1]*y_scale+y_shift%>"/>
-
-
-<%draw_const(@cygnus, "cygnus")%>
-<line class="cygnus1" x1="<%=@cygnus[0][0]*x_scale+x_shift%>" y1="<%=@cygnus[0][1]*y_scale+y_shift%>" x2="<%=@cygnus[1][0]*x_scale+x_shift%>" y2="<%=@cygnus[1][1]*y_scale+y_shift%>"/>
-<line class="cygnus3" x1="<%=@cygnus[3][0]*x_scale+x_shift%>" y1="<%=@cygnus[3][1]*y_scale+y_shift%>" x2="<%=@cygnus[4][0]*x_scale+x_shift%>" y2="<%=@cygnus[4][1]*y_scale+y_shift%>"/>
-<line class="cygnus2" x1="<%=@cygnus[2][0]*x_scale+x_shift%>" y1="<%=@cygnus[2][1]*y_scale+y_shift%>" x2="<%=@cygnus[5][0]*x_scale+x_shift%>" y2="<%=@cygnus[5][1]*y_scale+y_shift%>"/>
-<line class="cygnus6" x1="<%=@cygnus[2][0]*x_scale+x_shift%>" y1="<%=@cygnus[2][1]*y_scale+y_shift%>" x2="<%=@cygnus[6][0]*x_scale+x_shift%>" y2="<%=@cygnus[6][1]*y_scale+y_shift%>"/>
-<line class="cygnus8" x1="<%=@cygnus[1][0]*x_scale+x_shift%>" y1="<%=@cygnus[1][1]*y_scale+y_shift%>" x2="<%=@cygnus[8][0]*x_scale+x_shift%>" y2="<%=@cygnus[8][1]*y_scale+y_shift%>"/>
-<line class="cygnus5" x1="<%=@cygnus[1][0]*x_scale+x_shift%>" y1="<%=@cygnus[1][1]*y_scale+y_shift%>" x2="<%=@cygnus[5][0]*x_scale+x_shift%>" y2="<%=@cygnus[5][1]*y_scale+y_shift%>"/>
-<line class="cygnus7" x1="<%=@cygnus[1][0]*x_scale+x_shift%>" y1="<%=@cygnus[1][1]*y_scale+y_shift%>" x2="<%=@cygnus[7][0]*x_scale+x_shift%>" y2="<%=@cygnus[7][1]*y_scale+y_shift%>"/>
-<line class="cygnus9" x1="<%=@cygnus[8][0]*x_scale+x_shift%>" y1="<%=@cygnus[8][1]*y_scale+y_shift%>" x2="<%=@cygnus[9][0]*x_scale+x_shift%>" y2="<%=@cygnus[9][1]*y_scale+y_shift%>"/>
-<line class="cygnus4" x1="<%=@cygnus[4][0]*x_scale+x_shift%>" y1="<%=@cygnus[4][1]*y_scale+y_shift%>" x2="<%=@cygnus[7][0]*x_scale+x_shift%>" y2="<%=@cygnus[7][1]*y_scale+y_shift%>"/>
-
-
-<%draw_const(@bootes, "bootes")%>
-<line class="bootes1" x1="<%=@bootes[0][0]*x_scale+x_shift%>" y1="<%=@bootes[0][1]*y_scale+y_shift%>" x2="<%=@bootes[1][0]*x_scale+x_shift%>" y2="<%=@bootes[1][1]*y_scale+y_shift%>"/>
-<line class="bootes2" x1="<%=@bootes[1][0]*x_scale+x_shift%>" y1="<%=@bootes[1][1]*y_scale+y_shift%>" x2="<%=@bootes[2][0]*x_scale+x_shift%>" y2="<%=@bootes[2][1]*y_scale+y_shift%>"/>
-<line class="bootes3" x1="<%=@bootes[2][0]*x_scale+x_shift%>" y1="<%=@bootes[2][1]*y_scale+y_shift%>" x2="<%=@bootes[3][0]*x_scale+x_shift%>" y2="<%=@bootes[3][1]*y_scale+y_shift%>"/>
-<line class="bootes5" x1="<%=@bootes[3][0]*x_scale+x_shift%>" y1="<%=@bootes[3][1]*y_scale+y_shift%>" x2="<%=@bootes[5][0]*x_scale+x_shift%>" y2="<%=@bootes[5][1]*y_scale+y_shift%>"/>
-<line class="bootes6" x1="<%=@bootes[3][0]*x_scale+x_shift%>" y1="<%=@bootes[3][1]*y_scale+y_shift%>" x2="<%=@bootes[6][0]*x_scale+x_shift%>" y2="<%=@bootes[6][1]*y_scale+y_shift%>"/>
-<line class="bootes4" x1="<%=@bootes[4][0]*x_scale+x_shift%>" y1="<%=@bootes[4][1]*y_scale+y_shift%>" x2="<%=@bootes[6][0]*x_scale+x_shift%>" y2="<%=@bootes[6][1]*y_scale+y_shift%>"/>
-<line class="bootes7" x1="<%=@bootes[7][0]*x_scale+x_shift%>" y1="<%=@bootes[7][1]*y_scale+y_shift%>" x2="<%=@bootes[5][0]*x_scale+x_shift%>" y2="<%=@bootes[5][1]*y_scale+y_shift%>"/>
-<line class="bootes8" x1="<%=@bootes[7][0]*x_scale+x_shift%>" y1="<%=@bootes[7][1]*y_scale+y_shift%>" x2="<%=@bootes[8][0]*x_scale+x_shift%>" y2="<%=@bootes[8][1]*y_scale+y_shift%>"/>
-<line class="bootes9" x1="<%=@bootes[8][0]*x_scale+x_shift%>" y1="<%=@bootes[8][1]*y_scale+y_shift%>" x2="<%=@bootes[9][0]*x_scale+x_shift%>" y2="<%=@bootes[9][1]*y_scale+y_shift%>"/>
-<line class="bootes10" x1="<%=@bootes[9][0]*x_scale+x_shift%>" y1="<%=@bootes[9][1]*y_scale+y_shift%>" x2="<%=@bootes[10][0]*x_scale+x_shift%>" y2="<%=@bootes[10][1]*y_scale+y_shift%>"/>
-<line class="bootes10" x1="<%=@bootes[10][0]*x_scale+x_shift%>" y1="<%=@bootes[10][1]*y_scale+y_shift%>" x2="<%=@bootes[3][0]*x_scale+x_shift%>" y2="<%=@bootes[3][1]*y_scale+y_shift%>"/>
-
-<%draw_const(@cass, "cass")%>
-<line class="cass1" x1="<%=@cass[0][0]*x_scale+x_shift%>" y1="<%=@cass[0][1]*y_scale+y_shift%>" x2="<%=@cass[1][0]*x_scale+x_shift%>" y2="<%=@cass[1][1]*y_scale+y_shift%>"/>
-<line class="cass2" x1="<%=@cass[1][0]*x_scale+x_shift%>" y1="<%=@cass[1][1]*y_scale+y_shift%>" x2="<%=@cass[2][0]*x_scale+x_shift%>" y2="<%=@cass[2][1]*y_scale+y_shift%>"/>
-<line class="cass3" x1="<%=@cass[2][0]*x_scale+x_shift%>" y1="<%=@cass[2][1]*y_scale+y_shift%>" x2="<%=@cass[3][0]*x_scale+x_shift%>" y2="<%=@cass[3][1]*y_scale+y_shift%>"/>
-<line class="cass4" x1="<%=@cass[3][0]*x_scale+x_shift%>" y1="<%=@cass[3][1]*y_scale+y_shift%>" x2="<%=@cass[4][0]*x_scale+x_shift%>" y2="<%=@cass[4][1]*y_scale+y_shift%>"/>
-
-<%draw_const(@cep, "cep")%>
-<line class="cep4" x1="<%=@cep[0][0]*x_scale+x_shift%>" y1="<%=@cep[0][1]*y_scale+y_shift%>" x2="<%=@cep[4][0]*x_scale+x_shift%>" y2="<%=@cep[4][1]*y_scale+y_shift%>"/>
-<line class="cep5" x1="<%=@cep[1][0]*x_scale+x_shift%>" y1="<%=@cep[1][1]*y_scale+y_shift%>" x2="<%=@cep[5][0]*x_scale+x_shift%>" y2="<%=@cep[5][1]*y_scale+y_shift%>"/>
-<line class="cep4" x1="<%=@cep[2][0]*x_scale+x_shift%>" y1="<%=@cep[2][1]*y_scale+y_shift%>" x2="<%=@cep[4][0]*x_scale+x_shift%>" y2="<%=@cep[4][1]*y_scale+y_shift%>"/>
-<line class="cep3" x1="<%=@cep[3][0]*x_scale+x_shift%>" y1="<%=@cep[3][1]*y_scale+y_shift%>" x2="<%=@cep[0][0]*x_scale+x_shift%>" y2="<%=@cep[0][1]*y_scale+y_shift%>"/>
-<line class="cep4" x1="<%=@cep[4][0]*x_scale+x_shift%>" y1="<%=@cep[4][1]*y_scale+y_shift%>" x2="<%=@cep[8][0]*x_scale+x_shift%>" y2="<%=@cep[8][1]*y_scale+y_shift%>"/>
-<line class="cep5" x1="<%=@cep[5][0]*x_scale+x_shift%>" y1="<%=@cep[5][1]*y_scale+y_shift%>" x2="<%=@cep[2][0]*x_scale+x_shift%>" y2="<%=@cep[2][1]*y_scale+y_shift%>"/>
-<line class="cep6" x1="<%=@cep[1][0]*x_scale+x_shift%>" y1="<%=@cep[1][1]*y_scale+y_shift%>" x2="<%=@cep[6][0]*x_scale+x_shift%>" y2="<%=@cep[6][1]*y_scale+y_shift%>"/>
-<line class="cep7" x1="<%=@cep[6][0]*x_scale+x_shift%>" y1="<%=@cep[6][1]*y_scale+y_shift%>" x2="<%=@cep[7][0]*x_scale+x_shift%>" y2="<%=@cep[7][1]*y_scale+y_shift%>"/>
-<line class="cep8" x1="<%=@cep[7][0]*x_scale+x_shift%>" y1="<%=@cep[7][1]*y_scale+y_shift%>" x2="<%=@cep[8][0]*x_scale+x_shift%>" y2="<%=@cep[8][1]*y_scale+y_shift%>"/>
-
-
-<%draw_const(@taur, "taur")%>
-<line class="taur1" x1="<%=@taur[0][0]*x_scale+x_shift%>" y1="<%=@taur[0][1]*y_scale+y_shift%>" x2="<%=@taur[1][0]*x_scale+x_shift%>" y2="<%=@taur[1][1]*y_scale+y_shift%>"/>
-<line class="taur2" x1="<%=@taur[1][0]*x_scale+x_shift%>" y1="<%=@taur[1][1]*y_scale+y_shift%>" x2="<%=@taur[2][0]*x_scale+x_shift%>" y2="<%=@taur[2][1]*y_scale+y_shift%>"/>
-<line class="taur3" x1="<%=@taur[2][0]*x_scale+x_shift%>" y1="<%=@taur[2][1]*y_scale+y_shift%>" x2="<%=@taur[3][0]*x_scale+x_shift%>" y2="<%=@taur[3][1]*y_scale+y_shift%>"/>
-<line class="taur4" x1="<%=@taur[3][0]*x_scale+x_shift%>" y1="<%=@taur[3][1]*y_scale+y_shift%>" x2="<%=@taur[4][0]*x_scale+x_shift%>" y2="<%=@taur[4][1]*y_scale+y_shift%>"/>
-<line class="taur5" x1="<%=@taur[3][0]*x_scale+x_shift%>" y1="<%=@taur[3][1]*y_scale+y_shift%>" x2="<%=@taur[5][0]*x_scale+x_shift%>" y2="<%=@taur[5][1]*y_scale+y_shift%>"/>
-<line class="taur6" x1="<%=@taur[6][0]*x_scale+x_shift%>" y1="<%=@taur[6][1]*y_scale+y_shift%>" x2="<%=@taur[4][0]*x_scale+x_shift%>" y2="<%=@taur[4][1]*y_scale+y_shift%>"/>
-<line class="taur7" x1="<%=@taur[6][0]*x_scale+x_shift%>" y1="<%=@taur[6][1]*y_scale+y_shift%>" x2="<%=@taur[7][0]*x_scale+x_shift%>" y2="<%=@taur[7][1]*y_scale+y_shift%>"/>
-<line class="taur9" x1="<%=@taur[5][0]*x_scale+x_shift%>" y1="<%=@taur[5][1]*y_scale+y_shift%>" x2="<%=@taur[9][0]*x_scale+x_shift%>" y2="<%=@taur[9][1]*y_scale+y_shift%>"/>
-<line class="taur9" x1="<%=@taur[8][0]*x_scale+x_shift%>" y1="<%=@taur[8][1]*y_scale+y_shift%>" x2="<%=@taur[9][0]*x_scale+x_shift%>" y2="<%=@taur[9][1]*y_scale+y_shift%>"/>
-
-
-<%draw_const(@aqu, "aqu")%>
-<line class="aqu1" x1="<%=@aqu[0][0]*x_scale+x_shift%>" y1="<%=@aqu[0][1]*y_scale+y_shift%>" x2="<%=@aqu[1][0]*x_scale+x_shift%>" y2="<%=@aqu[1][1]*y_scale+y_shift%>"/>
-<line class="aqu7" x1="<%=@aqu[1][0]*x_scale+x_shift%>" y1="<%=@aqu[1][1]*y_scale+y_shift%>" x2="<%=@aqu[7][0]*x_scale+x_shift%>" y2="<%=@aqu[7][1]*y_scale+y_shift%>"/>
-<line class="aqu3" x1="<%=@aqu[2][0]*x_scale+x_shift%>" y1="<%=@aqu[2][1]*y_scale+y_shift%>" x2="<%=@aqu[3][0]*x_scale+x_shift%>" y2="<%=@aqu[3][1]*y_scale+y_shift%>"/>
-<line class="aqu9" x1="<%=@aqu[1][0]*x_scale+x_shift%>" y1="<%=@aqu[1][1]*y_scale+y_shift%>" x2="<%=@aqu[9][0]*x_scale+x_shift%>" y2="<%=@aqu[9][1]*y_scale+y_shift%>"/>
-<line class="aqu2" x1="<%=@aqu[9][0]*x_scale+x_shift%>" y1="<%=@aqu[9][1]*y_scale+y_shift%>" x2="<%=@aqu[2][0]*x_scale+x_shift%>" y2="<%=@aqu[2][1]*y_scale+y_shift%>"/>
-<line class="aqu4" x1="<%=@aqu[3][0]*x_scale+x_shift%>" y1="<%=@aqu[3][1]*y_scale+y_shift%>" x2="<%=@aqu[4][0]*x_scale+x_shift%>" y2="<%=@aqu[4][1]*y_scale+y_shift%>"/>
-<line class="aqu5" x1="<%=@aqu[5][0]*x_scale+x_shift%>" y1="<%=@aqu[5][1]*y_scale+y_shift%>" x2="<%=@aqu[6][0]*x_scale+x_shift%>" y2="<%=@aqu[6][1]*y_scale+y_shift%>"/>
-<line class="aqu7" x1="<%=@aqu[5][0]*x_scale+x_shift%>" y1="<%=@aqu[5][1]*y_scale+y_shift%>" x2="<%=@aqu[7][0]*x_scale+x_shift%>" y2="<%=@aqu[7][1]*y_scale+y_shift%>"/>
-<line class="aqu6" x1="<%=@aqu[6][0]*x_scale+x_shift%>" y1="<%=@aqu[6][1]*y_scale+y_shift%>" x2="<%=@aqu[9][0]*x_scale+x_shift%>" y2="<%=@aqu[9][1]*y_scale+y_shift%>"/>
-<line class="aqu8" x1="<%=@aqu[7][0]*x_scale+x_shift%>" y1="<%=@aqu[7][1]*y_scale+y_shift%>" x2="<%=@aqu[8][0]*x_scale+x_shift%>" y2="<%=@aqu[8][1]*y_scale+y_shift%>"/>
-
-<%draw_const(@pers, "pers")%>
-<line class="pers1" x1="<%=@pers[0][0]*x_scale+x_shift%>" y1="<%=@pers[0][1]*y_scale+y_shift%>" x2="<%=@pers[1][0]*x_scale+x_shift%>" y2="<%=@pers[1][1]*y_scale+y_shift%>"/>
-<line class="pers2" x1="<%=@pers[1][0]*x_scale+x_shift%>" y1="<%=@pers[1][1]*y_scale+y_shift%>" x2="<%=@pers[2][0]*x_scale+x_shift%>" y2="<%=@pers[2][1]*y_scale+y_shift%>"/>
-<line class="pers7" x1="<%=@pers[2][0]*x_scale+x_shift%>" y1="<%=@pers[2][1]*y_scale+y_shift%>" x2="<%=@pers[7][0]*x_scale+x_shift%>" y2="<%=@pers[7][1]*y_scale+y_shift%>"/>
-<line class="pers3" x1="<%=@pers[3][0]*x_scale+x_shift%>" y1="<%=@pers[3][1]*y_scale+y_shift%>" x2="<%=@pers[4][0]*x_scale+x_shift%>" y2="<%=@pers[4][1]*y_scale+y_shift%>"/>
-<line class="pers4" x1="<%=@pers[4][0]*x_scale+x_shift%>" y1="<%=@pers[4][1]*y_scale+y_shift%>" x2="<%=@pers[5][0]*x_scale+x_shift%>" y2="<%=@pers[5][1]*y_scale+y_shift%>"/>
-<line class="pers5" x1="<%=@pers[5][0]*x_scale+x_shift%>" y1="<%=@pers[5][1]*y_scale+y_shift%>" x2="<%=@pers[6][0]*x_scale+x_shift%>" y2="<%=@pers[6][1]*y_scale+y_shift%>"/>
-<line class="pers6" x1="<%=@pers[6][0]*x_scale+x_shift%>" y1="<%=@pers[6][1]*y_scale+y_shift%>" x2="<%=@pers[2][0]*x_scale+x_shift%>" y2="<%=@pers[2][1]*y_scale+y_shift%>"/>
-<line class="pers8" x1="<%=@pers[7][0]*x_scale+x_shift%>" y1="<%=@pers[7][1]*y_scale+y_shift%>" x2="<%=@pers[8][0]*x_scale+x_shift%>" y2="<%=@pers[8][1]*y_scale+y_shift%>"/>
-<line class="pers9" x1="<%=@pers[8][0]*x_scale+x_shift%>" y1="<%=@pers[8][1]*y_scale+y_shift%>" x2="<%=@pers[9][0]*x_scale+x_shift%>" y2="<%=@pers[9][1]*y_scale+y_shift%>"/>
-<line class="pers10" x1="<%=@pers[9][0]*x_scale+x_shift%>" y1="<%=@pers[9][1]*y_scale+y_shift%>" x2="<%=@pers[10][0]*x_scale+x_shift%>" y2="<%=@pers[10][1]*y_scale+y_shift%>"/>
-<line class="pers11" x1="<%=@pers[10][0]*x_scale+x_shift%>" y1="<%=@pers[10][1]*y_scale+y_shift%>" x2="<%=@pers[11][0]*x_scale+x_shift%>" y2="<%=@pers[11][1]*y_scale+y_shift%>"/>
-
-</svg>
-
-<script>clickedSkymap()</script>
-<script src=timer.js></script>
-<script src="map.js"></script>
-</div>
+<script src="welcome.js"></script>
