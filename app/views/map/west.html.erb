@@ -143,84 +143,81 @@
 <%connect(@ursa_major, "ursa_major17", 16, 17)%>
 
 <%draw_const(@cygnus, "cygnus")%>
-<line class="cygnus1" x1="<%=@cygnus[0][0]*x_scale+x_shift%>" y1="<%=@cygnus[0][1]*y_scale+y_shift%>" x2="<%=@cygnus[1][0]*x_scale+x_shift%>" y2="<%=@cygnus[1][1]*y_scale+y_shift%>"/>
-<line class="cygnus3" x1="<%=@cygnus[3][0]*x_scale+x_shift%>" y1="<%=@cygnus[3][1]*y_scale+y_shift%>" x2="<%=@cygnus[4][0]*x_scale+x_shift%>" y2="<%=@cygnus[4][1]*y_scale+y_shift%>"/>
-<line class="cygnus2" x1="<%=@cygnus[2][0]*x_scale+x_shift%>" y1="<%=@cygnus[2][1]*y_scale+y_shift%>" x2="<%=@cygnus[5][0]*x_scale+x_shift%>" y2="<%=@cygnus[5][1]*y_scale+y_shift%>"/>
-<line class="cygnus6" x1="<%=@cygnus[2][0]*x_scale+x_shift%>" y1="<%=@cygnus[2][1]*y_scale+y_shift%>" x2="<%=@cygnus[6][0]*x_scale+x_shift%>" y2="<%=@cygnus[6][1]*y_scale+y_shift%>"/>
-<line class="cygnus8" x1="<%=@cygnus[1][0]*x_scale+x_shift%>" y1="<%=@cygnus[1][1]*y_scale+y_shift%>" x2="<%=@cygnus[8][0]*x_scale+x_shift%>" y2="<%=@cygnus[8][1]*y_scale+y_shift%>"/>
-<line class="cygnus5" x1="<%=@cygnus[1][0]*x_scale+x_shift%>" y1="<%=@cygnus[1][1]*y_scale+y_shift%>" x2="<%=@cygnus[5][0]*x_scale+x_shift%>" y2="<%=@cygnus[5][1]*y_scale+y_shift%>"/>
-<line class="cygnus7" x1="<%=@cygnus[1][0]*x_scale+x_shift%>" y1="<%=@cygnus[1][1]*y_scale+y_shift%>" x2="<%=@cygnus[7][0]*x_scale+x_shift%>" y2="<%=@cygnus[7][1]*y_scale+y_shift%>"/>
-<line class="cygnus9" x1="<%=@cygnus[8][0]*x_scale+x_shift%>" y1="<%=@cygnus[8][1]*y_scale+y_shift%>" x2="<%=@cygnus[9][0]*x_scale+x_shift%>" y2="<%=@cygnus[9][1]*y_scale+y_shift%>"/>
-<line class="cygnus4" x1="<%=@cygnus[4][0]*x_scale+x_shift%>" y1="<%=@cygnus[4][1]*y_scale+y_shift%>" x2="<%=@cygnus[7][0]*x_scale+x_shift%>" y2="<%=@cygnus[7][1]*y_scale+y_shift%>"/>
-
+<%connect(@cygnus, "cygnus1", 0, 1)%>
+<%connect(@cygnus, "cygnus3", 3, 4)%>
+<%connect(@cygnus, "cygnus2", 2, 5)%>
+<%connect(@cygnus, "cygnus6", 2, 6)%>
+<%connect(@cygnus, "cygnus8", 1, 8)%>
+<%connect(@cygnus, "cygnus5", 1, 5)%>
+<%connect(@cygnus, "cygnus7", 1, 7)%>
+<%connect(@cygnus, "cygnus9", 8, 9)%>
+<%connect(@cygnus, "cygnus4", 4, 7)%>
 
 <%draw_const(@bootes, "bootes")%>
-<line class="bootes1" x1="<%=@bootes[0][0]*x_scale+x_shift%>" y1="<%=@bootes[0][1]*y_scale+y_shift%>" x2="<%=@bootes[1][0]*x_scale+x_shift%>" y2="<%=@bootes[1][1]*y_scale+y_shift%>"/>
-<line class="bootes2" x1="<%=@bootes[1][0]*x_scale+x_shift%>" y1="<%=@bootes[1][1]*y_scale+y_shift%>" x2="<%=@bootes[2][0]*x_scale+x_shift%>" y2="<%=@bootes[2][1]*y_scale+y_shift%>"/>
-<line class="bootes3" x1="<%=@bootes[2][0]*x_scale+x_shift%>" y1="<%=@bootes[2][1]*y_scale+y_shift%>" x2="<%=@bootes[3][0]*x_scale+x_shift%>" y2="<%=@bootes[3][1]*y_scale+y_shift%>"/>
-<line class="bootes5" x1="<%=@bootes[3][0]*x_scale+x_shift%>" y1="<%=@bootes[3][1]*y_scale+y_shift%>" x2="<%=@bootes[5][0]*x_scale+x_shift%>" y2="<%=@bootes[5][1]*y_scale+y_shift%>"/>
-<line class="bootes6" x1="<%=@bootes[3][0]*x_scale+x_shift%>" y1="<%=@bootes[3][1]*y_scale+y_shift%>" x2="<%=@bootes[6][0]*x_scale+x_shift%>" y2="<%=@bootes[6][1]*y_scale+y_shift%>"/>
-<line class="bootes4" x1="<%=@bootes[4][0]*x_scale+x_shift%>" y1="<%=@bootes[4][1]*y_scale+y_shift%>" x2="<%=@bootes[6][0]*x_scale+x_shift%>" y2="<%=@bootes[6][1]*y_scale+y_shift%>"/>
-<line class="bootes7" x1="<%=@bootes[7][0]*x_scale+x_shift%>" y1="<%=@bootes[7][1]*y_scale+y_shift%>" x2="<%=@bootes[5][0]*x_scale+x_shift%>" y2="<%=@bootes[5][1]*y_scale+y_shift%>"/>
-<line class="bootes8" x1="<%=@bootes[7][0]*x_scale+x_shift%>" y1="<%=@bootes[7][1]*y_scale+y_shift%>" x2="<%=@bootes[8][0]*x_scale+x_shift%>" y2="<%=@bootes[8][1]*y_scale+y_shift%>"/>
-<line class="bootes9" x1="<%=@bootes[8][0]*x_scale+x_shift%>" y1="<%=@bootes[8][1]*y_scale+y_shift%>" x2="<%=@bootes[9][0]*x_scale+x_shift%>" y2="<%=@bootes[9][1]*y_scale+y_shift%>"/>
-<line class="bootes10" x1="<%=@bootes[9][0]*x_scale+x_shift%>" y1="<%=@bootes[9][1]*y_scale+y_shift%>" x2="<%=@bootes[10][0]*x_scale+x_shift%>" y2="<%=@bootes[10][1]*y_scale+y_shift%>"/>
-<line class="bootes10" x1="<%=@bootes[10][0]*x_scale+x_shift%>" y1="<%=@bootes[10][1]*y_scale+y_shift%>" x2="<%=@bootes[3][0]*x_scale+x_shift%>" y2="<%=@bootes[3][1]*y_scale+y_shift%>"/>
+<%connect(@bootes, "bootes1", 0, 1)%>
+<%connect(@bootes, "bootes2", 1, 2)%>
+<%connect(@bootes, "bootes3", 2, 3)%>
+<%connect(@bootes, "bootes5", 3, 5)%>
+<%connect(@bootes, "bootes6", 3, 6)%>
+<%connect(@bootes, "bootes4", 4, 6)%>
+<%connect(@bootes, "bootes7", 7, 5)%>
+<%connect(@bootes, "bootes8", 7, 8)%>
+<%connect(@bootes, "bootes9", 8, 9)%>
+<%connect(@bootes, "bootes10", 9, 10)%>
+<%connect(@bootes, "bootes10", 10, 3)%>
 
 <%draw_const(@cass, "cass")%>
-<line class="cass1" x1="<%=@cass[0][0]*x_scale+x_shift%>" y1="<%=@cass[0][1]*y_scale+y_shift%>" x2="<%=@cass[1][0]*x_scale+x_shift%>" y2="<%=@cass[1][1]*y_scale+y_shift%>"/>
-<line class="cass2" x1="<%=@cass[1][0]*x_scale+x_shift%>" y1="<%=@cass[1][1]*y_scale+y_shift%>" x2="<%=@cass[2][0]*x_scale+x_shift%>" y2="<%=@cass[2][1]*y_scale+y_shift%>"/>
-<line class="cass3" x1="<%=@cass[2][0]*x_scale+x_shift%>" y1="<%=@cass[2][1]*y_scale+y_shift%>" x2="<%=@cass[3][0]*x_scale+x_shift%>" y2="<%=@cass[3][1]*y_scale+y_shift%>"/>
-<line class="cass4" x1="<%=@cass[3][0]*x_scale+x_shift%>" y1="<%=@cass[3][1]*y_scale+y_shift%>" x2="<%=@cass[4][0]*x_scale+x_shift%>" y2="<%=@cass[4][1]*y_scale+y_shift%>"/>
+<%connect(@cass, "cass1", 0, 1)%>
+<%connect(@cass, "cass2", 1, 2)%>
+<%connect(@cass, "cass3", 2, 3)%>
+<%connect(@cass, "cass4", 3, 4)%>
 
 <%draw_const(@cep, "cep")%>
-<line class="cep4" x1="<%=@cep[0][0]*x_scale+x_shift%>" y1="<%=@cep[0][1]*y_scale+y_shift%>" x2="<%=@cep[4][0]*x_scale+x_shift%>" y2="<%=@cep[4][1]*y_scale+y_shift%>"/>
-<line class="cep5" x1="<%=@cep[1][0]*x_scale+x_shift%>" y1="<%=@cep[1][1]*y_scale+y_shift%>" x2="<%=@cep[5][0]*x_scale+x_shift%>" y2="<%=@cep[5][1]*y_scale+y_shift%>"/>
-<line class="cep4" x1="<%=@cep[2][0]*x_scale+x_shift%>" y1="<%=@cep[2][1]*y_scale+y_shift%>" x2="<%=@cep[4][0]*x_scale+x_shift%>" y2="<%=@cep[4][1]*y_scale+y_shift%>"/>
-<line class="cep3" x1="<%=@cep[3][0]*x_scale+x_shift%>" y1="<%=@cep[3][1]*y_scale+y_shift%>" x2="<%=@cep[0][0]*x_scale+x_shift%>" y2="<%=@cep[0][1]*y_scale+y_shift%>"/>
-<line class="cep4" x1="<%=@cep[4][0]*x_scale+x_shift%>" y1="<%=@cep[4][1]*y_scale+y_shift%>" x2="<%=@cep[8][0]*x_scale+x_shift%>" y2="<%=@cep[8][1]*y_scale+y_shift%>"/>
-<line class="cep5" x1="<%=@cep[5][0]*x_scale+x_shift%>" y1="<%=@cep[5][1]*y_scale+y_shift%>" x2="<%=@cep[2][0]*x_scale+x_shift%>" y2="<%=@cep[2][1]*y_scale+y_shift%>"/>
-<line class="cep6" x1="<%=@cep[1][0]*x_scale+x_shift%>" y1="<%=@cep[1][1]*y_scale+y_shift%>" x2="<%=@cep[6][0]*x_scale+x_shift%>" y2="<%=@cep[6][1]*y_scale+y_shift%>"/>
-<line class="cep7" x1="<%=@cep[6][0]*x_scale+x_shift%>" y1="<%=@cep[6][1]*y_scale+y_shift%>" x2="<%=@cep[7][0]*x_scale+x_shift%>" y2="<%=@cep[7][1]*y_scale+y_shift%>"/>
-<line class="cep8" x1="<%=@cep[7][0]*x_scale+x_shift%>" y1="<%=@cep[7][1]*y_scale+y_shift%>" x2="<%=@cep[8][0]*x_scale+x_shift%>" y2="<%=@cep[8][1]*y_scale+y_shift%>"/>
-
+<%connect(@cep, "cep4", 0, 4)%>
+<%connect(@cep, "cep5", 1, 5)%>
+<%connect(@cep, "cep4", 2, 4)%>
+<%connect(@cep, "cep3", 3, 0)%>
+<%connect(@cep, "cep4", 4, 8)%>
+<%connect(@cep, "cep5", 5, 2)%>
+<%connect(@cep, "cep6", 1, 6)%>
+<%connect(@cep, "cep7", 6, 7)%>
+<%connect(@cep, "cep8", 7, 8)%>
 
 <%draw_const(@taur, "taur")%>
-<line class="taur1" x1="<%=@taur[0][0]*x_scale+x_shift%>" y1="<%=@taur[0][1]*y_scale+y_shift%>" x2="<%=@taur[1][0]*x_scale+x_shift%>" y2="<%=@taur[1][1]*y_scale+y_shift%>"/>
-<line class="taur2" x1="<%=@taur[1][0]*x_scale+x_shift%>" y1="<%=@taur[1][1]*y_scale+y_shift%>" x2="<%=@taur[2][0]*x_scale+x_shift%>" y2="<%=@taur[2][1]*y_scale+y_shift%>"/>
-<line class="taur3" x1="<%=@taur[2][0]*x_scale+x_shift%>" y1="<%=@taur[2][1]*y_scale+y_shift%>" x2="<%=@taur[3][0]*x_scale+x_shift%>" y2="<%=@taur[3][1]*y_scale+y_shift%>"/>
-<line class="taur4" x1="<%=@taur[3][0]*x_scale+x_shift%>" y1="<%=@taur[3][1]*y_scale+y_shift%>" x2="<%=@taur[4][0]*x_scale+x_shift%>" y2="<%=@taur[4][1]*y_scale+y_shift%>"/>
-<line class="taur5" x1="<%=@taur[3][0]*x_scale+x_shift%>" y1="<%=@taur[3][1]*y_scale+y_shift%>" x2="<%=@taur[5][0]*x_scale+x_shift%>" y2="<%=@taur[5][1]*y_scale+y_shift%>"/>
-<line class="taur6" x1="<%=@taur[6][0]*x_scale+x_shift%>" y1="<%=@taur[6][1]*y_scale+y_shift%>" x2="<%=@taur[4][0]*x_scale+x_shift%>" y2="<%=@taur[4][1]*y_scale+y_shift%>"/>
-<line class="taur7" x1="<%=@taur[6][0]*x_scale+x_shift%>" y1="<%=@taur[6][1]*y_scale+y_shift%>" x2="<%=@taur[7][0]*x_scale+x_shift%>" y2="<%=@taur[7][1]*y_scale+y_shift%>"/>
-<line class="taur9" x1="<%=@taur[5][0]*x_scale+x_shift%>" y1="<%=@taur[5][1]*y_scale+y_shift%>" x2="<%=@taur[9][0]*x_scale+x_shift%>" y2="<%=@taur[9][1]*y_scale+y_shift%>"/>
-<line class="taur9" x1="<%=@taur[8][0]*x_scale+x_shift%>" y1="<%=@taur[8][1]*y_scale+y_shift%>" x2="<%=@taur[9][0]*x_scale+x_shift%>" y2="<%=@taur[9][1]*y_scale+y_shift%>"/>
-
+<%connect(@taur, "taur1", 0, 1)%>
+<%connect(@taur, "taur2", 1, 2)%>
+<%connect(@taur, "taur3", 2, 3)%>
+<%connect(@taur, "taur4", 3, 4)%>
+<%connect(@taur, "taur5", 3, 5)%>
+<%connect(@taur, "taur6", 6, 4)%>
+<%connect(@taur, "taur7", 6, 7)%>
+<%connect(@taur, "taur9", 5, 9)%>
+<%connect(@taur, "taur9", 8, 9)%>
 
 <%draw_const(@aqu, "aqu")%>
-<line class="aqu1" x1="<%=@aqu[0][0]*x_scale+x_shift%>" y1="<%=@aqu[0][1]*y_scale+y_shift%>" x2="<%=@aqu[1][0]*x_scale+x_shift%>" y2="<%=@aqu[1][1]*y_scale+y_shift%>"/>
-<line class="aqu7" x1="<%=@aqu[1][0]*x_scale+x_shift%>" y1="<%=@aqu[1][1]*y_scale+y_shift%>" x2="<%=@aqu[7][0]*x_scale+x_shift%>" y2="<%=@aqu[7][1]*y_scale+y_shift%>"/>
-<line class="aqu3" x1="<%=@aqu[2][0]*x_scale+x_shift%>" y1="<%=@aqu[2][1]*y_scale+y_shift%>" x2="<%=@aqu[3][0]*x_scale+x_shift%>" y2="<%=@aqu[3][1]*y_scale+y_shift%>"/>
-<line class="aqu9" x1="<%=@aqu[1][0]*x_scale+x_shift%>" y1="<%=@aqu[1][1]*y_scale+y_shift%>" x2="<%=@aqu[9][0]*x_scale+x_shift%>" y2="<%=@aqu[9][1]*y_scale+y_shift%>"/>
-<line class="aqu2" x1="<%=@aqu[9][0]*x_scale+x_shift%>" y1="<%=@aqu[9][1]*y_scale+y_shift%>" x2="<%=@aqu[2][0]*x_scale+x_shift%>" y2="<%=@aqu[2][1]*y_scale+y_shift%>"/>
-<line class="aqu4" x1="<%=@aqu[3][0]*x_scale+x_shift%>" y1="<%=@aqu[3][1]*y_scale+y_shift%>" x2="<%=@aqu[4][0]*x_scale+x_shift%>" y2="<%=@aqu[4][1]*y_scale+y_shift%>"/>
-<line class="aqu5" x1="<%=@aqu[5][0]*x_scale+x_shift%>" y1="<%=@aqu[5][1]*y_scale+y_shift%>" x2="<%=@aqu[6][0]*x_scale+x_shift%>" y2="<%=@aqu[6][1]*y_scale+y_shift%>"/>
-<line class="aqu7" x1="<%=@aqu[5][0]*x_scale+x_shift%>" y1="<%=@aqu[5][1]*y_scale+y_shift%>" x2="<%=@aqu[7][0]*x_scale+x_shift%>" y2="<%=@aqu[7][1]*y_scale+y_shift%>"/>
-<line class="aqu6" x1="<%=@aqu[6][0]*x_scale+x_shift%>" y1="<%=@aqu[6][1]*y_scale+y_shift%>" x2="<%=@aqu[9][0]*x_scale+x_shift%>" y2="<%=@aqu[9][1]*y_scale+y_shift%>"/>
-<line class="aqu8" x1="<%=@aqu[7][0]*x_scale+x_shift%>" y1="<%=@aqu[7][1]*y_scale+y_shift%>" x2="<%=@aqu[8][0]*x_scale+x_shift%>" y2="<%=@aqu[8][1]*y_scale+y_shift%>"/>
+<%connect(@aqu, "aqu1", 0, 1)%>
+<%connect(@aqu, "aqu7", 1, 7)%>
+<%connect(@aqu, "aqu3", 2, 3)%>
+<%connect(@aqu, "aqu9", 1, 9)%>
+<%connect(@aqu, "aqu2", 9, 2)%>
+<%connect(@aqu, "aqu4", 3, 4)%>
+<%connect(@aqu, "aqu5", 5, 6)%>
+<%connect(@aqu, "aqu7", 5, 7)%>
+<%connect(@aqu, "aqu6", 6, 9)%>
+<%connect(@aqu, "aqu8", 7, 8)%>
 
 <%draw_const(@pers, "pers")%>
-<line class="pers1" x1="<%=@pers[0][0]*x_scale+x_shift%>" y1="<%=@pers[0][1]*y_scale+y_shift%>" x2="<%=@pers[1][0]*x_scale+x_shift%>" y2="<%=@pers[1][1]*y_scale+y_shift%>"/>
-<line class="pers2" x1="<%=@pers[1][0]*x_scale+x_shift%>" y1="<%=@pers[1][1]*y_scale+y_shift%>" x2="<%=@pers[2][0]*x_scale+x_shift%>" y2="<%=@pers[2][1]*y_scale+y_shift%>"/>
-<line class="pers7" x1="<%=@pers[2][0]*x_scale+x_shift%>" y1="<%=@pers[2][1]*y_scale+y_shift%>" x2="<%=@pers[7][0]*x_scale+x_shift%>" y2="<%=@pers[7][1]*y_scale+y_shift%>"/>
-<line class="pers3" x1="<%=@pers[3][0]*x_scale+x_shift%>" y1="<%=@pers[3][1]*y_scale+y_shift%>" x2="<%=@pers[4][0]*x_scale+x_shift%>" y2="<%=@pers[4][1]*y_scale+y_shift%>"/>
-<line class="pers4" x1="<%=@pers[4][0]*x_scale+x_shift%>" y1="<%=@pers[4][1]*y_scale+y_shift%>" x2="<%=@pers[5][0]*x_scale+x_shift%>" y2="<%=@pers[5][1]*y_scale+y_shift%>"/>
-<line class="pers5" x1="<%=@pers[5][0]*x_scale+x_shift%>" y1="<%=@pers[5][1]*y_scale+y_shift%>" x2="<%=@pers[6][0]*x_scale+x_shift%>" y2="<%=@pers[6][1]*y_scale+y_shift%>"/>
-<line class="pers6" x1="<%=@pers[6][0]*x_scale+x_shift%>" y1="<%=@pers[6][1]*y_scale+y_shift%>" x2="<%=@pers[2][0]*x_scale+x_shift%>" y2="<%=@pers[2][1]*y_scale+y_shift%>"/>
-<line class="pers8" x1="<%=@pers[7][0]*x_scale+x_shift%>" y1="<%=@pers[7][1]*y_scale+y_shift%>" x2="<%=@pers[8][0]*x_scale+x_shift%>" y2="<%=@pers[8][1]*y_scale+y_shift%>"/>
-<line class="pers9" x1="<%=@pers[8][0]*x_scale+x_shift%>" y1="<%=@pers[8][1]*y_scale+y_shift%>" x2="<%=@pers[9][0]*x_scale+x_shift%>" y2="<%=@pers[9][1]*y_scale+y_shift%>"/>
-<line class="pers10" x1="<%=@pers[9][0]*x_scale+x_shift%>" y1="<%=@pers[9][1]*y_scale+y_shift%>" x2="<%=@pers[10][0]*x_scale+x_shift%>" y2="<%=@pers[10][1]*y_scale+y_shift%>"/>
-<line class="pers11" x1="<%=@pers[10][0]*x_scale+x_shift%>" y1="<%=@pers[10][1]*y_scale+y_shift%>" x2="<%=@pers[11][0]*x_scale+x_shift%>" y2="<%=@pers[11][1]*y_scale+y_shift%>"/>
+<%connect(@pers, "pers1", 0, 1)%>
+<%connect(@pers, "pers2", 1, 2)%>
+<%connect(@pers, "pers7", 2, 7)%>
+<%connect(@pers, "pers3", 3, 4)%>
+<%connect(@pers, "pers4", 4, 5)%>
+<%connect(@pers, "pers5", 5, 6)%>
+<%connect(@pers, "pers6", 6, 2)%>
+<%connect(@pers, "pers8", 7, 8)%>
+<%connect(@pers, "pers9", 8, 9)%>
+<%connect(@pers, "pers10", 9, 10)%>
+<%connect(@pers, "pers11", 10, 11)%>
 
 </svg>
 
