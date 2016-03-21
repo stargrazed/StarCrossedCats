@@ -4,7 +4,7 @@
 <%= render(:partial => "default")%>
 
 <p>You require Chrome or IE9 to view this page properly.</p>
-<p>This page is a (possible) view of what can be seen at 49, 128</p>
+<p>This page is a (possible) view of what can be seen at 49, 128 at 9:00pm</p>
 <div id="timer">
   <span>00:00:00</span>
 </div>
@@ -16,8 +16,12 @@
    </filter>
   </defs>
 
+  <ellipse cx="500" cy="400" rx="400" ry="350"
+    fill="none" stroke="blue" stroke-width ="3"/>
+
+
 <%x_scale = -5%>
-<%x_shift = 500%>
+<%x_shift = 450%>
 
 <%y_scale = 5%>
 <%y_shift = 0%>
@@ -45,11 +49,11 @@
 <%end%>
 
 <%def draw_const(const, const_name) %>
-  <%x_scale = -5%>
-  <%x_shift = 500%>
-
   <%i = 0%>
   <%while const[i] != nil%>
+    <%x_scale = -5%>
+    <%x_shift = 450%>
+
     <%red = star_red(const[i][3])%>
     <%green = star_green(const[i][3])%>
     <%blue = star_blue(const[i][3])%>
@@ -67,18 +71,10 @@
 
 <%def connect(const, class_name, s1, s2)%>
   <%x_scale = -5%>
-  <%x_shift_1 = 0%>
-  <%x_shift_2 = 0%>
+  <%x_shift_1 = 450%>
+  <%x_shift_2 = 450%>
   <%y_scale = 5%>
   <%y_shift = 0%>
-
-  <%if const[s1][0] > 0%>
-    <%x_shift_1 = 900%>
-  <%end%>
-
-  <%if const[s2][0] > 0%>
-    <%x_shift_2 = 900%>
-  <%end%>
 
   <line class="<%=class_name%>" x1="<%=const[s1][0]*x_scale+x_shift_1%>" y1="<%=const[s1][1]*y_scale+y_shift%>"
     x2="<%=const[s2][0]*x_scale+x_shift_2%>" y2="<%=const[s2][1]*y_scale+y_shift%>"/>
@@ -88,61 +84,63 @@
 <%draw_const(@andro, "andro")%>
 <%draw_const(@lyra, "lyra")%>
 <%draw_const(@aur, "aur")%>
+<%draw_const(@gem, "gem")%>
+<%draw_const(@canis_major, "canis_major")%>
+<%draw_const(@canis_minor, "canis_minor")%>
+<%draw_const(@orion, "orion")%>
 <!-- don't connect Andromeda-->
 
 <%draw_const(@herc, "herc")%>
-<line class="herc1" x1="<%=@herc[0][0]*x_scale+x_shift%>" y1="<%=@herc[0][1]*y_scale+y_shift%>" x2="<%=@herc[1][0]*x_scale+x_shift%>" y2="<%=@herc[1][1]*y_scale+y_shift%>"/>
-<line class="herc2" x1="<%=@herc[1][0]*x_scale+x_shift%>" y1="<%=@herc[1][1]*y_scale+y_shift%>" x2="<%=@herc[2][0]*x_scale+x_shift%>" y2="<%=@herc[2][1]*y_scale+y_shift%>"/>
-<line class="herc14" x1="<%=@herc[2][0]*x_scale+x_shift%>" y1="<%=@herc[2][1]*y_scale+y_shift%>" x2="<%=@herc[14][0]*x_scale+x_shift%>" y2="<%=@herc[14][1]*y_scale+y_shift%>"/>
-<line class="herc15" x1="<%=@herc[15][0]*x_scale+x_shift%>" y1="<%=@herc[15][1]*y_scale+y_shift%>" x2="<%=@herc[3][0]*x_scale+x_shift%>" y2="<%=@herc[3][1]*y_scale+y_shift%>"/>
-<line class="herc4" x1="<%=@herc[3][0]*x_scale+x_shift%>" y1="<%=@herc[3][1]*y_scale+y_shift%>" x2="<%=@herc[4][0]*x_scale+x_shift%>" y2="<%=@herc[4][1]*y_scale+y_shift%>"/>
-<line class="herc5" x1="<%=@herc[4][0]*x_scale+x_shift%>" y1="<%=@herc[4][1]*y_scale+y_shift%>" x2="<%=@herc[5][0]*x_scale+x_shift%>" y2="<%=@herc[5][1]*y_scale+y_shift%>"/>
-<line class="herc10" x1="<%=@herc[16][0]*x_scale+x_shift%>" y1="<%=@herc[16][1]*y_scale+y_shift%>" x2="<%=@herc[10][0]*x_scale+x_shift%>" y2="<%=@herc[10][1]*y_scale+y_shift%>"/>
-<line class="herc6" x1="<%=@herc[6][0]*x_scale+x_shift%>" y1="<%=@herc[6][1]*y_scale+y_shift%>" x2="<%=@herc[7][0]*x_scale+x_shift%>" y2="<%=@herc[7][1]*y_scale+y_shift%>"/>
-<line class="herc7" x1="<%=@herc[7][0]*x_scale+x_shift%>" y1="<%=@herc[7][1]*y_scale+y_shift%>" x2="<%=@herc[8][0]*x_scale+x_shift%>" y2="<%=@herc[8][1]*y_scale+y_shift%>"/>
-<line class="herc8" x1="<%=@herc[8][0]*x_scale+x_shift%>" y1="<%=@herc[8][1]*y_scale+y_shift%>" x2="<%=@herc[9][0]*x_scale+x_shift%>" y2="<%=@herc[9][1]*y_scale+y_shift%>"/>
-<line class="herc10" x1="<%=@herc[10][0]*x_scale+x_shift%>" y1="<%=@herc[10][1]*y_scale+y_shift%>" x2="<%=@herc[12][0]*x_scale+x_shift%>" y2="<%=@herc[12][1]*y_scale+y_shift%>"/>
-<line class="herc10" x1="<%=@herc[9][0]*x_scale+x_shift%>" y1="<%=@herc[9][1]*y_scale+y_shift%>" x2="<%=@herc[10][0]*x_scale+x_shift%>" y2="<%=@herc[10][1]*y_scale+y_shift%>"/>
-<line class="herc11" x1="<%=@herc[14][0]*x_scale+x_shift%>" y1="<%=@herc[14][1]*y_scale+y_shift%>" x2="<%=@herc[15][0]*x_scale+x_shift%>" y2="<%=@herc[15][1]*y_scale+y_shift%>"/>
-<line class="herc11" x1="<%=@herc[15][0]*x_scale+x_shift%>" y1="<%=@herc[15][1]*y_scale+y_shift%>" x2="<%=@herc[11][0]*x_scale+x_shift%>" y2="<%=@herc[11][1]*y_scale+y_shift%>"/>
-<line class="herc14" x1="<%=@herc[16][0]*x_scale+x_shift%>" y1="<%=@herc[16][1]*y_scale+y_shift%>" x2="<%=@herc[14][0]*x_scale+x_shift%>" y2="<%=@herc[14][1]*y_scale+y_shift%>"/>
-<line class="herc16" x1="<%=@herc[16][0]*x_scale+x_shift%>" y1="<%=@herc[16][1]*y_scale+y_shift%>" x2="<%=@herc[11][0]*x_scale+x_shift%>" y2="<%=@herc[11][1]*y_scale+y_shift%>"/>
-<line class="herc11" x1="<%=@herc[11][0]*x_scale+x_shift%>" y1="<%=@herc[11][1]*y_scale+y_shift%>" x2="<%=@herc[17][0]*x_scale+x_shift%>" y2="<%=@herc[17][1]*y_scale+y_shift%>"/>
-<line class="herc11" x1="<%=@herc[12][0]*x_scale+x_shift%>" y1="<%=@herc[12][1]*y_scale+y_shift%>" x2="<%=@herc[17][0]*x_scale+x_shift%>" y2="<%=@herc[17][1]*y_scale+y_shift%>"/>
-<line class="herc11" x1="<%=@herc[13][0]*x_scale+x_shift%>" y1="<%=@herc[13][1]*y_scale+y_shift%>" x2="<%=@herc[17][0]*x_scale+x_shift%>" y2="<%=@herc[17][1]*y_scale+y_shift%>"/>
-
+<%connect(@herc, "herc1", 0, 1)%>
+<%connect(@herc, "herc2", 1, 2)%>
+<%connect(@herc, "herc14", 2, 14)%>
+<%connect(@herc, "herc15", 15, 3)%>
+<%connect(@herc, "herc4", 3, 4)%>
+<%connect(@herc, "herc5", 4, 5)%>
+<%connect(@herc, "herc10", 16, 10)%>
+<%connect(@herc, "herc6", 6, 7)%>
+<%connect(@herc, "herc7", 7, 8)%>
+<%connect(@herc, "herc8", 8, 9)%>
+<%connect(@herc, "herc10", 10, 12)%>
+<%connect(@herc, "herc10", 9, 10)%>
+<%connect(@herc, "herc11", 14, 15)%>
+<%connect(@herc, "herc11", 15, 11)%>
+<%connect(@herc, "herc14", 16, 14)%>
+<%connect(@herc, "herc16", 16, 11)%>
+<%connect(@herc, "herc11", 11, 17)%>
+<%connect(@herc, "herc11", 12, 17)%>
+<%connect(@herc, "herc11", 13, 17)%>
 
 <%draw_const(@ursa_minor, "ursa_minor")%>
-<line class="ursa_minor1" x1="<%=@ursa_minor[0][0]*x_scale+x_shift%>" y1="<%=@ursa_minor[0][1]*y_scale+y_shift%>" x2="<%=@ursa_minor[1][0]*x_scale+x_shift%>" y2="<%=@ursa_minor[1][1]*y_scale+y_shift%>"/>
-<line class="ursa_minor2" x1="<%=@ursa_minor[1][0]*x_scale+x_shift%>" y1="<%=@ursa_minor[1][1]*y_scale+y_shift%>" x2="<%=@ursa_minor[2][0]*x_scale+x_shift%>" y2="<%=@ursa_minor[2][1]*y_scale+y_shift%>"/>
-<line class="ursa_minor3" x1="<%=@ursa_minor[2][0]*x_scale+x_shift%>" y1="<%=@ursa_minor[2][1]*y_scale+y_shift%>" x2="<%=@ursa_minor[3][0]*x_scale+x_shift%>" y2="<%=@ursa_minor[3][1]*y_scale+y_shift%>"/>
-<line class="ursa_minor4" x1="<%=@ursa_minor[3][0]*x_scale+x_shift%>" y1="<%=@ursa_minor[3][1]*y_scale+y_shift%>" x2="<%=@ursa_minor[4][0]*x_scale+x_shift%>" y2="<%=@ursa_minor[4][1]*y_scale+y_shift%>"/>
-<line class="ursa_minor5" x1="<%=@ursa_minor[4][0]*x_scale+x_shift%>" y1="<%=@ursa_minor[4][1]*y_scale+y_shift%>" x2="<%=@ursa_minor[5][0]*x_scale+x_shift%>" y2="<%=@ursa_minor[5][1]*y_scale+y_shift%>"/>
-<line class="ursa_minor6" x1="<%=@ursa_minor[5][0]*x_scale+x_shift%>" y1="<%=@ursa_minor[5][1]*y_scale+y_shift%>" x2="<%=@ursa_minor[6][0]*x_scale+x_shift%>" y2="<%=@ursa_minor[6][1]*y_scale+y_shift%>"/>
-<line class="ursa_minor3" x1="<%=@ursa_minor[3][0]*x_scale+x_shift%>" y1="<%=@ursa_minor[3][1]*y_scale+y_shift%>" x2="<%=@ursa_minor[6][0]*x_scale+x_shift%>" y2="<%=@ursa_minor[6][1]*y_scale+y_shift%>"/>
+<%connect(@ursa_minor, "ursa_minor1", 0, 1)%>
+<%connect(@ursa_minor, "ursa_minor2", 1, 2)%>
+<%connect(@ursa_minor, "ursa_minor3", 2, 3)%>
+<%connect(@ursa_minor, "ursa_minor4", 3, 4)%>
+<%connect(@ursa_minor, "ursa_minor5", 4, 5)%>
+<%connect(@ursa_minor, "ursa_minor6", 5, 6)%>
+<%connect(@ursa_minor, "ursa_minor3", 3, 6)%>
 
 <%draw_const(@ursa_major, "ursa_major")%>
-<line class="ursa_major1" x1="<%=@ursa_major[0][0]*x_scale+x_shift%>" y1="<%=@ursa_major[0][1]*y_scale+y_shift%>" x2="<%=@ursa_major[1][0]*x_scale+x_shift%>" y2="<%=@ursa_major[1][1]*y_scale+y_shift%>"/>
-<line class="ursa_major2" x1="<%=@ursa_major[1][0]*x_scale+x_shift%>" y1="<%=@ursa_major[1][1]*y_scale+y_shift%>" x2="<%=@ursa_major[2][0]*x_scale+x_shift%>" y2="<%=@ursa_major[2][1]*y_scale+y_shift%>"/>
-<line class="ursa_major3" x1="<%=@ursa_major[2][0]*x_scale+x_shift%>" y1="<%=@ursa_major[2][1]*y_scale+y_shift%>" x2="<%=@ursa_major[3][0]*x_scale+x_shift%>" y2="<%=@ursa_major[3][1]*y_scale+y_shift%>"/>
-<line class="ursa_major5" x1="<%=@ursa_major[3][0]*x_scale+x_shift%>" y1="<%=@ursa_major[3][1]*y_scale+y_shift%>" x2="<%=@ursa_major[5][0]*x_scale+x_shift%>" y2="<%=@ursa_major[5][1]*y_scale+y_shift%>"/>
-<line class="ursa_major6" x1="<%=@ursa_major[3][0]*x_scale+x_shift%>" y1="<%=@ursa_major[3][1]*y_scale+y_shift%>" x2="<%=@ursa_major[6][0]*x_scale+x_shift%>" y2="<%=@ursa_major[6][1]*y_scale+y_shift%>"/>
-<line class="ursa_major4" x1="<%=@ursa_major[4][0]*x_scale+x_shift%>" y1="<%=@ursa_major[4][1]*y_scale+y_shift%>" x2="<%=@ursa_major[9][0]*x_scale+x_shift%>" y2="<%=@ursa_major[9][1]*y_scale+y_shift%>"/>
-<line class="ursa_major4" x1="<%=@ursa_major[4][0]*x_scale+x_shift%>" y1="<%=@ursa_major[4][1]*y_scale+y_shift%>" x2="<%=@ursa_major[5][0]*x_scale+x_shift%>" y2="<%=@ursa_major[5][1]*y_scale+y_shift%>"/>
-<line class="ursa_major6" x1="<%=@ursa_major[6][0]*x_scale+x_shift%>" y1="<%=@ursa_major[6][1]*y_scale+y_shift%>" x2="<%=@ursa_major[7][0]*x_scale+x_shift%>" y2="<%=@ursa_major[7][1]*y_scale+y_shift%>"/>
-<line class="ursa_major6" x1="<%=@ursa_major[6][0]*x_scale+x_shift%>" y1="<%=@ursa_major[6][1]*y_scale+y_shift%>" x2="<%=@ursa_major[4][0]*x_scale+x_shift%>" y2="<%=@ursa_major[4][1]*y_scale+y_shift%>"/>
-<line class="ursa_major7" x1="<%=@ursa_major[7][0]*x_scale+x_shift%>" y1="<%=@ursa_major[7][1]*y_scale+y_shift%>" x2="<%=@ursa_major[8][0]*x_scale+x_shift%>" y2="<%=@ursa_major[8][1]*y_scale+y_shift%>"/>
-<line class="ursa_major7" x1="<%=@ursa_major[7][0]*x_scale+x_shift%>" y1="<%=@ursa_major[7][1]*y_scale+y_shift%>" x2="<%=@ursa_major[9][0]*x_scale+x_shift%>" y2="<%=@ursa_major[9][1]*y_scale+y_shift%>"/>
-<line class="ursa_major9" x1="<%=@ursa_major[8][0]*x_scale+x_shift%>" y1="<%=@ursa_major[8][1]*y_scale+y_shift%>" x2="<%=@ursa_major[9][0]*x_scale+x_shift%>" y2="<%=@ursa_major[9][1]*y_scale+y_shift%>"/>
-<line class="ursa_major10" x1="<%=@ursa_major[9][0]*x_scale+x_shift%>" y1="<%=@ursa_major[9][1]*y_scale+y_shift%>" x2="<%=@ursa_major[10][0]*x_scale+x_shift%>" y2="<%=@ursa_major[10][1]*y_scale+y_shift%>"/>
-<line class="ursa_major12" x1="<%=@ursa_major[10][0]*x_scale+x_shift%>" y1="<%=@ursa_major[10][1]*y_scale+y_shift%>" x2="<%=@ursa_major[12][0]*x_scale+x_shift%>" y2="<%=@ursa_major[12][1]*y_scale+y_shift%>"/>
-<line class="ursa_major11" x1="<%=@ursa_major[11][0]*x_scale+x_shift%>" y1="<%=@ursa_major[11][1]*y_scale+y_shift%>" x2="<%=@ursa_major[12][0]*x_scale+x_shift%>" y2="<%=@ursa_major[12][1]*y_scale+y_shift%>"/>
-<line class="ursa_major13" x1="<%=@ursa_major[5][0]*x_scale+x_shift%>" y1="<%=@ursa_major[5][1]*y_scale+y_shift%>" x2="<%=@ursa_major[13][0]*x_scale+x_shift%>" y2="<%=@ursa_major[13][1]*y_scale+y_shift%>"/>
-<line class="ursa_major15" x1="<%=@ursa_major[13][0]*x_scale+x_shift%>" y1="<%=@ursa_major[13][1]*y_scale+y_shift%>" x2="<%=@ursa_major[15][0]*x_scale+x_shift%>" y2="<%=@ursa_major[15][1]*y_scale+y_shift%>"/>
-<line class="ursa_major15" x1="<%=@ursa_major[14][0]*x_scale+x_shift%>" y1="<%=@ursa_major[14][1]*y_scale+y_shift%>" x2="<%=@ursa_major[15][0]*x_scale+x_shift%>" y2="<%=@ursa_major[15][1]*y_scale+y_shift%>"/>
-<line class="ursa_major16" x1="<%=@ursa_major[13][0]*x_scale+x_shift%>" y1="<%=@ursa_major[13][1]*y_scale+y_shift%>" x2="<%=@ursa_major[16][0]*x_scale+x_shift%>" y2="<%=@ursa_major[16][1]*y_scale+y_shift%>"/>
-<line class="ursa_major17" x1="<%=@ursa_major[16][0]*x_scale+x_shift%>" y1="<%=@ursa_major[16][1]*y_scale+y_shift%>" x2="<%=@ursa_major[17][0]*x_scale+x_shift%>" y2="<%=@ursa_major[17][1]*y_scale+y_shift%>"/>
-
+<%connect(@ursa_major, "ursa_major1", 0, 1)%>
+<%connect(@ursa_major, "ursa_major2", 1, 2)%>
+<%connect(@ursa_major, "ursa_major3", 2, 3)%>
+<%connect(@ursa_major, "ursa_major5", 3, 5)%>
+<%connect(@ursa_major, "ursa_major6", 3, 6)%>
+<%connect(@ursa_major, "ursa_major4", 4, 9)%>
+<%connect(@ursa_major, "ursa_major4", 4, 5)%>
+<%connect(@ursa_major, "ursa_major6", 6, 7)%>
+<%connect(@ursa_major, "ursa_major6", 6, 4)%>
+<%connect(@ursa_major, "ursa_major7", 7, 8)%>
+<%connect(@ursa_major, "ursa_major7", 7, 9)%>
+<%connect(@ursa_major, "ursa_major9", 8, 9)%>
+<%connect(@ursa_major, "ursa_major10", 9, 10)%>
+<%connect(@ursa_major, "ursa_major12", 10, 12)%>
+<%connect(@ursa_major, "ursa_major11", 11, 12)%>
+<%connect(@ursa_major, "ursa_major13", 5, 13)%>
+<%connect(@ursa_major, "ursa_major15", 13, 15)%>
+<%connect(@ursa_major, "ursa_major15", 14, 15)%>
+<%connect(@ursa_major, "ursa_major16", 13, 16)%>
+<%connect(@ursa_major, "ursa_major17", 16, 17)%>
 
 <%draw_const(@cygnus, "cygnus")%>
 <line class="cygnus1" x1="<%=@cygnus[0][0]*x_scale+x_shift%>" y1="<%=@cygnus[0][1]*y_scale+y_shift%>" x2="<%=@cygnus[1][0]*x_scale+x_shift%>" y2="<%=@cygnus[1][1]*y_scale+y_shift%>"/>
