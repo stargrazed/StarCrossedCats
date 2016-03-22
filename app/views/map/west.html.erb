@@ -53,16 +53,18 @@
   <%while const[i] != nil%>
     <%x_scale = -5%>
     <%x_shift = 450%>
+    <%y_scale = 5%>
+    <%y_shift = 0%>
 
     <%red = star_red(const[i][3])%>
     <%green = star_green(const[i][3])%>
     <%blue = star_blue(const[i][3])%>
-    <circle id="const_name<%=i%>" cx="<%=(const[i][0])*x_scale+x_shift%>" cy="<%=const[i][1]*5%>"
+    <circle id="const_name<%=i%>" cx="<%=(const[i][0])*x_scale+x_shift%>" cy="<%=const[i][1]*y_scale+y_shift%>"
       r="<%=7-const[i][2]%>" opacity="1" style="filter:url(#f1)"
       fill="rgb(<%=red%>,<%=green%>, <%=blue%>)" onclick="<%=const_name%>_Click(<%=i%>)">
       <animateTransform attributeName="transform" type="rotate" dur="6s"from="0
-      <%=const[i][0]*x_scale+x_shift%> <%=const[i][1]*5%>" to="360
-      <%=const[i][0]*x_scale+x_shift%> <%=const[i][1]*5%>" repeatCount="indefinite"/>
+      <%=const[i][0]*x_scale+x_shift%> <%=const[i][1]*y_scale+y_shift%>" to="360
+      <%=const[i][0]*x_scale+x_shift%> <%=const[i][1]*y_scale+y_shift%>" repeatCount="indefinite"/>
     </circle>
     <%i = i+1%>
   <%end%>
@@ -82,12 +84,16 @@
 <%end%>
 
 <%draw_const(@andro, "andro")%>
+<!--<%draw_const(@hydra, "hydra")%>-->
+<%draw_const(@leo, "leo")%>
+<%draw_const(@leo_minor, "leo_minor")%>
 <%draw_const(@lyra, "lyra")%>
 <%draw_const(@aur, "aur")%>
 <%draw_const(@gem, "gem")%>
 <%draw_const(@canis_major, "canis_major")%>
 <%draw_const(@canis_minor, "canis_minor")%>
 <%draw_const(@orion, "orion")%>
+<%draw_const(@virgo, "virgo")%>
 <!-- don't connect Andromeda-->
 
 <%draw_const(@herc, "herc")%>
@@ -152,7 +158,7 @@
 <%connect(@cygnus, "cygnus7", 1, 7)%>
 <%connect(@cygnus, "cygnus9", 8, 9)%>
 <%connect(@cygnus, "cygnus4", 4, 7)%>
-
+<!--
 <%draw_const(@bootes, "bootes")%>
 <%connect(@bootes, "bootes1", 0, 1)%>
 <%connect(@bootes, "bootes2", 1, 2)%>
@@ -165,7 +171,7 @@
 <%connect(@bootes, "bootes9", 8, 9)%>
 <%connect(@bootes, "bootes10", 9, 10)%>
 <%connect(@bootes, "bootes10", 10, 3)%>
-
+-->
 <%draw_const(@cass, "cass")%>
 <%connect(@cass, "cass1", 0, 1)%>
 <%connect(@cass, "cass2", 1, 2)%>

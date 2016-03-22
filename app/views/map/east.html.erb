@@ -4,7 +4,8 @@
 <%= render(:partial => "default")%>
 
 <p>You require Chrome or IE9 to view this page properly.</p>
-<p>This page is a (possible) view of what can be seen in the Eastern Hemisphere</p>
+<p>This page is a (possible) view of what can be seen in the Eastern Hemisphere (Moscow, Russia)
+at 12:00am</p>
 <div id="timer">
   <span>00:00:00</span>
 </div>
@@ -15,6 +16,10 @@
      <feGaussianBlur in="SourceGraphic" stdDeviation="1"/>
    </filter>
   </defs>
+
+
+  <ellipse cx="500" cy="400" rx="400" ry="350"
+    fill="none" stroke="blue" stroke-width ="3"/>
 <!--
 <%x_scale = -5%>
 <%x_shift = 500%>
@@ -47,11 +52,12 @@
   <%i = 0%>
   <%while const[i] != nil%>
     <%x_scale = -5%>
-    <%x_shift = 0%>
+    <%x_shift = 900%>
 
-    <%if const[i][0] > 0%>
-      <%x_shift = 900%>
+    <%if const[i][0] < 0%>
+      <%x_shift = 0%>
     <%end%>
+
     <%red = star_red(const[i][3])%>
     <%green = star_green(const[i][3])%>
     <%blue = star_blue(const[i][3])%>
@@ -87,12 +93,24 @@
     <%return%>
 <%end%>
 
-<%draw_const(@gem, "gem")%>
-<%draw_const(@canis_major, "canis_major")%>
-<%draw_const(@canis_minor, "canis_minor")%>
-<%draw_const(@orion, "orion")%>
-
-
+<%draw_const(@aqu, "aqu")%>
+<%draw_const(@aur, "aur")%>
+<%draw_const(@andro, "andro")%>
+<%draw_const(@bootes, "bootes")%>
+<%draw_const(@cap, "cap")%>
+<%draw_const(@cass, "cass")%>
+<%draw_const(@cep, "cep")%>
+<%draw_const(@cygnus, "cygnus")%>
+<%draw_const(@draco,"draco")%>
+<%draw_const(@herc, "herc")%>
+<%draw_const(@lyra, "lyra")%>
+<%draw_const(@lynx, "lynx")%>
+<%draw_const(@pegas, "pegas")%>
+<%draw_const(@pers,"pers")%>
+<%draw_const(@pisc, "pisc")%>
+<%draw_const(@sgr, "sgr")%>
+<%draw_const(@ursa_minor, "ursa_minor")%>
+<%draw_const(@ursa_major, "ursa_major")%>
 
 </svg>
 
