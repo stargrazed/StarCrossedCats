@@ -64,6 +64,17 @@ function aqu_Click(id) {
     document.getElementsByClassName("aqu"+id).onclick = ""; //do nothing now
 }
 
+function aur_Click(id) {
+  var i;
+  if (id > 0) {
+    var change = document.getElementsByClassName("aur"+id);
+    for(i=0; i<change.length; i++){
+      change[i].style.visibility = 'visible';
+    }
+  }
+    document.getElementsByClassName("aur"+id).onclick = ""; //do nothing now
+}
+
 function cass_Click(id) {
   var i;
   if (id > 0) {
@@ -73,6 +84,39 @@ function cass_Click(id) {
     }
   }
     document.getElementsByClassName("cass"+id).onclick = ""; //do nothing now
+}
+
+function canis_major_Click(id) {
+  var i;
+  if (id > 0) {
+    var change = document.getElementsByClassName("canis_major"+id);
+    for(i=0; i<change.length; i++){
+      change[i].style.visibility = 'visible';
+    }
+  }
+    document.getElementsByClassName("canis_major"+id).onclick = ""; //do nothing now
+}
+
+function canis_minor_Click(id) {
+  var i;
+  if (id > 0) {
+    var change = document.getElementsByClassName("canis_minor"+id);
+    for(i=0; i<change.length; i++){
+      change[i].style.visibility = 'visible';
+    }
+  }
+    document.getElementsByClassName("canis_minor"+id).onclick = ""; //do nothing now
+}
+
+function cap_Click(id) {
+  var i;
+  if (id > 0) {
+    var change = document.getElementsByClassName("cap"+id);
+    for(i=0; i<change.length; i++){
+      change[i].style.visibility = 'visible';
+    }
+  }
+    document.getElementsByClassName("cap"+id).onclick = ""; //do nothing now
 }
 
 function draco_Click(id) {
@@ -130,6 +174,84 @@ function bootes_Click(id) {
     document.getElementsByClassName("bootes"+id).onclick = ""; //do nothing now
 }
 
+function draco_Click(id) {
+  var i;
+  if (id > 0) {
+    var change = document.getElementsByClassName("draco"+id);
+    for(i=0; i<change.length; i++){
+      change[i].style.visibility = 'visible';
+    }
+  }
+    document.getElementsByClassName("draco"+id).onclick = ""; //do nothing now
+}
+
+function gem_Click(id) {
+  var i;
+  if (id > 0) {
+    var change = document.getElementsByClassName("gem"+id);
+    for(i=0; i<change.length; i++){
+      change[i].style.visibility = 'visible';
+    }
+  }
+    document.getElementsByClassName("gem"+id).onclick = ""; //do nothing now
+}
+
+function leo_Click(id) {
+  var i;
+  if (id > 0) {
+    var change = document.getElementsByClassName("leo"+id);
+    for(i=0; i<change.length; i++){
+      change[i].style.visibility = 'visible';
+    }
+  }
+    document.getElementsByClassName("leo"+id).onclick = ""; //do nothing now
+}
+
+function leo_minor_Click(id) {
+  var i;
+  if (id > 0) {
+    var change = document.getElementsByClassName("leo_minor"+id);
+    for(i=0; i<change.length; i++){
+      change[i].style.visibility = 'visible';
+    }
+  }
+    document.getElementsByClassName("leo_minor"+id).onclick = ""; //do nothing now
+}
+
+
+function lyra_Click(id) {
+  var i;
+  if (id > 0) {
+    var change = document.getElementsByClassName("lyra"+id);
+    for(i=0; i<change.length; i++){
+      change[i].style.visibility = 'visible';
+    }
+  }
+    document.getElementsByClassName("lyra"+id).onclick = ""; //do nothing now
+}
+
+function lynx_Click(id) {
+  var i;
+  if (id > 0) {
+    var change = document.getElementsByClassName("lynx"+id);
+    for(i=0; i<change.length; i++){
+      change[i].style.visibility = 'visible';
+    }
+  }
+    document.getElementsByClassName("lynx"+id).onclick = ""; //do nothing now
+}
+
+function orion_Click(id) {
+  var i;
+  if (id > 0) {
+    var change = document.getElementsByClassName("orion"+id);
+    for(i=0; i<change.length; i++){
+      change[i].style.visibility = 'visible';
+    }
+  }
+    document.getElementsByClassName("orion"+id).onclick = ""; //do nothing now
+}
+
 function pers_Click(id) {
   var i;
   if (id > 0) {
@@ -150,6 +272,17 @@ function pegas_Click(id) {
     }
   }
     document.getElementsByClassName("pegas"+id).onclick = ""; //do nothing now
+}
+
+function pisc_Click(id) {
+  var i;
+  if (id > 0) {
+    var change = document.getElementsByClassName("pisc"+id);
+    for(i=0; i<change.length; i++){
+      change[i].style.visibility = 'visible';
+    }
+  }
+    document.getElementsByClassName("pisc"+id).onclick = ""; //do nothing now
 }
 
 function taur_Click(id) {
