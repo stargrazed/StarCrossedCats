@@ -1,3 +1,5 @@
+var ursa_minor_count = 0;
+
 function createCircle(x, y) {
     var area, circle;
     area = document.getElementById("test");
@@ -39,6 +41,15 @@ function ursa_minor_Click(id) {
       change[i].style.visibility = 'visible';
     }
   }
+    if(id == 1 || 2 || 4 || 5 || 6){
+        ursa_minor_count = ursa_minor_count + 1;
+    }
+    if(id == 3){
+        ursa_minor_count = ursa_minor_count + 2;
+    }
+    var fill = document.getElementById("ursa_minor_a");
+    //alert(id);
+    fill.innerHTML = ursa_minor_count + "/7";
     document.getElementsByClassName("ursa_minor"+id).onclick = ""; //do nothing now
 }
 
