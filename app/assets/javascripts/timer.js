@@ -51,3 +51,7 @@ function formatDay(day){
         strDay += "s";
     return strDay;
 }
+
+function resetClick(){
+    triggered = 0;
+}
