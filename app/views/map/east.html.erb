@@ -61,7 +61,7 @@ at 12:00am</p>
     <%red = star_red(const[i][3])%>
     <%green = star_green(const[i][3])%>
     <%blue = star_blue(const[i][3])%>
-    <circle id="const_name<%=i%>" cx="<%=(const[i][0])*x_scale+x_shift%>" cy="<%=const[i][1]*5%>"
+    <circle id="<%=const_name%><%=i%>" cx="<%=(const[i][0])*x_scale+x_shift%>" cy="<%=const[i][1]*5%>"
       r="<%=7-const[i][2]%>" opacity="1" style="filter:url(#f1)"
       fill="rgb(<%=red%>,<%=green%>, <%=blue%>)" onclick="<%=const_name%>_Click(<%=i%>)">
       <animateTransform attributeName="transform" type="rotate" dur="6s"from="0
@@ -306,6 +306,23 @@ at 12:00am</p>
 <%connect(@ursa_major, "ursa_major17", 16, 17)%>
 
 </svg>
+<ul>
+  <li id="aqu_a"></li>
+  <li id="aur_a"></li>
+  <li id="bootes_a"></li>
+  <li id="cap_a"></li>
+  <li id="cass_a"></li>
+  <li id="cep_a"></li>
+  <li id="cygnus_a"></li>
+  <li id="draco_a"></li>
+  <li id="herc_a"></li>
+  <li id="lyra_a"></li>
+  <li id="pegas_a"></li>
+  <li id="pers_a"></li>
+  <li id="pisc_a"></li>
+  <li id="ursa_minor_a"></li>
+  <li id="ursa_major_a"></li>
+</ul>
 
 <script>clickedSkymap()</script>
 <script src="timer.js"></script>

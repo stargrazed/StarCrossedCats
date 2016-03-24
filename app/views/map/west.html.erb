@@ -59,7 +59,7 @@
     <%red = star_red(const[i][3])%>
     <%green = star_green(const[i][3])%>
     <%blue = star_blue(const[i][3])%>
-    <circle id="const_name<%=i%>" cx="<%=(const[i][0])*x_scale+x_shift%>" cy="<%=const[i][1]*y_scale+y_shift%>"
+    <circle id="<%=const_name%><%=i%>" cx="<%=(const[i][0])*x_scale+x_shift%>" cy="<%=const[i][1]*y_scale+y_shift%>"
       r="<%=7-const[i][2]%>" opacity="1" style="filter:url(#f1)"
       fill="rgb(<%=red%>,<%=green%>, <%=blue%>)" onclick="<%=const_name%>_Click(<%=i%>)">
       <animateTransform attributeName="transform" type="rotate" dur="6s"from="0
@@ -318,9 +318,24 @@
 <%connect(@pers, "pers11", 10, 11)%>
 
 </svg>
-
+<h2>Possibly viewable constellations</h2>
 <ul>
+  <li id="aqu_a"></li>
+  <li id="aur_a"></li>
+  <li id="canis_minor_a"></li>
+  <li id="cass_a"></li>
+  <li id="cep_a"></li>
+  <li id="cygnus_a"></li>
+  <li id="gem_a"></li>
+  <li id="herc_a"></li>
+  <li id="leo_a"></li>
+  <li id="leo_minor_a"></li>
+  <li id="lyra_a"></li>
+  <li id="orion_a"></li>
+  <li id="pers_a"></li>
+  <li id="taur_a"></li>
   <li id="ursa_minor_a"></li>
+  <li id="ursa_major_a"></li>
 </ul>
 
 <script>clickedSkymap()</script>
