@@ -59,7 +59,7 @@ resources :user
   #     resources :products
   #   end
 
-  resources :facts, :path => "fact" do
+  resources :constellations do
     collection {post :import}
   end
 end
