@@ -16,30 +16,35 @@
   <span>
     <h2>Constellations</h2>
   </span>
-  <table>
-    <thead>
-      <tr>
-        <th>Constellation</th>
-        <th>Abbreviation</th>
-        <th>Family</th>
-        <th>Origin</th>
-        <th>Meaning</th>
-        <th>Brightest Star</th>
-        <th>Image URL</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @facts.each do |fact| %>
-      <tr>
-        <td><%= fact.constellation %></td>
-        <td><%= fact.abbreviation %></td>
-        <td><%= fact.family %></td>
-        <td><%= fact.origin %></td>
-        <td><%= fact.meaning %></td>
-        <td><%= fact.brightest-star %></td>
-        <td><%= fact.image %></td>
-      </tr>
-      <% end %>
-    </tbody>
-  </table>
+  <% facts = Fact.all %>
+  <% if facts.size == 0 %>
+    <span>No constellations to display :(</span>
+  <% else %>
+      <table>
+        <thead>
+        <tr>
+          <th>Constellation</th>
+          <th>Abbreviation</th>
+          <th>Family</th>
+          <th>Origin</th>
+          <th>Meaning</th>
+          <th>Brightest Star</th>
+          <th>Image URL</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% @facts.each do |fact| %>
+            <tr>
+              <td><%= fact.constellation %></td>
+              <td><%= fact.abbreviation %></td>
+              <td><%= fact.family %></td>
+              <td><%= fact.origin %></td>
+              <td><%= fact.meaning %></td>
+              <td><%= fact.brightest-star %></td>
+              <td><%= fact.image %></td>
+            </tr>
+        <% end %>
+        </tbody>
+      </table>
+  <% end %>
 </div>
