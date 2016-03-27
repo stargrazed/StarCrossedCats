@@ -58,7 +58,6 @@ resources :user
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-  resources :facts, :path => "fact"
 
   resources :facts, :path => "fact" do
     collection {post :import}

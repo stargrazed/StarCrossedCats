@@ -3,7 +3,7 @@ class Fact < ActiveRecord::Base
 
   def self.import(file)
     CSV.foreach(file.path, headers:true) do |row|
-      Constellation.create! row.to_hash
+      Fact.create! row.to_hash
     end
   end
 end

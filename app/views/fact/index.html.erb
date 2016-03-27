@@ -37,14 +37,14 @@
         </tr>
         </thead>
         <tbody>
-        <% @facts.each do |fact| %>
+        <% @facts.order(:constellation).each do |fact| %>
             <tr>
               <td><%= fact.constellation %></td>
               <td><%= fact.abbreviation %></td>
               <td><%= fact.family %></td>
               <td><%= fact.origin %></td>
               <td><%= fact.meaning %></td>
-              <td><%= fact.brightest-star %></td>
+              <td><%= fact.brightest_star %></td>
               <td><%= fact.image %></td>
             </tr>
         <% end %>
