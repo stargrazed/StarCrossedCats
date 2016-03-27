@@ -7,6 +7,6 @@ class FactController < ApplicationController
 
   def import
     Fact.import(params[:file])
-    redirect_to root_url, notice: "Constellation Data Imported!"
+    redirect_to facts_url, notice: "Constellation Data Imported!"
   end
 end
