@@ -4,6 +4,7 @@
 <%= render(:partial => "default")%>
 
 <% if session[:user_id] && session[:username] == 'admin' %>
+  <%= flash[:notice] %>
   <div class="admin">
     <span>
         <h3>Upload Constellations</h3>
@@ -12,5 +13,33 @@
 <% end %>
 
 <div id="constellList">
-  <span>See a list of constellations</span>
+  <span>
+    <h2>Constellations</h2>
+  </span>
+  <table>
+    <thead>
+      <tr>
+        <th>Constellation</th>
+        <th>Abbreviation</th>
+        <th>Family</th>
+        <th>Origin</th>
+        <th>Meaning</th>
+        <th>Brightest Star</th>
+        <th>Image URL</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @facts.each do |fact| %>
+      <tr>
+        <td><%= fact.constellation %></td>
+        <td><%= fact.abbreviation %></td>
+        <td><%= fact.family %></td>
+        <td><%= fact.origin %></td>
+        <td><%= fact.meaning %></td>
+        <td><%= fact.brightest-star %></td>
+        <td><%= fact.image %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
 </div>
