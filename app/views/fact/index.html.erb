@@ -3,6 +3,14 @@
 <%= stylesheet_link_tag('application') %>
 <%= render(:partial => "default")%>
 
-<div class="admin">
-  <span>Only admin may see this!</span>
+<% if session[:user_id] && session[:username] == 'admin' %>
+  <div class="admin">
+    <span>
+        <h3>Upload Constellations</h3>
+    </span>
+  </div>
+<% end %>
+
+<div id="constellList">
+  <span>See a list of constellations</span>
 </div>
