@@ -9,6 +9,10 @@
     <span>
         <h3>Upload Constellations</h3>
     </span>
+    <%= form_tag import_facts_path, multipart: true do %>
+      <%= file_field_tag :file %>
+      <%= submit_tag "Submit CSV" %>
+    <% end %>
   </div>
 <% end %>
 

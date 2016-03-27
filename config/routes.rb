@@ -58,4 +58,7 @@ resources :user
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+  resources :facts do
+    collection {post :import}
+  end
 end
