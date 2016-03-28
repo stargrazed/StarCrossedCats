@@ -63,8 +63,8 @@ class ConstellationsController < ApplicationController
   end
 
   def import
-    Fact.import(params[:file])
-    redirect_to facts_url, notice: "Constellation Data Imported!"
+    Constellation.import(params[:file])
+    redirect_to constellations_url, notice: "Constellation Data Imported!"
   end
 
   private
