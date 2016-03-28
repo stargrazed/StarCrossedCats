@@ -9,3 +9,39 @@ div#edit_fields{
 div#constelImage{
 
 }
+
+.enlarge span{
+  position:absolute;
+  left: -9999px;
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transition: opacity 0.5s ease;
+  -moz-transition: opacity 0.5s ease;
+  -ms-transition: opacity 0.5s ease;
+  -o-transition: opacity 0.5s ease;
+  transition: opacity 0.5s ease;
+}
+
+div.enlarge:hover span{
+  visibility: visible;
+  opacity: 1;
+  top: 110px;
+  left: 0px;
+  z-index: 999;
+  width:500px;
+  height:300px;
+  padding: 10px;
+  background:#eae9d4;
+  -webkit-box-shadow: 0 0 20px rgba(0,0,0, .75);
+  -moz-box-shadow: 0 0 20px rgba(0,0,0, .75);
+  box-shadow: 0 0 20px rgba(0,0,0, .75);
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius:8px;
+  font-family: 'Droid Sans', sans-serif;
+  font-size:12px;
+  line-height:18px;
+  text-align: center;
+  color: #495a62;
+  padding-bottom:20px;
+}
