@@ -49,7 +49,7 @@
               <td><%= constellation.Meaning %></td>
               <td><%= constellation.Brightest_star %></td>
               <td>
-                <%= image_tag("#{constellation.Image}") %>
+                <%= image_tag("#{constellation.Image}", :size => "100x100") %>
               </td>
               <% if session[:user_id] && session[:username] == 'admin' %>
                   <td>
