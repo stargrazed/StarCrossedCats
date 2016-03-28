@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   resources :constellations do
     collection {post :import}
   end
-  
+
   resources :user
   #get 'welcome/index' => 'welcome#index'
 
