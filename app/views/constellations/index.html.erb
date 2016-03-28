@@ -2,3 +2,53 @@
 <meta name="description" content="A desciption of our website and introduction.">
 <%= stylesheet_link_tag('application') %>
 <%= render(:partial => "default")%>
+
+<% if session[:user_id] && session[:username] == 'admin' %>
+    <%= flash[:notice] %>
+    <div class="admin">
+    <span>
+        <h3>Upload Constellations</h3>
+    </span>
+      <%= form_tag import_constellations_path, multipart: true do %>
+        <%= file_field_tag :file %>
+        <%= submit_tag "Submit CSV" %>
+      <% end %>
+    </div>
+<% end %>
+
+<div id="constellList">
+  <span>
+    <h2>Constellations</h2>
+  </span>
+  <% constellations = Constellation.all %>
+  <% if constellations.size == 0 %>
+      <span>No constellations to display :(</span>
+  <% else %>
+      <table>
+        <thead>
+        <tr>
+          <th>Constellation</th>
+          <th>Abbreviation</th>
+          <th>Family</th>
+          <th>Origin</th>
+          <th>Meaning</th>
+          <th>Brightest Star</th>
+          <th>Image URL</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% @constellations.order(:constellation).each do |constellation| %>
+            <tr>
+              <td><%= constellation.constellation %></td>
+              <td><%= constellation.abbreviation %></td>
+              <td><%= constellation.family %></td>
+              <td><%= constellation.origin %></td>
+              <td><%= constellation.meaning %></td>
+              <td><%= constellation.brightest_star %></td>
+              <td><%= constellation.image %></td>
+            </tr>
+        <% end %>
+        </tbody>
+      </table>
+  <% end %>
+</div>
