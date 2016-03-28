@@ -43,7 +43,7 @@ class ConstellationsController < ApplicationController
   def update
     respond_to do |format|
       if @constellation.update(constellation_params)
-        format.html { redirect_to @constellation, notice: 'Constellation was successfully updated.' }
+        format.html { redirect_to constellations_url, notice: 'Constellation was successfully updated.' }
         format.json { render :show, status: :ok, location: @constellation }
       else
         format.html { render :edit }
@@ -75,6 +75,6 @@ class ConstellationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def constellation_params
-      params[:constellation]
+      params[:constellation].permit(:Constellation, :Abbreviation, :Family, :Origin, :Meaning, :Brightest_star, :Image)
     end
 end
