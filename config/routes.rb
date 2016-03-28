@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-resources :user
+  resources :constellations do
+    collection {post :import}
+  end
+  
+  resources :user
   #get 'welcome/index' => 'welcome#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
@@ -58,8 +62,4 @@ resources :user
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-
-  resources :constellations do
-    collection {post :import}
-  end
 end
