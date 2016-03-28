@@ -1,4 +1,5 @@
 class ConstellationsController < ApplicationController
+  layout 'application'
   before_action :set_constellation, only: [:show, :edit, :update, :destroy]
 
   # GET /constellations
