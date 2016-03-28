@@ -51,7 +51,7 @@
               <td>
                 <div class="enlarge">
                   <%= image_tag("#{constellation.Image}", :size => "50x50") %>
-                  <span><%= image_tag("#{constellation.Image}") %></span>
+                  <span><%= image_tag("#{constellation.Image}", :size => "750x750") %></span>
                 </div>
               </td>
               <% if session[:user_id] && session[:username] == 'admin' %>
