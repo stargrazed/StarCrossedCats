@@ -33,7 +33,7 @@
           <th>Origin</th>
           <th>Meaning</th>
           <th>Brightest Star</th>
-          <th>Image URL</th>
+          <th>Image</th>
           <% if session[:user_id] && session[:username] == 'admin' %>
             <th>Admin Tools</th>
           <% end %>
@@ -48,7 +48,9 @@
               <td><%= constellation.Origin %></td>
               <td><%= constellation.Meaning %></td>
               <td><%= constellation.Brightest_star %></td>
-              <td><%= constellation.Image %></td>
+              <td>
+                <%= image_tag("#{constellation.Image}") %>
+              </td>
               <% if session[:user_id] && session[:username] == 'admin' %>
                   <td>
                     <%= link_to 'Edit', edit_constellation_path(constellation) %>
