@@ -51,6 +51,9 @@
               <td><%= constellation.Image %></td>
               <% if session[:user_id] && session[:username] == 'admin' %>
                   <td>
+                    <%= link_to 'Edit', edit_constellation_path(constellation) %>
+                  </td>
+                  <td>
                     <%= link_to 'Delete', constellation_path(constellation),
                       method: :delete %>
                   </td>
