@@ -4,28 +4,18 @@
 <%= render(:partial => "default")%>
 
 <p>You require Chrome or IE9 to view this page properly.</p>
-<p>Zodiac</p>
+<p>A simple exercise which uses only the signs of the Zodiac. At no point in time will
+all these constellations be visible at the same time.</p>
 <div id="timer">
   <span>00:00:00</span>
 </div>
 
-<svg id='test' width="1000" height="800" version="1.1" xmlns="http://www.w3.org/2000/svg">
+<svg id='test' width="1800" height="800" version="1.1" xmlns="http://www.w3.org/2000/svg">
   <defs>
    <filter id="f1" x="0" y=0>
      <feGaussianBlur in="SourceGraphic" stdDeviation="1"/>
    </filter>
   </defs>
-
-  <ellipse cx="500" cy="400" rx="400" ry="350"
-    fill="none" stroke="blue" stroke-width ="3"/>
-
-
-<%x_scale = -5%>
-<%x_shift = 450%>
-
-<%y_scale = 5%>
-<%y_shift = 0%>
-
 
 <%def star_red(b_index)%>
   <%color1 = 250 + 100*b_index%>
@@ -48,13 +38,15 @@
   <%return (color3*100).round/100%>
 <%end%>
 
-<%def draw_const(const, const_name, cross_90)%>
+<%def draw_const(const, const_name, cross_90, post_half)%>
   <%i = 0%>
   <%while const[i] != nil%>
     <%x_scale = -5%>
     <%x_shift = 450%>
     <%y_scale = 5%>
     <%y_shift = 0%>
+
+    <%x_shift = x_shift + 900*post_half%>
 
     <%if cross_90 == 1%>
       <%if const[i][0] < 0%>
@@ -77,12 +69,15 @@
   <%return%>
 <%end%>
 
-<%def connect(const, class_name, s1, s2, cross_90)%>
+<%def connect(const, class_name, s1, s2, cross_90, post_half)%>
   <%x_scale = -5%>
   <%x_shift_1 = 450%>
   <%x_shift_2 = 450%>
   <%y_scale = 5%>
   <%y_shift = 0%>
+
+  <%x_shift_1 = x_shift_1 + 900*post_half%>
+  <%x_shift_2 = x_shift_2 + 900*post_half%>
 
   <%if cross_90 == 1%>
     <%if const[s1][0] < 0%>
@@ -98,155 +93,169 @@
     <%return%>
 <%end%>
 
-<%draw_const(@aqr, "aqr", 0)%>
-<%connect(@aqr, "aqr1", 0, 1, 0)%>
-<%connect(@aqr, "aqr2", 1, 2, 0)%>
-<%connect(@aqr, "aqr3", 2, 3, 0)%>
-<%connect(@aqr, "aqr11", 2, 11, 0)%>
-<%connect(@aqr, "aqr12", 2, 12, 0)%>
-<%connect(@aqr, "aqr5", 3, 5, 0)%>
-<%connect(@aqr, "aqr4", 4, 5, 0)%>
-<%connect(@aqr, "aqr5", 5, 11, 0)%>
-<%connect(@aqr, "aqr6", 6, 7, 0)%>
-<%connect(@aqr, "aqr8", 7, 8, 0)%>
-<%connect(@aqr, "aqr7", 7, 12, 0)%>
-<%connect(@aqr, "aqr9", 8, 9, 0)%>
-<%connect(@aqr, "aqr10", 9, 10, 0)%>
-<%connect(@aqr, "aqr13", 12, 13, 0)%>
-<%connect(@aqr, "aqr14", 13, 14, 0)%>
+<%draw_const(@aqr, "aqr", 0, 1)%>
+<%connect(@aqr, "aqr1", 0, 1, 0, 1)%>
+<%connect(@aqr, "aqr2", 1, 2, 0, 1)%>
+<%connect(@aqr, "aqr3", 2, 3, 0, 1)%>
+<%connect(@aqr, "aqr11", 2, 11, 0, 1)%>
+<%connect(@aqr, "aqr12", 2, 12, 0, 1)%>
+<%connect(@aqr, "aqr5", 3, 5, 0, 1)%>
+<%connect(@aqr, "aqr4", 4, 5, 0, 1)%>
+<%connect(@aqr, "aqr5", 5, 11, 0, 1)%>
+<%connect(@aqr, "aqr6", 6, 7, 0, 1)%>
+<%connect(@aqr, "aqr8", 7, 8, 0, 1)%>
+<%connect(@aqr, "aqr7", 7, 12, 0, 1)%>
+<%connect(@aqr, "aqr9", 8, 9, 0, 1)%>
+<%connect(@aqr, "aqr10", 9, 10, 0, 1)%>
+<%connect(@aqr, "aqr13", 12, 13, 0, 1)%>
+<%connect(@aqr, "aqr14", 13, 14, 0, 1)%>
 
-<%draw_const(@ari, "ari", 0)%>
-<%connect(@ari, "ari", 0, 1, 0)%>
-<%connect(@ari, "ari", 1, 2, 0)%>
-<%connect(@ari, "ari", 2, 3, 0)%>
+<%draw_const(@ari, "ari", 0, 0)%>
+<%connect(@ari, "ari1", 0, 1, 0, 0)%>
+<%connect(@ari, "ari2", 1, 2, 0, 0)%>
+<%connect(@ari, "ari3", 2, 3, 0, 0)%>
 
-<%draw_const(@cap, "cap", 0)%>
-<%connect(@cap, "cap1", 0, 1, 0)%>
-<%connect(@cap, "cap10", 1, 10, 0)%>
-<%connect(@cap, "cap2", 1, 2, 0)%>
-<%connect(@cap, "cap4", 2, 4, 0)%>
-<%connect(@cap, "cap3", 3, 4, 0)%>
-<%connect(@cap, "cap5", 3, 5, 0)%>
-<%connect(@cap, "cap6", 5, 6, 0)%>
-<%connect(@cap, "cap7", 6, 7, 0)%>
-<%connect(@cap, "cap8", 7, 8, 0)%>
-<%connect(@cap, "cap9", 8, 9, 0)%>
-<%connect(@cap, "cap10", 9, 10, 0)%>
+<%draw_const(@cap, "cap", 0, 1)%>
+<%connect(@cap, "cap1", 0, 1, 0, 1)%>
+<%connect(@cap, "cap10", 1, 10, 0, 1)%>
+<%connect(@cap, "cap2", 1, 2, 0, 1)%>
+<%connect(@cap, "cap4", 2, 4, 0, 1)%>
+<%connect(@cap, "cap3", 3, 4, 0, 1)%>
+<%connect(@cap, "cap5", 3, 5, 0, 1)%>
+<%connect(@cap, "cap6", 5, 6, 0, 1)%>
+<%connect(@cap, "cap7", 6, 7, 0, 1)%>
+<%connect(@cap, "cap8", 7, 8, 0, 1)%>
+<%connect(@cap, "cap9", 8, 9, 0, 1)%>
+<%connect(@cap, "cap10", 9, 10, 0, 1)%>
 
-<%draw_const(@cnc, "cnc", 0)%>
-<%connect(@cnc, "cnc1", 0, 1, 0)%>
-<%connect(@cnc, "cnc2", 1, 2, 0)%>
-<%connect(@cnc, "cnc3", 1, 3, 0)%>
-<%connect(@cnc, "cnc4", 3, 4, 0)%>
+<%draw_const(@cnc, "cnc", 0, 0)%>
+<%connect(@cnc, "cnc1", 0, 1, 0, 0)%>
+<%connect(@cnc, "cnc2", 1, 2, 0, 0)%>
+<%connect(@cnc, "cnc3", 1, 3, 0, 0)%>
+<%connect(@cnc, "cnc4", 3, 4, 0, 0)%>
 
-<%draw_const(@gem, "gem", 0)%>
-<%connect(@gem, "gem1", 0, 1, 0)%>
-<%connect(@gem, "gem10", 0, 10, 0)%>
-<%connect(@gem, "gem1", 1, 9, 0)%>
-<%connect(@gem, "gem3", 1, 3, 0)%>
-<%connect(@gem, "gem2", 2, 4, 0)%>
-<%connect(@gem, "gem5", 2, 5, 0)%>
-<%connect(@gem, "gem4", 3, 4, 0)%>
-<%connect(@gem, "gem6", 5, 6, 0)%>
-<%connect(@gem, "gem8", 6, 8, 0)%>
-<%connect(@gem, "gem7", 7, 8, 0)%>
+<%draw_const(@gem, "gem", 0, 0)%>
+<%connect(@gem, "gem1", 0, 1, 0, 0)%>
+<%connect(@gem, "gem10", 0, 10, 0, 0)%>
+<%connect(@gem, "gem1", 1, 9, 0, 0)%>
+<%connect(@gem, "gem3", 1, 3, 0, 0)%>
+<%connect(@gem, "gem2", 2, 4, 0, 0)%>
+<%connect(@gem, "gem5", 2, 5, 0, 0)%>
+<%connect(@gem, "gem4", 3, 4, 0, 0)%>
+<%connect(@gem, "gem6", 5, 6, 0, 0)%>
+<%connect(@gem, "gem8", 6, 8, 0, 0)%>
+<%connect(@gem, "gem7", 7, 8, 0, 0)%>
 
-<%draw_const(@leo, "leo", 0)%>
-<%connect(@leo, "leo1", 0, 1, 0)%>
-<%connect(@leo, "leo5", 0, 5, 0)%>
-<%connect(@leo, "leo2", 1, 2, 0)%>
-<%connect(@leo, "leo3", 1, 3, 0)%>
-<%connect(@leo, "leo3", 2, 3, 0)%>
-<%connect(@leo, "leo4", 3, 4, 0)%>
-<%connect(@leo, "leo5", 4, 5, 0)%>
-<%connect(@leo, "leo6", 4, 6, 0)%>
-<%connect(@leo, "leo7", 6, 7, 0)%>
-<%connect(@leo, "leo8", 7, 8, 0)%>
+<%draw_const(@leo, "leo", 0, 0)%>
+<%connect(@leo, "leo1", 0, 1, 0, 0)%>
+<%connect(@leo, "leo5", 0, 5, 0, 0)%>
+<%connect(@leo, "leo2", 1, 2, 0, 0)%>
+<%connect(@leo, "leo3", 1, 3, 0, 0)%>
+<%connect(@leo, "leo3", 2, 3, 0, 0)%>
+<%connect(@leo, "leo4", 3, 4, 0, 0)%>
+<%connect(@leo, "leo5", 4, 5, 0, 0)%>
+<%connect(@leo, "leo6", 4, 6, 0, 0)%>
+<%connect(@leo, "leo7", 6, 7, 0, 0)%>
+<%connect(@leo, "leo8", 7, 8, 0, 0)%>
 
-<%draw_const(@lib, "lib", 0)%>
-<%connect(@lib, "lib1", 0, 1, 0)%>
-<%connect(@lib, "lib2", 0, 2, 0)%>
-<%connect(@lib, "lib1", 1, 2, 0)%>
-<%connect(@lib, "lib3", 1, 3, 0)%>
-<%connect(@lib, "lib4", 2, 4, 0)%>
-<%connect(@lib, "lib5", 4, 5, 0)%>
+<%draw_const(@lib, "lib", 0, 1)%>
+<%connect(@lib, "lib1", 0, 1, 0, 1)%>
+<%connect(@lib, "lib2", 0, 2, 0, 1)%>
+<%connect(@lib, "lib1", 1, 2, 0, 1)%>
+<%connect(@lib, "lib3", 1, 3, 0, 1)%>
+<%connect(@lib, "lib4", 2, 4, 0, 1)%>
+<%connect(@lib, "lib5", 4, 5, 0, 1)%>
 
-<%draw_const(@pisc, "pisc", 1)%>
-<%connect(@pisc, "pisc1", 0, 1, 1)%>
-<%connect(@pisc, "pisc4", 0, 4, 1)%>
-<%connect(@pisc, "pisc2", 1, 2, 1)%>
-<%connect(@pisc, "pisc3", 2, 3, 1)%>
-<%connect(@pisc, "pisc4", 3, 4, 1)%>
-<%connect(@pisc, "pisc5", 0, 5, 1)%>
-<%connect(@pisc, "pisc6", 5, 6, 1)%>
-<%connect(@pisc, "pisc7", 6, 7, 1)%>
-<%connect(@pisc, "pisc8", 7, 8, 1)%>
-<%connect(@pisc, "pisc9", 8, 9, 1)%>
-<%connect(@pisc, "pisc10", 9, 10, 1)%>
-<%connect(@pisc, "pisc11", 10, 11, 1)%>
-<%connect(@pisc, "pisc12", 11, 12, 1)%>
-<%connect(@pisc, "pisc13", 12, 13, 1)%>
-<%connect(@pisc, "pisc14", 12, 14, 1)%>
-<%connect(@pisc, "pisc14", 13, 14, 1)%>
+<%draw_const(@pisc, "pisc", 1, 1)%>
+<%connect(@pisc, "pisc1", 0, 1, 1, 1)%>
+<%connect(@pisc, "pisc4", 0, 4, 1, 1)%>
+<%connect(@pisc, "pisc2", 1, 2, 1, 1)%>
+<%connect(@pisc, "pisc3", 2, 3, 1, 1)%>
+<%connect(@pisc, "pisc4", 3, 4, 1, 1)%>
+<%connect(@pisc, "pisc5", 0, 5, 1, 1)%>
+<%connect(@pisc, "pisc6", 5, 6, 1, 1)%>
+<%connect(@pisc, "pisc7", 6, 7, 1, 1)%>
+<%connect(@pisc, "pisc8", 7, 8, 1, 1)%>
+<%connect(@pisc, "pisc9", 8, 9, 1, 1)%>
+<%connect(@pisc, "pisc10", 9, 10, 1, 1)%>
+<%connect(@pisc, "pisc11", 10, 11, 1, 1)%>
+<%connect(@pisc, "pisc12", 11, 12, 1, 1)%>
+<%connect(@pisc, "pisc13", 12, 13, 1, 1)%>
+<%connect(@pisc, "pisc14", 12, 14, 1, 1)%>
+<%connect(@pisc, "pisc14", 13, 14, 1, 1)%>
 
-<%draw_const(@sgr, "sgr", 0)%>
-<%connect(@sgr, "sgr4", 1, 4, 0)%>
-<%connect(@sgr, "sgr6", 1, 6, 0)%>
-<%connect(@sgr, "sgr7", 1, 7, 0)%>
-<%connect(@sgr, "sgr6", 6, 4, 0)%>
-<%connect(@sgr, "sgr8", 6, 8, 0)%>
-<%connect(@sgr, "sgr9", 6, 9, 0)%>
-<%connect(@sgr, "sgr7", 7, 8, 0)%>
-<%connect(@sgr, "sgr10", 7, 10, 0)%>
-<%connect(@sgr, "sgr9", 8, 9, 0)%>
-<%connect(@sgr, "sgr11", 8, 11, 0)%>
-<%connect(@sgr, "sgr11", 10, 11, 0)%>
+<%draw_const(@sgr, "sgr", 0, 1)%>
+<%connect(@sgr, "sgr4", 1, 4, 0, 1)%>
+<%connect(@sgr, "sgr6", 1, 6, 0, 1)%>
+<%connect(@sgr, "sgr7", 1, 7, 0, 1)%>
+<%connect(@sgr, "sgr6", 6, 4, 0, 1)%>
+<%connect(@sgr, "sgr8", 6, 8, 0, 1)%>
+<%connect(@sgr, "sgr9", 6, 9, 0, 1)%>
+<%connect(@sgr, "sgr7", 7, 8, 0, 1)%>
+<%connect(@sgr, "sgr10", 7, 10, 0, 1)%>
+<%connect(@sgr, "sgr9", 8, 9, 0, 1)%>
+<%connect(@sgr, "sgr11", 8, 11, 0, 1)%>
+<%connect(@sgr, "sgr11", 10, 11, 0, 1)%>
 
-<%draw_const(@sco, "sco", 0)%>
-<%connect(@sco, "sco1", 0, 1, 0)%>
-<%connect(@sco, "sco2", 1, 2, 0)%>
-<%connect(@sco, "sco3", 2, 3, 0)%>
-<%connect(@sco, "sco4", 3, 4, 0)%>
-<%connect(@sco, "sco5", 2, 5, 0)%>
-<%connect(@sco, "sco6", 5, 6, 0)%>
-<%connect(@sco, "sco7", 6, 7, 0)%>
-<%connect(@sco, "sco11", 7, 11, 0)%>
-<%connect(@sco, "sco9", 8, 9, 0)%>
-<%connect(@sco, "sco8", 8, 16, 0)%>
-<%connect(@sco, "sco9", 9, 10, 0)%>
-<%connect(@sco, "sco12", 11, 12, 0)%>
-<%connect(@sco, "sco13", 12, 13, 0)%>
-<%connect(@sco, "sco14", 13, 14, 0)%>
-<%connect(@sco, "sco15", 14, 15, 0)%>
-<%connect(@sco, "sco16", 15, 16, 0)%>
+<%draw_const(@sco, "sco", 0, 1)%>
+<%connect(@sco, "sco1", 0, 1, 0, 1)%>
+<%connect(@sco, "sco2", 1, 2, 0, 1)%>
+<%connect(@sco, "sco3", 2, 3, 0, 1)%>
+<%connect(@sco, "sco4", 3, 4, 0, 1)%>
+<%connect(@sco, "sco5", 2, 5, 0, 1)%>
+<%connect(@sco, "sco6", 5, 6, 0, 1)%>
+<%connect(@sco, "sco7", 6, 7, 0, 1)%>
+<%connect(@sco, "sco11", 7, 11, 0, 1)%>
+<%connect(@sco, "sco9", 8, 9, 0, 1)%>
+<%connect(@sco, "sco8", 8, 16, 0, 1)%>
+<%connect(@sco, "sco9", 9, 10, 0, 1)%>
+<%connect(@sco, "sco12", 11, 12, 0, 1)%>
+<%connect(@sco, "sco13", 12, 13, 0, 1)%>
+<%connect(@sco, "sco14", 13, 14, 0, 1)%>
+<%connect(@sco, "sco15", 14, 15, 0, 1)%>
+<%connect(@sco, "sco16", 15, 16, 0, 1)%>
 
+<%draw_const(@taur, "taur", 0, 0)%>
+<%connect(@taur, "taur1", 0, 1, 0, 0)%>
+<%connect(@taur, "taur2", 1, 2, 0, 0)%>
+<%connect(@taur, "taur3", 2, 3, 0, 0)%>
+<%connect(@taur, "taur4", 3, 4, 0, 0)%>
+<%connect(@taur, "taur5", 3, 5, 0, 0)%>
+<%connect(@taur, "taur6", 6, 4, 0, 0)%>
+<%connect(@taur, "taur7", 6, 7, 0, 0)%>
+<%connect(@taur, "taur9", 5, 9, 0, 0)%>
+<%connect(@taur, "taur9", 8, 9, 0, 0)%>
 
-<%draw_const(@taur, "taur", 0)%>
-<%connect(@taur, "taur1", 0, 1, 0)%>
-<%connect(@taur, "taur2", 1, 2, 0)%>
-<%connect(@taur, "taur3", 2, 3, 0)%>
-<%connect(@taur, "taur4", 3, 4, 0)%>
-<%connect(@taur, "taur5", 3, 5, 0)%>
-<%connect(@taur, "taur6", 6, 4, 0)%>
-<%connect(@taur, "taur7", 6, 7, 0)%>
-<%connect(@taur, "taur9", 5, 9, 0)%>
-<%connect(@taur, "taur9", 8, 9, 0)%>
-
-
-<%draw_const(@virgo, "virgo", 0)%>
-<%connect(@virgo, "virgo3", 0, 3, 0)%>
-<%connect(@virgo, "virgo2", 2, 5, 0)%>
-<%connect(@virgo, "virgo2", 2, 7, 0)%>
-<%connect(@virgo, "virgo4", 3, 4, 0)%>
-<%connect(@virgo, "virgo7", 4, 7, 0)%>
-<%connect(@virgo, "virgo4", 4, 8, 0)%>
-<%connect(@virgo, "virgo6", 6, 7, 0)%>
-<%connect(@virgo, "virgo10", 6, 10, 0)%>
-<%connect(@virgo, "virgo11", 7, 11, 0)%>
-<%connect(@virgo, "virgo8", 8, 9, 0)%>
-<%connect(@virgo, "virgo12", 11, 12, 0)%>
+<%draw_const(@virgo, "virgo", 0, 1)%>
+<%connect(@virgo, "virgo3", 0, 3, 0, 1)%>
+<%connect(@virgo, "virgo2", 2, 5, 0, 1)%>
+<%connect(@virgo, "virgo2", 2, 7, 0, 1)%>
+<%connect(@virgo, "virgo4", 3, 4, 0, 1)%>
+<%connect(@virgo, "virgo7", 4, 7, 0, 1)%>
+<%connect(@virgo, "virgo4", 4, 8, 0, 1)%>
+<%connect(@virgo, "virgo6", 6, 7, 0, 1)%>
+<%connect(@virgo, "virgo10", 6, 10, 0, 1)%>
+<%connect(@virgo, "virgo11", 7, 11, 0, 1)%>
+<%connect(@virgo, "virgo8", 8, 9, 0, 1)%>
+<%connect(@virgo, "virgo12", 11, 12, 0, 1)%>
 
 </svg>
+
+<script>
+drawLabel(150,75, "Leo");
+drawLabel(350,250, "Cancer");
+drawLabel(425,325, "Gemini");
+drawLabel(475,500, "Taurus");
+drawLabel(600,575, "Aries");
+drawLabel(800,650, "Pisces");
+drawLabel(1000,600, "Aquarius");
+drawLabel(1150,550, "Capricorn");
+drawLabel(1250,450, "Sagittarius");
+drawLabel(1300,375, "Scorpius");
+drawLabel(1325,275, "Libra");
+drawLabel(1450,100, "Virgo");
+</script>
+
 <h2>Zodiac Signs</h2>
 <ul>
   <li id="aqr_a"></li>

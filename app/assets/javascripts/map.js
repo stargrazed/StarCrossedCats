@@ -39,6 +39,20 @@ function createCircle(x, y) {
     area.appendChild(circle);
   }
 
+function drawLabel(x, y, name){
+  var area, tag;
+  area = document.getElementById("test");
+
+  tag = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+  tag.setAttribute('x', x);
+  tag.setAttribute('y', y);
+  tag.setAttribute('fill', "red")
+  tag.setAttribute('font-size', "20")
+  tag.textContent = name;
+
+  area.appendChild(tag);
+}
+
 function ursa_minor_Click(id) {
   var i;
   if (id > 0) {
@@ -228,7 +242,7 @@ function cnc_Click(id) {
       cnc_count = cnc_count + 1;
   }
   var fill = document.getElementById("cnc_a");
-  fill.innerHTML ="Cancer: "+ cap_count + "/4";
+  fill.innerHTML ="Cancer: "+ cnc_count + "/4";
   document.getElementById("cnc"+id).onclick = ""; //do nothing now
 }
 
@@ -367,7 +381,7 @@ function leo_Click(id) {
     leo_count = leo_count + 2;
   }
   var fill = document.getElementById("leo_a");
-  fill.innerHTML ="Leo: "+ leo_count + "/9";
+  fill.innerHTML ="Leo: "+ leo_count + "/10";
   document.getElementById("leo"+id).onclick = ""; //do nothing now
 }
 
