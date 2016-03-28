@@ -57,7 +57,7 @@ class ConstellationsController < ApplicationController
   def destroy
     @constellation.destroy
     respond_to do |format|
-      format.html { redirect_to constellations_url, notice: 'Constellation was successfully destroyed.' }
+      format.html { redirect_to constellations_url, notice: 'Constellation was successfully deleted.' }
       format.json { head :no_content }
     end
   end
