@@ -37,15 +37,15 @@
         </tr>
         </thead>
         <tbody>
-        <% @constellations.order(:constellation).each do |constellation| %>
+        <% @constellations.order(:Constellation).each do |constellation| %>
             <tr>
-              <td><%= constellation.constellation %></td>
-              <td><%= constellation.abbreviation %></td>
-              <td><%= constellation.family %></td>
-              <td><%= constellation.origin %></td>
-              <td><%= constellation.meaning %></td>
-              <td><%= constellation.brightest_star %></td>
-              <td><%= constellation.image %></td>
+              <td><%= constellation.Constellation %></td>
+              <td><%= constellation.Abbreviation %></td>
+              <td><%= constellation.Family %></td>
+              <td><%= constellation.Origin %></td>
+              <td><%= constellation.Meaning %></td>
+              <td><%= constellation.Brightest_star %></td>
+              <td><%= constellation.Image %></td>
             </tr>
         <% end %>
         </tbody>
