@@ -14,6 +14,7 @@ var cygnus_count = 0;
 var draco_count = 0;
 var gem_count = 0;
 var herc_count = 0 ;
+var hydra_count = 0;
 var leo_count = 0;
 var leo_minor_count = 0;
 var lib_count = 0;
@@ -364,6 +365,25 @@ function gem_Click(id) {
   var fill = document.getElementById("gem_a");
   fill.innerHTML ="Gemini: "+ gem_count + "/10";
   document.getElementById("gem"+id).onclick = ""; //do nothing now
+}
+
+function hydra_Click(id) {
+  var i;
+  if (id > 0) {
+    var change = document.getElementsByClassName("hydra"+id);
+    for(i=0; i<change.length; i++){
+      change[i].style.visibility = 'visible';
+    }
+  }
+  if(id==2 || id==3 || id==4 ||id == 5 || id==6 || id==7 || id==8 || id==9||id==10 ||id==11 ||id==12 ||id==13 || id==14){
+    hydra_count = hydra_count + 1;
+  }
+  else if(id == 1){
+    hydra_count = hydra_count + 2;
+  }
+  var fill = document.getElementById("hydra_a");
+  fill.innerHTML ="Hydra: "+ hydra_count + "/17";
+  document.getElementById("hydra"+id).onclick = ""; //do nothing now
 }
 
 function leo_Click(id) {
