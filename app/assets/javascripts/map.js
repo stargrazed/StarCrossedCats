@@ -5,12 +5,19 @@ var aqr_count = 0;
 var ari_count = 0;
 var aur_count = 0;
 var bootes_count = 0;
-var cap_count = 0;
 var canis_minor_count = 0;
+var cap_count = 0;
+var car_count = 0;
 var cass_count = 0;
+var cen_count = 0;
 var cep_count = 0;
+var col_count = 0;
 var cnc_count = 0;
+var cra_count = 0;
+var crb_count = 0;
+var cru_count = 0;
 var cygnus_count = 0;
+var dor_count = 0;
 var draco_count = 0;
 var gem_count = 0;
 var herc_count = 0 ;
@@ -20,12 +27,15 @@ var leo_minor_count = 0;
 var lib_count = 0;
 var lyra_count = 0;
 var orion_count = 0;
+var mon_count = 0;
 var pers_count = 0;
 var pegas_count = 0;
 var pisc_count = 0;
+var pup_count = 0;
 var sco_count = 0;
 var sgr_count = 0;
 var taur_count = 0;
+var vel_count = 0;
 var virgo_count = 0;
 
 function createCircle(x, y) {
@@ -168,6 +178,22 @@ function aur_Click(id) {
   document.getElementById("aur"+id).onclick = ""; //do nothing now
 }
 
+function car_Click(id) {
+  var i;
+  if (id > 0) {
+    var change = document.getElementsByClassName("car"+id);
+    for(i=0; i<change.length; i++){
+      change[i].style.visibility = 'visible';
+    }
+  }
+  if(id == 1 || id==2 || id==3 || id==4 || id==5 || id==6|| id==7|| id==8|| id==9){
+      car_count = car_count + 1;
+  }
+  var fill = document.getElementById("car_a");
+  fill.innerHTML ="Carina: "+ car_count + "/9";
+  document.getElementById("car"+id).onclick = ""; //do nothing now
+}
+
 function cass_Click(id) {
   var i;
   if (id > 0) {
@@ -231,6 +257,25 @@ function cap_Click(id) {
   document.getElementById("cap"+id).onclick = ""; //do nothing now
 }
 
+function cen_Click(id) {
+  var i;
+  if (id > 0) {
+    var change = document.getElementsByClassName("cen"+id);
+    for(i=0; i<change.length; i++){
+      change[i].style.visibility = 'visible';
+    }
+  }
+  if(id == 1 || id==2 || id==3 || id==4|| id==5 || id==6 || id==7|| id==8 || id==12 || id==13||id==14||id==15||id==16){
+      cen_count = cen_count + 1;
+  }
+  else if(id == 9 || id==10){
+        cen_count = cen_count + 2;
+    }
+  var fill = document.getElementById("cen_a");
+  fill.innerHTML ="Centaurus: "+ cen_count + "/17";
+  document.getElementById("cen"+id).onclick = ""; //do nothing now
+}
+
 function cnc_Click(id) {
   var i;
   if (id > 0) {
@@ -245,6 +290,86 @@ function cnc_Click(id) {
   var fill = document.getElementById("cnc_a");
   fill.innerHTML ="Cancer: "+ cnc_count + "/4";
   document.getElementById("cnc"+id).onclick = ""; //do nothing now
+}
+
+function col_Click(id) {
+  var i;
+  if (id > 0) {
+    var change = document.getElementsByClassName("col"+id);
+    for(i=0; i<change.length; i++){
+      change[i].style.visibility = 'visible';
+    }
+  }
+  if(id == 1 || id==2 || id==3 || id==4 || id==5 || id==6){
+      col_count = col_count + 1;
+  }
+  var fill = document.getElementById("col_a");
+  fill.innerHTML ="Columba: "+ col_count + "/6";
+  document.getElementById("col"+id).onclick = ""; //do nothing now
+}
+
+function cra_Click(id) {
+  var i;
+  if (id > 0) {
+    var change = document.getElementsByClassName("cra"+id);
+    for(i=0; i<change.length; i++){
+      change[i].style.visibility = 'visible';
+    }
+  }
+  if(id == 1 || id==2 || id==3 || id==4 || id==5){
+      cra_count = cra_count + 1;
+  }
+  var fill = document.getElementById("cra_a");
+  fill.innerHTML ="Corona Australis: "+ cra_count + "/5";
+  document.getElementById("cra"+id).onclick = ""; //do nothing now
+}
+
+function crb_Click(id) {
+  var i;
+  if (id > 0) {
+    var change = document.getElementsByClassName("crb"+id);
+    for(i=0; i<change.length; i++){
+      change[i].style.visibility = 'visible';
+    }
+  }
+  if(id == 1 || id==2 || id==3 || id==4 || id==5||id==6){
+      crb_count = crb_count + 1;
+  }
+  var fill = document.getElementById("crb_a");
+  fill.innerHTML ="Corona Borealis: "+ crb_count + "/6";
+  document.getElementById("crb"+id).onclick = ""; //do nothing now
+}
+
+function cru_Click(id) {
+  var i;
+  if (id > 0) {
+    var change = document.getElementsByClassName("cru"+id);
+    for(i=0; i<change.length; i++){
+      change[i].style.visibility = 'visible';
+    }
+  }
+  if(id == 1 || id==3){
+      cru_count = cru_count + 1;
+  }
+  var fill = document.getElementById("cru_a");
+  fill.innerHTML ="Crux: "+ cru_count + "/2";
+  document.getElementById("cru"+id).onclick = ""; //do nothing now
+}
+
+function dor_Click(id) {
+  var i;
+  if (id > 0) {
+    var change = document.getElementsByClassName("dor"+id);
+    for(i=0; i<change.length; i++){
+      change[i].style.visibility = 'visible';
+    }
+  }
+  if(id == 1 || id==2 || id==3 || id==4){
+      dor_count = dor_count + 1;
+  }
+  var fill = document.getElementById("dor_a");
+  fill.innerHTML ="Dorado: "+ dor_count + "/4";
+  document.getElementById("dor"+id).onclick = ""; //do nothing now
 }
 
 function draco_Click(id) {
@@ -470,6 +595,25 @@ function lynx_Click(id) {
     document.getElementsByClassName("lynx"+id).onclick = ""; //do nothing now
 }
 
+function mon_Click(id) {
+  var i;
+  if (id > 0) {
+    var change = document.getElementsByClassName("mon"+id);
+    for(i=0; i<change.length; i++){
+      change[i].style.visibility = 'visible';
+    }
+  }
+  if(id==3 || id==4 || id==5|| id==6|| id==7){
+    mon_count = mon_count + 1;
+  }
+  else if(id==1){
+    mon_count = mon_count + 3;
+  }
+  var fill = document.getElementById("mon_a");
+  fill.innerHTML ="Monoceros: "+ mon_count + "/8";
+  document.getElementById("mon"+id).onclick = ""; //do nothing now
+}
+
 function orion_Click(id) {
   var i;
   if (id > 0) {
@@ -549,6 +693,22 @@ function pisc_Click(id) {
   document.getElementById("pisc"+id).onclick = ""; //do nothing now
 }
 
+function pup_Click(id) {
+  var i;
+  if (id > 0) {
+    var change = document.getElementsByClassName("pup"+id);
+    for(i=0; i<change.length; i++){
+      change[i].style.visibility = 'visible';
+    }
+  }
+  if(id == 1 || id==5|| id==6|| id==7|| id==8){
+    pup_count = pup_count + 1;
+  }
+  var fill = document.getElementById("pup_a");
+  fill.innerHTML ="Puppis: "+ pup_count + "/5";
+  document.getElementById("pup"+id).onclick = ""; //do nothing now
+}
+
 function sgr_Click(id) {
   var i;
   if (id > 0) {
@@ -601,6 +761,25 @@ function taur_Click(id) {
   var fill = document.getElementById("taur_a");
   fill.innerHTML ="Taurus: "+ taur_count + "/9";
   document.getElementById("taur"+id).onclick = ""; //do nothing now
+}
+
+function vel_Click(id) {
+  var i;
+  if (id > 0) {
+    var change = document.getElementsByClassName("vel"+id);
+    for(i=0; i<change.length; i++){
+      change[i].style.visibility = 'visible';
+    }
+  }
+  if(id == 1 || id==2 || id==3 || id==4 || id==5|| id==7|| id==8|| id==9){
+    vel_count = vel_count + 1;
+  }
+  else if(id==10){
+    vel_count = vel_count + 2;
+  }
+  var fill = document.getElementById("vel_a");
+  fill.innerHTML ="Vela: "+ vel_count + "/10";
+  document.getElementById("vel"+id).onclick = ""; //do nothing now
 }
 
 function virgo_Click(id) {
