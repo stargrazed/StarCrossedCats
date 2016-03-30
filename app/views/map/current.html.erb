@@ -60,6 +60,11 @@
       <%x_shift = x_shift - 1800%>
     <%end%>
 
+    <%if((const[i][0]*x_scale+x_shift) > 1000)%>
+      <%i = i+1%>
+      <%next%>
+    <%end%>
+
     <%red = star_red(const[i][3])%>
     <%green = star_green(const[i][3])%>
     <%blue = star_blue(const[i][3])%>
@@ -102,6 +107,14 @@
   <%end%>
 
   <%if ((const[s1][0]*x_scale+x_shift_1)-(const[s2][0]*x_scale+x_shift_2)).abs > 1000%>
+    <%return%>
+  <%end%>
+
+  <%if ((const[s2][0]*x_scale+x_shift_2)) > 1000%>
+    <%return%>
+  <%end%>
+
+  <%if ((const[s1][0]*x_scale+x_shift_1)) > 1000%>
     <%return%>
   <%end%>
 
