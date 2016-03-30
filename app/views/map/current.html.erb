@@ -4,7 +4,8 @@
 <%= render(:partial => "default")%>
 
 <p>You require Chrome or IE9 to view this page properly.</p>
-<p>DYNAMIC ! ! ! ! !.</p>
+<p>Possible constellations based on the time of year. It is assumed to be 9-12pm,
+Regardless of region.</p>
 <div id="timer">
   <span>00:00:00</span>
 </div>
@@ -121,6 +122,30 @@
   <line class="<%=class_name%>" x1="<%=const[s1][0]*x_scale+x_shift_1%>" y1="<%=const[s1][1]*y_scale+y_shift%>"
     x2="<%=const[s2][0]*x_scale+x_shift_2%>" y2="<%=const[s2][1]*y_scale+y_shift%>"/>
     <%return%>
+<%end%>
+
+<%def confirm_const(const, class_name, cross_90, post_half)%>
+  <%x_scale = -5%>
+  <%x_shift = 150 + 150*@this_month%>
+  <%y_scale = 5%>
+  <%y_shift = 0%>
+
+  <%x_shift = x_shift + 900*post_half%>
+
+  <%if cross_90 == 1%>
+    <%if const[0][0] < 0%>
+      <%x_shift = x_shift-900%>
+    <%end%>
+  <%end%>
+
+  <%if ((const[0][0]*x_scale+x_shift) > 1800)%>
+    <%x_shift = x_shift - 1800%>
+  <%end%>
+
+  <%if((const[0][0]*x_scale+x_shift) > 100 && (const[0][0]*x_scale+x_shift < 900))%>
+    <li id="<%=class_name%>_a"></li>
+  <%end%>
+  <%return%>
 <%end%>
 
 <%draw_const(@andro, "andro", 0, 0)%>
@@ -402,12 +427,12 @@
 <%connect(@lyra, "lyra5", 2, 5, 0, 1)%>
 
 <%draw_const(@lynx, "lynx", 0, 0)%>
-<%connect(@lynx, "lynx2", 0, 1, 0, 0)%>
+<%connect(@lynx, "lynx1", 0, 1, 0, 0)%>
 <%connect(@lynx, "lynx2", 1, 2, 0, 0)%>
-<%connect(@lynx, "lynx2", 2, 3, 0, 0)%>
-<%connect(@lynx, "lynx3", 3, 4, 0, 0)%>
-<%connect(@lynx, "lynx4", 4, 5, 0, 0)%>
-<%connect(@lynx, "lynx5", 5, 6, 0, 0)%>
+<%connect(@lynx, "lynx3", 2, 3, 0, 0)%>
+<%connect(@lynx, "lynx4", 3, 4, 0, 0)%>
+<%connect(@lynx, "lynx5", 4, 5, 0, 0)%>
+<%connect(@lynx, "lynx6", 5, 6, 0, 0)%>
 
 <%draw_const(@mon, "mon", 0, 0)%>
 <%connect(@mon, "mon1", 0, 1, 0, 0)%>
@@ -593,6 +618,51 @@
 <%connect(@virgo, "virgo11", 7, 11, 0, 1)%>
 <%connect(@virgo, "virgo8", 8, 9, 0, 1)%>
 <%connect(@virgo, "virgo12", 11, 12, 0, 1)%>
+
+</svg>
+<h2>Viewable at night</h2>
+<ul>
+  <%confirm_const(@aqr, "aqr", 0, 1)%>
+  <%confirm_const(@aqu, "aqu", 0, 1)%>
+  <%confirm_const(@ari, "ari", 0, 0)%>
+  <%confirm_const(@aur, "aur", 0, 0)%>
+  <%confirm_const(@bootes, "bootes", 0, 1)%>
+  <%confirm_const(@canis_minor, "canis_minor", 0, 0)%>
+  <%confirm_const(@cap, "cap", 0, 1)%>
+  <%confirm_const(@car, "car", 1, 0)%>
+  <%confirm_const(@cass, "cass", 0, 0)%>
+  <%confirm_const(@cen, "cen", 0, 1)%>
+  <%confirm_const(@col, "col", 0, 0)%>
+  <%confirm_const(@cnc, "cnc", 0, 0)%>
+  <%confirm_const(@cra, "cra", 0, 1)%>
+  <%confirm_const(@crb, "crb", 0, 1)%>
+  <%confirm_const(@cru, "cru", 0, 1)%>
+  <%confirm_const(@cygnus, "cygnus", 0, 1)%>
+  <%confirm_const(@dor, "dor", 1, 0)%>
+  <%confirm_const(@draco, "draco", 0, 1)%>
+  <%confirm_const(@gem, "gem", 0, 0)%>
+  <%confirm_const(@herc, "herc", 0, 1)%>
+  <%confirm_const(@hydra, "hydra", 1, 0)%>
+  <%confirm_const(@leo, "leo", 0, 0)%>
+  <%confirm_const(@leo_minor, "leo_minor", 0, 0)%>
+  <%confirm_const(@lib, "lib", 0, 1)%>
+  <%confirm_const(@lyra, "lyra", 0, 1)%>
+  <%confirm_const(@lynx, "lynx", 0, 0)%>
+  <%confirm_const(@mon, "mon", 0, 0)%>
+  <%confirm_const(@orion, "orion", 0, 0)%>
+  <%confirm_const(@pers, "pers", 0, 0)%>
+  <%confirm_const(@pegas, "pegas", 0, 1)%>
+  <%confirm_const(@pers, "pers", 0, 0)%>
+  <%confirm_const(@pisc, "pisc", 1, 1)%>
+  <%confirm_const(@pup, "pup", 0, 0)%>
+  <%confirm_const(@sco, "sco", 0, 1)%>
+  <%confirm_const(@sgr, "sgr", 0, 1)%>
+  <%confirm_const(@taur, "taur", 0, 0)%>
+  <%confirm_const(@vel, "vel", 1, 0)%>
+  <%confirm_const(@virgo, "virgo", 0, 1)%>
+  <%confirm_const(@ursa_major, "ursa_major", 0, 0)%>
+  <%confirm_const(@ursa_minor, "ursa_minor", 0, 0)%>
+</ul>
 
 <script>clickedSkymap()</script>
 <script src="timer.js"></script>

@@ -26,6 +26,7 @@ var leo_count = 0;
 var leo_minor_count = 0;
 var lib_count = 0;
 var lyra_count = 0;
+var lynx_count = 0;
 var orion_count = 0;
 var mon_count = 0;
 var pers_count = 0;
@@ -592,7 +593,12 @@ function lynx_Click(id) {
       change[i].style.visibility = 'visible';
     }
   }
-    document.getElementsByClassName("lynx"+id).onclick = ""; //do nothing now
+  if(id==1||id==2 || id==3 || id==4||id==5||id==6){
+    lynx_count = lynx_count + 1;
+  }
+  var fill = document.getElementById("lynx_a");
+  fill.innerHTML ="Lynx: "+ lynx_count + "/6";
+  document.getElementById("lynx"+id).onclick = ""; //do nothing now
 }
 
 function mon_Click(id) {
