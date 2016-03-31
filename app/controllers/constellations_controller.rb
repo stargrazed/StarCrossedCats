@@ -63,8 +63,12 @@ class ConstellationsController < ApplicationController
   end
 
   def import
-    Constellation.import(params[:file])
-    redirect_to constellations_url, notice: "Constellation Data Imported!"
+    begin
+      Constellation.import(params[:file])
+      redirect_to constellations_url, notice: "Constellation Data Imported!"
+    rescue
+      redirect_to constellations_url, notice: "Error! Invalid format!"
+    end
   end
 
   private
