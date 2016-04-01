@@ -14,7 +14,6 @@ class Constellation < ActiveRecord::Base
       end
       constellations_to_keep << constellation_hash["Abbreviation"]
     end
-    Rails.logger.debug constellations_to_keep.inspect
     Constellation.where('constellations."Abbreviation" NOT IN (?)', constellations_to_keep).destroy_all
   end
 end
