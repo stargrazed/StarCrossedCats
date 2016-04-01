@@ -1,0 +1,10 @@
+<title>Welcome to our wonderful domain!</title>
+<meta name="description" content="A desciption of our website and introduction.">
+<%= stylesheet_link_tag('application') %>
+<%= render(:partial => "default")%>
+
+<h3>Edit constellation - "<%= @constellation.Constellation %>"</h3>
+
+<%= render 'form' %>
+
+<%= link_to 'Cancel', constellations_path %>

@@ -25,16 +25,14 @@
             <li><%= link_to("Sign-Up", {:controller => 'login', :action => 'new_user'})%></li>
           </ul>
         </li>
-        <li><%= link_to("Maps", {:controller => 'map', :action => 'index'}, class:"current")%>
+        <li><%= link_to("Maps", {:controller => 'map', :action => 'index'})%>
           <ul>
-            <li><%= link_to("Current", {:action => 'current'})%></li>
-            <li><%= link_to("West Night", {:action => 'west'})%></li>
-            <li><%= link_to("East Night", {:action => 'east'})%></li>
-            <li><%= link_to("Zodiac", {:action => 'zod'})%></li>
-            <li><%= link_to("Index", {:action => 'index'})%></li>
+            <li><%= link_to("Index", {:controller => 'map', :action => 'index'})%></li>
+            <li><%= link_to("East Night", {:controller => 'map', :action => 'east'})%></li>
+            <li><%= link_to("West Night", {:controller => 'map', :action => 'west'})%></li>
           </ul>
         </li>
-        <li><%= link_to("Fun-Facts", {:controller => 'constellations', :action => 'index'})%></li>
+        <li><%= link_to("Fun-Facts", {:controller => 'constellations', :action => 'index'}, class:"current")%></li>
         <li><%= link_to("Learn More", {:controller => 'learn', :action => 'index'})%></li>
       </ul>
     </nav>

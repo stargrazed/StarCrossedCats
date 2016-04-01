@@ -1,0 +1,58 @@
+<%= form_for(@constellation) do |f| %>
+  <% if @constellation.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@constellation.errors.count, "error") %> prohibited this constellation from being saved:</h2>
+
+      <ul>
+      <% @constellation.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div id="wrapper">
+    <div id="edit_fields">
+      <p>
+        <%= f.label :Name %><br>
+        <%= f.text_field :Constellation %>
+      </p>
+      <p>
+        <%= f.label :Abbreviation %><br>
+        <%= f.text_field :Abbreviation %>
+      </p>
+      <p>
+        <%= f.label :Family %><br>
+        <%= f.text_field :Family %>
+      </p>
+      <p>
+        <%= f.label :Origin %><br>
+        <%= f.text_field :Origin %>
+      </p>
+      <p>
+        <%= f.label :Meaning %><br>
+        <%= f.text_field :Meaning %>
+      </p>
+      <p>
+        <%= f.label "Brightest Star" %><br>
+        <%= f.text_field :Brightest_star %>
+      </p>
+      <p>
+        <%= f.label "Additional Info" %><br>
+        <%= f.text_field :Info %>
+      </p>
+      <p>
+        <%= f.label "Image URL" %><br>
+        <%= f.text_field :Image %>
+      </p>
+    </div>
+
+    <div id="constelImage">
+      <%= image_tag("#{@constellation.Image}", :size => "500x510") %>
+    </div>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

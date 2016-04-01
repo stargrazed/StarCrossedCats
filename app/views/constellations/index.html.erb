@@ -1,0 +1,86 @@
+<title>Welcome to our wonderful domain!</title>
+<meta name="description" content="A desciption of our website and introduction.">
+<%= stylesheet_link_tag('application') %>
+<%= render(:partial => "default")%>
+
+<% if session[:user_id] && session[:username] == 'admin' %>
+    <%= flash[:notice] %>
+    <div class="admin">
+    <span>
+        <h3>Upload/Update Constellations</h3>
+    </span>
+      <%= form_tag import_constellations_path, multipart: true do %>
+        <%= file_field_tag :file %>
+        <%= submit_tag "Submit CSV" %>
+      <% end %>
+    </div>
+<% end %>
+
+<% constellations = Constellation.all %>
+  <% if constellations.size != 0 %>
+    <% count = 0 %>
+    <div id="tableOfContents">
+      <h2>Table of Contents</h2>
+      <span>
+        <% @constellations.order(:Constellation).each do |constellation| %>
+          <% count += 1 %>
+          <a href="#<%= constellation.Abbreviation %>"><%=constellation.Constellation %></a><% if count != constellations.size %>, <% end %>
+        <% end %>
+      </span>
+    </div>
+  <% end %>
+
+<div id="constellList">
+  <span>
+    <h2>Constellations</h2>
+  </span>
+  <% if constellations.size == 0 %>
+      <span>No constellations to display :(</span>
+  <% else %>
+      <table>
+        <thead>
+        <tr>
+          <th>Constellation</th>
+          <th>Abbreviation</th>
+          <th>Family</th>
+          <th>Origin</th>
+          <th>Meaning</th>
+          <th>Brightest Star</th>
+          <th>Additional Info</th>
+          <th>Image</th>
+          <% if session[:user_id] && session[:username] == 'admin' %>
+            <th>Admin Tools</th>
+          <% end %>
+        </tr>
+        </thead>
+        <tbody>
+        <% @constellations.order(:Constellation).each do |constellation| %>
+            <tr id=<%= constellation.Abbreviation %>>
+              <td><%= constellation.Constellation %></td>
+              <td><%= constellation.Abbreviation %></td>
+              <td><%= constellation.Family %></td>
+              <td><%= constellation.Origin %></td>
+              <td><%= constellation.Meaning %></td>
+              <td><%= constellation.Brightest_star %></td>
+              <td><%= constellation.Info %></td>
+              <td>
+                <div class="enlarge">
+                  <%= image_tag("#{constellation.Image}", :size => "50x55") %>
+                  <span><%= image_tag("#{constellation.Image}", :size => "600x610") %></span>
+                </div>
+              </td>
+              <% if session[:user_id] && session[:username] == 'admin' %>
+                  <td>
+                    <%= link_to 'Edit', edit_constellation_path(constellation) %>
+                  </td>
+                  <td>
+                    <%= link_to 'Delete', constellation_path(constellation),
+                      method: :delete %>
+                  </td>
+              <% end %>
+            </tr>
+        <% end %>
+        </tbody>
+      </table>
+  <% end %>
+</div>

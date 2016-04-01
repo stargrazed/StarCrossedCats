@@ -3,4 +3,52 @@
 <%= stylesheet_link_tag('application') %>
 <%= render(:partial => "default")%>
 
-<p>This is Fun Facts!</p>
+<% if session[:user_id] && session[:username] == 'admin' %>
+  <%= flash[:notice] %>
+  <div class="admin">
+    <span>
+        <h3>Upload Constellations</h3>
+    </span>
+    <%#= form_tag import_facts_path, multipart: true do %>
+      <%#= file_field_tag :file %>
+      <%#= submit_tag "Submit CSV" %>
+    <%# end %>
+  </div>
+<% end %>
+
+<div id="constellList">
+  <span>
+    <h2>Constellations</h2>
+  </span>
+  <% facts = Fact.all %>
+  <% if facts.size == 0 %>
+    <span>No constellations to display :(</span>
+  <% else %>
+      <table>
+        <thead>
+        <tr>
+          <th>Constellation</th>
+          <th>Abbreviation</th>
+          <th>Family</th>
+          <th>Origin</th>
+          <th>Meaning</th>
+          <th>Brightest Star</th>
+          <th>Image URL</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% @facts.order(:constellation).each do |fact| %>
+            <tr>
+              <td><%= fact.constellation %></td>
+              <td><%= fact.abbreviation %></td>
+              <td><%= fact.family %></td>
+              <td><%= fact.origin %></td>
+              <td><%= fact.meaning %></td>
+              <td><%= fact.brightest_star %></td>
+              <td><%= fact.image %></td>
+            </tr>
+        <% end %>
+        </tbody>
+      </table>
+  <% end %>
+</div>
