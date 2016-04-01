@@ -18,12 +18,15 @@
 
 <% constellations = Constellation.all %>
   <% if constellations.size != 0 %>
+    <% count = 0 %>
     <div id="tableOfContents">
-      <% @constellations.order(:Constellation).each do |constellation| %>
-        <ul>
-          <a href="#<%= constellation.Abbreviation %>"><%=constellation.Constellation %></a>
-        </ul>
-      <% end %>
+      <h2>Table of Contents</h2>
+      <span>
+        <% @constellations.order(:Constellation).each do |constellation| %>
+          <% count += 1 %>
+          <a href="#<%= constellation.Abbreviation %>"><%=constellation.Constellation %></a><% if count != constellations.size %>, <% end %>
+        <% end %>
+      </span>
     </div>
   <% end %>
 
