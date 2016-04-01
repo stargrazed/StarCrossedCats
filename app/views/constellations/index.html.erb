@@ -15,12 +15,22 @@
       <% end %>
     </div>
 <% end %>
-<a href="#d">asdf</a>
+
+<% constellations = Constellation.all %>
+  <% if constellations.size != 0 %>
+    <div id="tableOfContents">
+      <% @constellations.order(:Constellation).each do |constellation| %>
+        <ul>
+          <a href="#<%= constellation.Abbreviation %>"><%=constellation.Constellation %></a>
+        </ul>
+      <% end %>
+    </div>
+  <% end %>
+
 <div id="constellList">
   <span>
     <h2>Constellations</h2>
   </span>
-  <% constellations = Constellation.all %>
   <% if constellations.size == 0 %>
       <span>No constellations to display :(</span>
   <% else %>
