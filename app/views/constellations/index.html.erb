@@ -7,7 +7,7 @@
     <%= flash[:notice] %>
     <div class="admin">
     <span>
-        <h3>Upload Constellations</h3>
+        <h3>Upload/Update Constellations</h3>
     </span>
       <%= form_tag import_constellations_path, multipart: true do %>
         <%= file_field_tag :file %>
