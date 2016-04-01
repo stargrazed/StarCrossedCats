@@ -79,6 +79,6 @@ class ConstellationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def constellation_params
-      params[:constellation].permit(:Constellation, :Abbreviation, :Family, :Origin, :Meaning, :Brightest_star, :Image)
+      params[:constellation].permit(:Constellation, :Abbreviation, :Family, :Origin, :Meaning, :Brightest_star, :Info, :Image)
     end
 end
