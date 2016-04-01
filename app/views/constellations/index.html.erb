@@ -3,10 +3,6 @@
 <%= stylesheet_link_tag('application') %>
 <%= render(:partial => "default")%>
 
-<div id="dim">
-  <span></span>
-</div>
-
 <% if session[:user_id] && session[:username] == 'admin' %>
     <%= flash[:notice] %>
     <div class="admin">
