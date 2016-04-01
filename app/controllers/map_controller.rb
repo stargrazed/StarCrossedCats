@@ -1,6 +1,7 @@
 class MapController < ApplicationController
   layout 'application'
-
+  before_action :confirm_logged_in,
+                :except => [:index]
   def west
     @ursa_minor = [[-56.719820407865846, 63.53865854627065, 1.97, 0.451],
     [-60.71397669114158, 61.76219838208992, 4.35, 0.046],
