@@ -81,6 +81,7 @@ function ursa_minor_Click(id) {
   }
   var fill = document.getElementById("ursa_minor_a");
   fill.innerHTML ="Ursa Minor: "+ ursa_minor_count + "/7";
+  document.getElementById("current_const").innerHTML ="Ursa Minor: "+ ursa_minor_count + "/7";
   document.getElementById("ursa_minor"+id).onclick = "";//do nothing now
 }
 
@@ -103,6 +104,7 @@ function ursa_major_Click(id) {
   }
   var fill = document.getElementById("ursa_major_a");
   fill.innerHTML ="Ursa Major: "+ ursa_major_count + "/20";
+  document.getElementById("current_const").innerHTML ="Ursa Major: "+ ursa_major_count + "/20";
   document.getElementById("ursa_major"+id).onclick = ""; //do nothing now
 }
 
@@ -122,6 +124,7 @@ function aqu_Click(id) {
   }
   var fill = document.getElementById("aqu_a");
   fill.innerHTML ="Aquila: "+ aqu_count + "/10";
+  document.getElementById("current_const").innerHTML = "Aquila: "+ aqu_count + "/10";
   document.getElementById("aqu"+id).onclick = ""; //do nothing now
 }
 
@@ -141,6 +144,7 @@ function aqr_Click(id) {
   }
   var fill = document.getElementById("aqr_a");
   fill.innerHTML ="Aquarius: "+ aqr_count + "/15";
+  document.getElementById("current_const").innerHTML = "Aquarius: "+ aqr_count + "/15";
   document.getElementById("aqr"+id).onclick = ""; //do nothing now
 }
 
@@ -157,6 +161,7 @@ function ari_Click(id) {
   }
   var fill = document.getElementById("ari_a");
   fill.innerHTML ="Aries: "+ ari_count + "/3";
+  document.getElementById("current_const").innerHTML = "Aries: "+ ari_count + "/3";
   document.getElementById("ari"+id).onclick = ""; //do nothing now
 }
 
@@ -176,6 +181,7 @@ function aur_Click(id) {
   }
   var fill = document.getElementById("aur_a");
   fill.innerHTML ="Auriga: "+ aur_count + "/9";
+  document.getElementById("current_const").innerHTML = "Auriga: "+ aur_count + "/9";
   document.getElementById("aur"+id).onclick = ""; //do nothing now
 }
 
@@ -192,6 +198,7 @@ function car_Click(id) {
   }
   var fill = document.getElementById("car_a");
   fill.innerHTML ="Carina: "+ car_count + "/9";
+  document.getElementById("current_const").innerHTML = "Carina: "+ car_count + "/9";
   document.getElementById("car"+id).onclick = ""; //do nothing now
 }
 
@@ -208,7 +215,8 @@ function cass_Click(id) {
   }
   var fill = document.getElementById("cass_a");
   fill.innerHTML ="Cassiopeia: "+ cass_count + "/4";
-    document.getElementById("cass"+id).onclick = ""; //do nothing now
+  document.getElementById("current_const").innerHTML = "Cassiopeia: "+ cass_count + "/4";
+  document.getElementById("cass"+id).onclick = ""; //do nothing now
 }
 
 function canis_major_Click(id) {
@@ -220,7 +228,7 @@ function canis_major_Click(id) {
     }
   }
   // do not insert yet
-    document.getElementsByClassName("canis_major"+id).onclick = ""; //do nothing now
+  document.getElementsByClassName("canis_major"+id).onclick = ""; //do nothing now
 }
 
 function canis_minor_Click(id) {
@@ -236,7 +244,8 @@ function canis_minor_Click(id) {
   }
   var fill = document.getElementById("canis_minor_a");
   fill.innerHTML ="Canis Minor: "+ canis_minor_count + "/1";
-    document.getElementById("canis_minor"+id).onclick = ""; //do nothing now
+  document.getElementById("current_const").innerHTML = "Canis Minor: "+ canis_minor_count + "/1";
+  document.getElementById("canis_minor"+id).onclick = ""; //do nothing now
 }
 
 function cap_Click(id) {
@@ -255,6 +264,7 @@ function cap_Click(id) {
   }
   var fill = document.getElementById("cap_a");
   fill.innerHTML ="Capricorn: "+ cap_count + "/11";
+  document.getElementById("current_const").innerHTML = "Capricorn: "+ cap_count + "/11";
   document.getElementById("cap"+id).onclick = ""; //do nothing now
 }
 
@@ -274,6 +284,7 @@ function cen_Click(id) {
     }
   var fill = document.getElementById("cen_a");
   fill.innerHTML ="Centaurus: "+ cen_count + "/17";
+  document.getElementById("current_const").innerHTML = "Centaurus: "+ cen_count + "/17";
   document.getElementById("cen"+id).onclick = ""; //do nothing now
 }
 
@@ -290,6 +301,7 @@ function cnc_Click(id) {
   }
   var fill = document.getElementById("cnc_a");
   fill.innerHTML ="Cancer: "+ cnc_count + "/4";
+  document.getElementById("current_const").innerHTML = "Cancer: "+ cnc_count + "/4";
   document.getElementById("cnc"+id).onclick = ""; //do nothing now
 }
 
@@ -306,6 +318,7 @@ function col_Click(id) {
   }
   var fill = document.getElementById("col_a");
   fill.innerHTML ="Columba: "+ col_count + "/6";
+  document.getElementById("current_const").innerHTML = "Columba: "+ col_count + "/6";
   document.getElementById("col"+id).onclick = ""; //do nothing now
 }
 
@@ -322,6 +335,7 @@ function cra_Click(id) {
   }
   var fill = document.getElementById("cra_a");
   fill.innerHTML ="Corona Australis: "+ cra_count + "/5";
+  document.getElementById("current_const").innerHTML = "Corona Australis: "+ cra_count + "/5";
   document.getElementById("cra"+id).onclick = ""; //do nothing now
 }
 
@@ -338,6 +352,7 @@ function crb_Click(id) {
   }
   var fill = document.getElementById("crb_a");
   fill.innerHTML ="Corona Borealis: "+ crb_count + "/6";
+  document.getElementById("current_const").innerHTML = "Corona Borealis: "+ crb_count + "/6";
   document.getElementById("crb"+id).onclick = ""; //do nothing now
 }
 
@@ -354,6 +369,7 @@ function cru_Click(id) {
   }
   var fill = document.getElementById("cru_a");
   fill.innerHTML ="Crux: "+ cru_count + "/2";
+  document.getElementById("current_const").innerHTML = "Crux: "+ cru_count + "/2";
   document.getElementById("cru"+id).onclick = ""; //do nothing now
 }
 
@@ -370,6 +386,7 @@ function dor_Click(id) {
   }
   var fill = document.getElementById("dor_a");
   fill.innerHTML ="Dorado: "+ dor_count + "/4";
+  document.getElementById("current_const").innerHTML = "Dorado: "+ dor_count + "/4";
   document.getElementById("dor"+id).onclick = ""; //do nothing now
 }
 
@@ -389,6 +406,7 @@ function draco_Click(id) {
   }
   var fill = document.getElementById("draco_a");
   fill.innerHTML ="Draco: "+ draco_count + "/16";
+  document.getElementById("current_const").innerHTML = "Draco: "+ draco_count + "/16";
   document.getElementById("draco"+id).onclick = ""; //do nothing now
 }
 
@@ -414,6 +432,7 @@ function herc_Click(id) {
   }
   var fill = document.getElementById("herc_a");
   fill.innerHTML ="Hercules: "+ herc_count + "/19";
+  document.getElementById("current_const").innerHTML = "Hercules: "+ herc_count + "/19";
   document.getElementById("herc"+id).onclick = ""; //do nothing now
 }
 
@@ -430,6 +449,7 @@ function cygnus_Click(id) {
   }
   var fill = document.getElementById("cygnus_a");
   fill.innerHTML ="Cygnus: "+ cygnus_count + "/9";
+  document.getElementById("current_const").innerHTML = "Cygnus: "+ cygnus_count + "/9";
   document.getElementById("cygnus"+id).onclick = ""; //do nothing now
 }
 
@@ -452,6 +472,7 @@ function cep_Click(id) {
   }
   var fill = document.getElementById("cep_a");
   fill.innerHTML ="Cepheus: "+ cep_count + "/9";
+  document.getElementById("current_const").innerHTML = "Cepheus: "+ cep_count + "/9";
   document.getElementById("cep"+id).onclick = ""; //do nothing now
 }
 
@@ -471,6 +492,7 @@ function bootes_Click(id) {
   }
   var fill = document.getElementById("bootes_a");
   fill.innerHTML ="Bootes: "+ bootes_count + "/9";
+  document.getElementById("current_const").innerHTML = "Bootes: "+ bootes_count + "/9";
   document.getElementById("bootes"+id).onclick = ""; //do nothing now
 }
 
@@ -490,6 +512,7 @@ function gem_Click(id) {
   }
   var fill = document.getElementById("gem_a");
   fill.innerHTML ="Gemini: "+ gem_count + "/10";
+  document.getElementById("current_const").innerHTML = "Gemini: "+ gem_count + "/10";
   document.getElementById("gem"+id).onclick = ""; //do nothing now
 }
 
@@ -509,6 +532,7 @@ function hydra_Click(id) {
   }
   var fill = document.getElementById("hydra_a");
   fill.innerHTML ="Hydra: "+ hydra_count + "/17";
+  document.getElementById("current_const").innerHTML = "Hydra: "+ hydra_count + "/17";
   document.getElementById("hydra"+id).onclick = ""; //do nothing now
 }
 
@@ -528,6 +552,7 @@ function leo_Click(id) {
   }
   var fill = document.getElementById("leo_a");
   fill.innerHTML ="Leo: "+ leo_count + "/10";
+  document.getElementById("current_const").innerHTML = "Leo: "+ leo_count + "/10";
   document.getElementById("leo"+id).onclick = ""; //do nothing now
 }
 
@@ -544,6 +569,7 @@ function leo_minor_Click(id) {
   }
   var fill = document.getElementById("leo_minor_a");
   fill.innerHTML ="Leo Minor: "+ leo_minor_count + "/2";
+  document.getElementById("current_const").innerHTML = "Leo Minor: "+ leo_minor_count + "/2";
   document.getElementById("leo_minor"+id).onclick = ""; //do nothing now
 }
 
@@ -563,6 +589,7 @@ function lib_Click(id) {
   }
   var fill = document.getElementById("lib_a");
   fill.innerHTML ="Libra: "+ lib_count + "/6";
+  document.getElementById("current_const").innerHTML = "Libra: "+ lib_count + "/6";
   document.getElementById("lib"+id).onclick = ""; //do nothing now
 }
 
@@ -582,6 +609,7 @@ function lyra_Click(id) {
   }
   var fill = document.getElementById("lyra_a");
   fill.innerHTML ="Lyra: "+ lyra_count + "/7";
+  document.getElementById("current_const").innerHTML = "Lyra: "+ lyra_count + "/7";
   document.getElementById("lyra"+id).onclick = ""; //do nothing now
 }
 
@@ -598,6 +626,7 @@ function lynx_Click(id) {
   }
   var fill = document.getElementById("lynx_a");
   fill.innerHTML ="Lynx: "+ lynx_count + "/6";
+  document.getElementById("current_const").innerHTML = "Lynx: "+ lynx_count + "/6";
   document.getElementById("lynx"+id).onclick = ""; //do nothing now
 }
 
@@ -617,6 +646,7 @@ function mon_Click(id) {
   }
   var fill = document.getElementById("mon_a");
   fill.innerHTML ="Monoceros: "+ mon_count + "/8";
+  document.getElementById("current_const").innerHTML = "Monoceros: "+ mon_count + "/8";
   document.getElementById("mon"+id).onclick = ""; //do nothing now
 }
 
@@ -642,6 +672,7 @@ function orion_Click(id) {
   }
   var fill = document.getElementById("orion_a");
   fill.innerHTML ="Orion: "+ orion_count + "/21";
+  document.getElementById("current_const").innerHTML = "Orion: "+ orion_count + "/21";
   document.getElementById("orion"+id).onclick = ""; //do nothing now
 }
 
@@ -658,6 +689,7 @@ function pers_Click(id) {
   }
   var fill = document.getElementById("pers_a");
   fill.innerHTML ="Perseus: "+ pers_count + "/11";
+  document.getElementById("current_const").innerHTML = "Perseus: "+ pers_count + "/11";
   document.getElementById("pers"+id).onclick = ""; //do nothing now
 }
 
@@ -677,6 +709,7 @@ function pegas_Click(id) {
   }
   var fill = document.getElementById("pegas_a");
   fill.innerHTML ="Pegasus: "+ pegas_count + "/13";
+  document.getElementById("current_const").innerHTML = "Pegasus: "+ pegas_count + "/13";
   document.getElementById("pegas"+id).onclick = ""; //do nothing now
 }
 
@@ -696,6 +729,7 @@ function pisc_Click(id) {
   }
   var fill = document.getElementById("pisc_a");
   fill.innerHTML ="Pisces: "+ pisc_count + "/16";
+  document.getElementById("current_const").innerHTML = "Pisces: "+ pisc_count + "/16";
   document.getElementById("pisc"+id).onclick = ""; //do nothing now
 }
 
@@ -712,6 +746,7 @@ function pup_Click(id) {
   }
   var fill = document.getElementById("pup_a");
   fill.innerHTML ="Puppis: "+ pup_count + "/5";
+  document.getElementById("current_const").innerHTML = "Puppis: "+ pup_count + "/5";
   document.getElementById("pup"+id).onclick = ""; //do nothing now
 }
 
@@ -731,6 +766,7 @@ function sgr_Click(id) {
   }
   var fill = document.getElementById("sgr_a");
   fill.innerHTML ="Sagittarius: "+ sgr_count + "/11";
+  document.getElementById("current_const").innerHTML = "Sagittarius: "+ sgr_count + "/11";
   document.getElementById("sgr"+id).onclick = ""; //do nothing now
 }
 
@@ -750,6 +786,7 @@ function sco_Click(id) {
   }
   var fill = document.getElementById("sco_a");
   fill.innerHTML ="Scorpius: "+ sco_count + "/16";
+  document.getElementById("current_const").innerHTML = "Scorpius: "+ sco_count + "/16";
   document.getElementById("sco"+id).onclick = ""; //do nothing now
 }
 
@@ -766,6 +803,7 @@ function taur_Click(id) {
   }
   var fill = document.getElementById("taur_a");
   fill.innerHTML ="Taurus: "+ taur_count + "/9";
+  document.getElementById("current_const").innerHTML = "Taurus: "+ taur_count + "/9";
   document.getElementById("taur"+id).onclick = ""; //do nothing now
 }
 
@@ -785,6 +823,7 @@ function vel_Click(id) {
   }
   var fill = document.getElementById("vel_a");
   fill.innerHTML ="Vela: "+ vel_count + "/10";
+  document.getElementById("current_const").innerHTML = "Vela: "+ vel_count + "/10";
   document.getElementById("vel"+id).onclick = ""; //do nothing now
 }
 
@@ -804,6 +843,7 @@ function virgo_Click(id) {
   }
   var fill = document.getElementById("virgo_a");
   fill.innerHTML ="Virgo: "+ virgo_count + "/11";
+  document.getElementById("current_const").innerHTML = "Virgo: "+ virgo_count + "/11";
   document.getElementById("virgo"+id).onclick = ""; //do nothing now
 }
 

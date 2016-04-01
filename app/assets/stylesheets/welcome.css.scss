@@ -146,7 +146,11 @@ main{
     text-align: justify;
 }
 body p#intro{
-  padding-left:50px
+  padding-left:50px;
+}
+
+body p#current_const{
+  font-weight: bold;
 }
 
 /*#pageFooter{

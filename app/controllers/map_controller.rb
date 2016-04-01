@@ -935,7 +935,12 @@ class MapController < ApplicationController
   end
 
   def current
-    @this_month = Time.now.month
+    if params[:date]
+      flash[:notice] = 'Month set to: '+Date::MONTHNAMES[params[:date][:get_month].to_i]
+      @this_month = params[:date][:get_month].to_i
+    else
+      @this_month = Time.now.month
+    end
 
     @ursa_minor = [[-56.719820407865846, 63.53865854627065, 1.97, 0.451],
     [-60.71397669114158, 61.76219838208992, 4.35, 0.046],
