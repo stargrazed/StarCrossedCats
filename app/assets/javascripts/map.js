@@ -39,6 +39,8 @@ var taur_count = 0;
 var vel_count = 0;
 var virgo_count = 0;
 
+var score_count = 0;
+
 function createCircle(x, y) {
     var area, circle;
     area = document.getElementById("test");
@@ -79,6 +81,9 @@ function ursa_minor_Click(id) {
   else if(id == 3){
       ursa_minor_count = ursa_minor_count + 2;
   }
+  if(ursa_minor_count == 7){
+    score_count = score_count + 1;
+  }
   var fill = document.getElementById("ursa_minor_a");
   fill.innerHTML ="Ursa Minor: "+ ursa_minor_count + "/7";
   document.getElementById("current_const").innerHTML ="Ursa Minor: "+ ursa_minor_count + "/7";
@@ -102,6 +107,9 @@ function ursa_major_Click(id) {
   else if(id==6){
     ursa_major_count = ursa_major_count + 3;
   }
+  if(ursa_major_count == 20){
+    score_count = score_count + 1;
+  }
   var fill = document.getElementById("ursa_major_a");
   fill.innerHTML ="Ursa Major: "+ ursa_major_count + "/20";
   document.getElementById("current_const").innerHTML ="Ursa Major: "+ ursa_major_count + "/20";
@@ -121,6 +129,9 @@ function aqu_Click(id) {
   }
   else if(id==7){
       aqu_count = aqu_count + 2;
+  }
+  if(aqu_count == 10){
+    score_count = score_count + 1;
   }
   var fill = document.getElementById("aqu_a");
   fill.innerHTML ="Aquila: "+ aqu_count + "/10";
@@ -142,6 +153,9 @@ function aqr_Click(id) {
   else if(id==5){
       aqr_count = aqr_count + 2;
   }
+  if(aqr_count == 15){
+    score_count = score_count + 1;
+  }
   var fill = document.getElementById("aqr_a");
   fill.innerHTML ="Aquarius: "+ aqr_count + "/15";
   document.getElementById("current_const").innerHTML = "Aquarius: "+ aqr_count + "/15";
@@ -158,6 +172,9 @@ function ari_Click(id) {
   }
   if(id == 1 || id==2 || id==3){
       ari_count = ari_count + 1;
+  }
+  if(ari_count == 3){
+    score_count = score_count + 1;
   }
   var fill = document.getElementById("ari_a");
   fill.innerHTML ="Aries: "+ ari_count + "/3";
@@ -179,6 +196,9 @@ function aur_Click(id) {
   else if(id==3 || id==6){
       aur_count = aur_count + 2;
   }
+  if(aur_count == 9){
+    score_count = score_count + 1;
+  }
   var fill = document.getElementById("aur_a");
   fill.innerHTML ="Auriga: "+ aur_count + "/9";
   document.getElementById("current_const").innerHTML = "Auriga: "+ aur_count + "/9";
@@ -196,6 +216,9 @@ function car_Click(id) {
   if(id == 1 || id==2 || id==3 || id==4 || id==5 || id==6|| id==7|| id==8|| id==9){
       car_count = car_count + 1;
   }
+  if(car_count == 9){
+    score_count = score_count + 1;
+  }
   var fill = document.getElementById("car_a");
   fill.innerHTML ="Carina: "+ car_count + "/9";
   document.getElementById("current_const").innerHTML = "Carina: "+ car_count + "/9";
@@ -212,6 +235,9 @@ function cass_Click(id) {
   }
   if(id == 1 || id==2 || id==3 || id==4){
       cass_count = cass_count + 1;
+  }
+  if(cass_count == 4){
+    score_count = score_count + 1;
   }
   var fill = document.getElementById("cass_a");
   fill.innerHTML ="Cassiopeia: "+ cass_count + "/4";
@@ -242,6 +268,9 @@ function canis_minor_Click(id) {
   if(id == 1){
       canis_minor_count = canis_minor_count + 1;
   }
+  if(canis_minor_count == 1){
+    score_count = score_count + 1;
+  }
   var fill = document.getElementById("canis_minor_a");
   fill.innerHTML ="Canis Minor: "+ canis_minor_count + "/1";
   document.getElementById("current_const").innerHTML = "Canis Minor: "+ canis_minor_count + "/1";
@@ -262,6 +291,9 @@ function cap_Click(id) {
   else if(id==10){
     cap_count = cap_count + 2;
   }
+  if(cap_count == 11){
+    score_count = score_count + 1;
+  }
   var fill = document.getElementById("cap_a");
   fill.innerHTML ="Capricorn: "+ cap_count + "/11";
   document.getElementById("current_const").innerHTML = "Capricorn: "+ cap_count + "/11";
@@ -281,7 +313,10 @@ function cen_Click(id) {
   }
   else if(id == 9 || id==10){
         cen_count = cen_count + 2;
-    }
+  }
+  if(cen_count == 17){
+    score_count = score_count + 1;
+  }
   var fill = document.getElementById("cen_a");
   fill.innerHTML ="Centaurus: "+ cen_count + "/17";
   document.getElementById("current_const").innerHTML = "Centaurus: "+ cen_count + "/17";
@@ -298,6 +333,9 @@ function cnc_Click(id) {
   }
   if(id == 1 || id==2 || id==3 || id==4){
       cnc_count = cnc_count + 1;
+  }
+  if(cnc_count == 4){
+    score_count = score_count + 1;
   }
   var fill = document.getElementById("cnc_a");
   fill.innerHTML ="Cancer: "+ cnc_count + "/4";
@@ -316,6 +354,9 @@ function col_Click(id) {
   if(id == 1 || id==2 || id==3 || id==4 || id==5 || id==6){
       col_count = col_count + 1;
   }
+  if(col_count == 6){
+    score_count = score_count + 1;
+  }
   var fill = document.getElementById("col_a");
   fill.innerHTML ="Columba: "+ col_count + "/6";
   document.getElementById("current_const").innerHTML = "Columba: "+ col_count + "/6";
@@ -332,6 +373,9 @@ function cra_Click(id) {
   }
   if(id == 1 || id==2 || id==3 || id==4 || id==5){
       cra_count = cra_count + 1;
+  }
+  if(cra_count == 5){
+    score_count = score_count + 1;
   }
   var fill = document.getElementById("cra_a");
   fill.innerHTML ="Corona Australis: "+ cra_count + "/5";
@@ -350,6 +394,9 @@ function crb_Click(id) {
   if(id == 1 || id==2 || id==3 || id==4 || id==5||id==6){
       crb_count = crb_count + 1;
   }
+  if(crb_count == 6){
+    score_count = score_count + 1;
+  }
   var fill = document.getElementById("crb_a");
   fill.innerHTML ="Corona Borealis: "+ crb_count + "/6";
   document.getElementById("current_const").innerHTML = "Corona Borealis: "+ crb_count + "/6";
@@ -367,6 +414,9 @@ function cru_Click(id) {
   if(id == 1 || id==3){
       cru_count = cru_count + 1;
   }
+  if(cru_count == 2){
+    score_count = score_count + 1;
+  }
   var fill = document.getElementById("cru_a");
   fill.innerHTML ="Crux: "+ cru_count + "/2";
   document.getElementById("current_const").innerHTML = "Crux: "+ cru_count + "/2";
@@ -383,6 +433,9 @@ function dor_Click(id) {
   }
   if(id == 1 || id==2 || id==3 || id==4){
       dor_count = dor_count + 1;
+  }
+  if(dor_count == 4){
+    score_count = score_count + 1;
   }
   var fill = document.getElementById("dor_a");
   fill.innerHTML ="Dorado: "+ dor_count + "/4";
@@ -403,6 +456,9 @@ function draco_Click(id) {
   }
   else if(id==2){
     draco_count = draco_count + 2;
+  }
+  if(draco_count == 16){
+    score_count = score_count + 1;
   }
   var fill = document.getElementById("draco_a");
   fill.innerHTML ="Draco: "+ draco_count + "/16";
@@ -430,6 +486,9 @@ function herc_Click(id) {
   else if(id==11){
     herc_count = herc_count + 5;
   }
+  if(herc_count == 19){
+    score_count = score_count + 1;
+  }
   var fill = document.getElementById("herc_a");
   fill.innerHTML ="Hercules: "+ herc_count + "/19";
   document.getElementById("current_const").innerHTML = "Hercules: "+ herc_count + "/19";
@@ -446,6 +505,9 @@ function cygnus_Click(id) {
   }
   if(id == 1 || id==2 || id==3 || id==4 || id==5|| id==6|| id==7|| id==8|| id==9){
     cygnus_count = cygnus_count + 1;
+  }
+  if(cygnus_count == 9){
+    score_count = score_count + 1;
   }
   var fill = document.getElementById("cygnus_a");
   fill.innerHTML ="Cygnus: "+ cygnus_count + "/9";
@@ -470,6 +532,9 @@ function cep_Click(id) {
   else if(id == 4){
     cep_count = cep_count + 3;
   }
+  if(cep_count == 9){
+    score_count = score_count + 1;
+  }
   var fill = document.getElementById("cep_a");
   fill.innerHTML ="Cepheus: "+ cep_count + "/9";
   document.getElementById("current_const").innerHTML = "Cepheus: "+ cep_count + "/9";
@@ -489,6 +554,9 @@ function bootes_Click(id) {
   }
   else if(id==10){
     bootes_count = bootes_count + 2;
+  }
+  if(bootes_count == 9){
+    score_count = score_count + 1;
   }
   var fill = document.getElementById("bootes_a");
   fill.innerHTML ="Bootes: "+ bootes_count + "/9";
@@ -510,6 +578,9 @@ function gem_Click(id) {
   else if(id==1){
     gem_count = gem_count + 2;
   }
+  if(gem_count == 10){
+    score_count = score_count + 1;
+  }
   var fill = document.getElementById("gem_a");
   fill.innerHTML ="Gemini: "+ gem_count + "/10";
   document.getElementById("current_const").innerHTML = "Gemini: "+ gem_count + "/10";
@@ -529,6 +600,9 @@ function hydra_Click(id) {
   }
   else if(id == 1){
     hydra_count = hydra_count + 2;
+  }
+  if(hydra_count == 17){
+    score_count = score_count + 1;
   }
   var fill = document.getElementById("hydra_a");
   fill.innerHTML ="Hydra: "+ hydra_count + "/17";
@@ -550,6 +624,9 @@ function leo_Click(id) {
   else if(id==3||id==5){
     leo_count = leo_count + 2;
   }
+  if(leo_count == 10){
+    score_count = score_count + 1;
+  }
   var fill = document.getElementById("leo_a");
   fill.innerHTML ="Leo: "+ leo_count + "/10";
   document.getElementById("current_const").innerHTML = "Leo: "+ leo_count + "/10";
@@ -566,6 +643,9 @@ function leo_minor_Click(id) {
   }
   if(id == 1){
     leo_minor_count = leo_minor_count + 2;
+  }
+  if(leo_minor_count == 2){
+    score_count = score_count + 1;
   }
   var fill = document.getElementById("leo_minor_a");
   fill.innerHTML ="Leo Minor: "+ leo_minor_count + "/2";
@@ -587,6 +667,9 @@ function lib_Click(id) {
   else if(id==1){
     lib_count = lib_count + 2;
   }
+  if(lib_count == 6){
+    score_count = score_count + 1;
+  }
   var fill = document.getElementById("lib_a");
   fill.innerHTML ="Libra: "+ lib_count + "/6";
   document.getElementById("current_const").innerHTML = "Libra: "+ lib_count + "/6";
@@ -607,6 +690,9 @@ function lyra_Click(id) {
   else if(id == 1||id==5){
     lyra_count = lyra_count + 2;
   }
+  if(lyra_count == 7){
+    score_count = score_count + 1;
+  }
   var fill = document.getElementById("lyra_a");
   fill.innerHTML ="Lyra: "+ lyra_count + "/7";
   document.getElementById("current_const").innerHTML = "Lyra: "+ lyra_count + "/7";
@@ -623,6 +709,9 @@ function lynx_Click(id) {
   }
   if(id==1||id==2 || id==3 || id==4||id==5||id==6){
     lynx_count = lynx_count + 1;
+  }
+  if(lynx_count == 6){
+    score_count = score_count + 1;
   }
   var fill = document.getElementById("lynx_a");
   fill.innerHTML ="Lynx: "+ lynx_count + "/6";
@@ -643,6 +732,9 @@ function mon_Click(id) {
   }
   else if(id==1){
     mon_count = mon_count + 3;
+  }
+  if(mon_count == 8){
+    score_count = score_count + 1;
   }
   var fill = document.getElementById("mon_a");
   fill.innerHTML ="Monoceros: "+ mon_count + "/8";
@@ -670,6 +762,9 @@ function orion_Click(id) {
   else if(id == 14){
     orion_count = orion_count + 6;
   }
+  if(orion_count == 21){
+    score_count = score_count + 1;
+  }
   var fill = document.getElementById("orion_a");
   fill.innerHTML ="Orion: "+ orion_count + "/21";
   document.getElementById("current_const").innerHTML = "Orion: "+ orion_count + "/21";
@@ -686,6 +781,9 @@ function pers_Click(id) {
   }
   if(id == 1 || id==2 || id==3 || id==4 || id==5|| id==6|| id==7|| id==8|| id==9 ||id==10||id==11){
     pers_count = pers_count + 1;
+  }
+  if(pers_count == 11){
+    score_count = score_count + 1;
   }
   var fill = document.getElementById("pers_a");
   fill.innerHTML ="Perseus: "+ pers_count + "/11";
@@ -707,6 +805,9 @@ function pegas_Click(id) {
   else if(id==3){
     pegas_count = pegas_count + 2;
   }
+  if(pegas_count == 13){
+    score_count = score_count + 1;
+  }
   var fill = document.getElementById("pegas_a");
   fill.innerHTML ="Pegasus: "+ pegas_count + "/13";
   document.getElementById("current_const").innerHTML = "Pegasus: "+ pegas_count + "/13";
@@ -727,6 +828,9 @@ function pisc_Click(id) {
   else if (id==4 || id==14){
     pisc_count = pisc_count + 2;
   }
+  if(pisc_count == 16){
+    score_count = score_count + 1;
+  }
   var fill = document.getElementById("pisc_a");
   fill.innerHTML ="Pisces: "+ pisc_count + "/16";
   document.getElementById("current_const").innerHTML = "Pisces: "+ pisc_count + "/16";
@@ -743,6 +847,9 @@ function pup_Click(id) {
   }
   if(id == 1 || id==5|| id==6|| id==7|| id==8){
     pup_count = pup_count + 1;
+  }
+  if(pup_count == 5){
+    score_count = score_count + 1;
   }
   var fill = document.getElementById("pup_a");
   fill.innerHTML ="Puppis: "+ pup_count + "/5";
@@ -764,6 +871,9 @@ function sgr_Click(id) {
   else if(id==6||id==7||id==9||id==11){
     sgr_count = sgr_count + 2;
   }
+  if(sgr_count == 11){
+    score_count = score_count + 1;
+  }
   var fill = document.getElementById("sgr_a");
   fill.innerHTML ="Sagittarius: "+ sgr_count + "/11";
   document.getElementById("current_const").innerHTML = "Sagittarius: "+ sgr_count + "/11";
@@ -784,6 +894,9 @@ function sco_Click(id) {
   else if(id==9){
     sco_count = sco_count + 2;
   }
+  if(sco_count == 16){
+    score_count = score_count + 1;
+  }
   var fill = document.getElementById("sco_a");
   fill.innerHTML ="Scorpius: "+ sco_count + "/16";
   document.getElementById("current_const").innerHTML = "Scorpius: "+ sco_count + "/16";
@@ -800,6 +913,9 @@ function taur_Click(id) {
   }
   if(id == 1 || id==2 || id==3 || id==4 || id==5|| id==6|| id==7|| id==8|| id==9){
     taur_count = taur_count + 1;
+  }
+  if(taur_count == 9){
+    score_count = score_count + 1;
   }
   var fill = document.getElementById("taur_a");
   fill.innerHTML ="Taurus: "+ taur_count + "/9";
@@ -821,6 +937,9 @@ function vel_Click(id) {
   else if(id==10){
     vel_count = vel_count + 2;
   }
+  if(vel_count == 10){
+    score_count = score_count + 1;
+  }
   var fill = document.getElementById("vel_a");
   fill.innerHTML ="Vela: "+ vel_count + "/10";
   document.getElementById("current_const").innerHTML = "Vela: "+ vel_count + "/10";
@@ -840,6 +959,9 @@ function virgo_Click(id) {
   }
   else if(id==2 || id==4){
     virgo_count = virgo_count + 2;
+  }
+  if(virgo_count == 11){
+    score_count = score_count + 1;
   }
   var fill = document.getElementById("virgo_a");
   fill.innerHTML ="Virgo: "+ virgo_count + "/11";
@@ -912,5 +1034,13 @@ function constell_to_star(link){
         star2(chain);
         items3 = [];
     });
+  });
+}
+
+function start_score(){
+  var skymap = document.getElementById("test");
+  skymap.addEventListener("click", function(){
+    var fill = document.getElementById("score");
+    fill.innerHTML="Score: "+ score_count;
   });
 }
