@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160328004355) do
+ActiveRecord::Schema.define(version: 20160401211722) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20160328004355) do
     t.string   "Meaning"
     t.string   "Brightest_star"
     t.string   "Image"
+    t.text     "Info"
   end
 
   create_table "facts", force: true do |t|
