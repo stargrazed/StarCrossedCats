@@ -33,22 +33,6 @@ line {
 
 //end svg*******************************
 
- #intro{
-    font-style: italic;
-    font-size: 1.2em;
-}
-
- #intro::before{
-    content: open-quote;
-    font-size:1.5em;
-    color:black;
-}
-
- #intro::after{
-    content: close-quote;
-    font-size:1.5em;
-    color:black;
-}
 
 header h3{
     font-family: Arial, Helvetica, sans-serif;
@@ -144,9 +128,6 @@ body p {
 
 main{
     text-align: justify;
-}
-body p#intro{
-  padding-left:50px;
 }
 
 body p#current_const{
