@@ -4,7 +4,9 @@
 <%= render(:partial => "default")%>
 
 <% if session[:user_id] && session[:username] == 'admin' %>
-    <%= flash[:notice] %>
+    <div class = "notice">
+      <%= flash[:notice] %>
+    </div>
     <div class="admin">
     <span>
         <h3>Upload/Update Constellations</h3>
