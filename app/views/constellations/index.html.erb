@@ -8,11 +8,11 @@
       <%= flash[:notice] %>
     </div>
     <div class="admin">
-    <span>
-        <h3>Upload/Update Constellations</h3>
-    </span>
-      <%= form_tag import_constellations_path, multipart: true do %>
-        <%= file_field_tag :file %>
+      <span>
+          <h3>Upload/Update Constellations</h3>
+      </span>
+      <%= form_tag import_constellations_path, multipart: true, :class => 'railsButton' do %>
+        <%= file_field_tag :file, :class => 'fileField'%>
         <%= submit_tag "Submit CSV" %>
       <% end %>
     </div>
