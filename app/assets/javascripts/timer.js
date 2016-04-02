@@ -1,4 +1,5 @@
 var triggered = 0;
+var time;
 
 function clickedSkymap(){
     var skymap = document.getElementById("test");
@@ -11,7 +12,7 @@ function clickedSkymap(){
 }
 
 function startTimer(){
-    var time = document.getElementById("timer");
+    time = document.getElementById("timer");
     var timerVar = setInterval(countTimer, 1000);
     var timeInSec = 0;
 
@@ -54,4 +55,8 @@ function formatDay(day){
 
 function resetClick(){
     triggered = 0;
+}
+
+function stopTimer(){
+    time = 0;
 }
