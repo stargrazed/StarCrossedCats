@@ -46,29 +46,29 @@
       <table id="constell">
         <thead>
         <tr>
-          <th>Constellation</th>
-          <th>Abbreviation</th>
+          <th>Name</th>
+          <th>Abbr.</th>
           <th>Family</th>
           <th>Origin</th>
           <th>Meaning</th>
           <th>Brightest Star</th>
-          <th>Additional Info</th>
+          <th class="info">Extra Info</th>
           <th>Image</th>
           <% if session[:user_id] && session[:username] == 'admin' %>
-            <th>Admin Tools</th>
+            <th>Tools</th>
           <% end %>
         </tr>
         </thead>
         <tbody>
         <% @constellations.order(:Constellation).each do |constellation| %>
-            <tr id=<%= constellation.Abbreviation %>>
+            <tr class='bodyRow' id=<%= constellation.Abbreviation %>>
               <td><%= constellation.Constellation %></td>
               <td><%= constellation.Abbreviation %></td>
               <td><%= constellation.Family %></td>
               <td><%= constellation.Origin %></td>
               <td><%= constellation.Meaning %></td>
               <td><%= constellation.Brightest_star %></td>
-              <td><%= constellation.Info %></td>
+              <td class="info"><%= constellation.Info %></td>
               <td>
                 <div class="enlarge">
                   <%= image_tag("#{constellation.Image}", :size => "50x55") %>
@@ -77,11 +77,14 @@
               </td>
               <% if session[:user_id] && session[:username] == 'admin' %>
                   <td>
-                    <%= link_to 'Edit', edit_constellation_path(constellation) %>
-                  </td>
-                  <td>
-                    <%= link_to 'Delete', constellation_path(constellation),
-                      method: :delete %>
+                    <div class="wrapper2">
+                      <div class="left">
+                        <%= button_to "Edit", edit_constellation_path(constellation), :method => "get" %>
+                      </div>
+                      <div class="right">
+                        <%= button_to "Delete", constellation_path(constellation), :method => :delete %>
+                      </div>
+                    </div>
                   </td>
               <% end %>
             </tr>
