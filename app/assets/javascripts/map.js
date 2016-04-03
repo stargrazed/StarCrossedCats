@@ -474,20 +474,11 @@ function herc_Click(id) {
       change[i].style.visibility = 'visible';
     }
   }
-  if(id == 1 || id==2 || id==4 || id==5|| id==6|| id==7|| id==8||id==15||id==16){
+  if(id == 1 || id==2 || id==3 || id==4|| id==6|| id==7|| id==8||id==9||id==10||id==12|| id==13||id==15||id==16){
       herc_count = herc_count + 1;
   }
-  else if(id==14){
+  else if(id==11||id==14||id==17){
     herc_count = herc_count + 2;
-  }
-  else if(id == 10){
-    herc_count = herc_count + 3;
-  }
-  else if(id==11){
-    herc_count = herc_count + 5;
-  }
-  if(herc_count == 19){
-    score_count = score_count + 1;
   }
   var fill = document.getElementById("herc_a");
   fill.innerHTML ="Hercules: "+ herc_count + "/19";
