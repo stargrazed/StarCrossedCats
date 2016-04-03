@@ -51,15 +51,6 @@ ActiveRecord::Schema.define(version: 20160401211722) do
     t.datetime "updated_at"
   end
 
-  create_table "people", force: true do |t|
-    t.string   "name"
-    t.string   "color"
-    t.integer  "height"
-    t.integer  "weight"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "users", force: true do |t|
     t.string   "username",        limit: 20
     t.string   "name",            limit: 20
