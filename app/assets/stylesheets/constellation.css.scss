@@ -22,7 +22,7 @@ div#constelImage{
 }
 
 div#tableOfContents h3{
-  margin: 0 0 0 0;
+  margin: 0em 0em 0.5em 0em;
 }
 
 div.container div.notice h3{
@@ -69,6 +69,8 @@ div.enlarge:hover span{
 
 div#tableOfContents{
   font-family: 'Open Sans', sans-serif;
+  padding: 1em 1.1em 1em 1em;
+  font-size: small;
 }
 
 div#constellList{
