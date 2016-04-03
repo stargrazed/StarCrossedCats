@@ -4,18 +4,22 @@
 <%= render(:partial => "default")%>
 
 <% if session[:user_id] && session[:username] == 'admin' %>
-    <div class = "notice">
-      <%= flash[:notice] %>
-    </div>
+  <div class="container">
     <div class="admin">
-      <span>
-          <h3>Upload/Update Constellations</h3>
-      </span>
-      <%= form_tag import_constellations_path, multipart: true, :class => 'railsButton' do %>
-        <%= file_field_tag :file, :class => 'fileField'%>
-        <%= submit_tag "Submit CSV" %>
-      <% end %>
+      <h3>Upload/Update Constellations</h3>
+        <%= form_tag import_constellations_path, multipart: true, :class => 'railsButton' do %>
+            <%= file_field_tag :file, :class => 'fileField'%>
+            <%= submit_tag "Submit CSV" %>
+        <% end %>
     </div>
+  </div>
+  <div class="container">
+    <div class = "notice">
+      <h3>
+        <%= flash[:notice] %>
+      </h3>
+    </div>
+  </div>
 <% end %>
 
 <% constellations = Constellation.all %>
