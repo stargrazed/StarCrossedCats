@@ -5,14 +5,26 @@
 <%= stylesheet_link_tag('application') %>
 <%= render(:partial => "default")%>
 
-<p>Current Date is: <%= Time.now.month%>-<%= Time.now.day%>-<%= Time.now.year%></p>
-<p>Current Time is: <%= sprintf("%02d",Time.now.hour%12)%>:
-  <%= sprintf("%02d",Time.now.min)%>
-  <%if Time.now.hour/12 >= 1%>
-    <%= "pm"%>
-  <%else%>
-    <%= "am"%>
-  <%end%>
+<h2>Welcome to Star Grazed</h2>
+<img class="constellation_image" src="http://www.sciencemusings.com/blog/uploaded_images/Galaxy-735039.jpg" alt="Picture of Galaxy" style="width:720px;height:456px">
+<br>
+<p class="welcome_message">
+
+  Project Star Grazed is designed to be an app where people interested in learning about stars and constellations
+  can get a quick look using our easy to use sky-map. Star Grazed will utilize Star-API, a free RESTful API, that
+  provides access to the American Museum of Natural History’s Digital Universe Data.  Star-API provides access to
+  positions of stars and constellations which will enable the user to experience an accurate representation of the
+  universe.
+  <br>
+  <br>
+  This app is fully intended to be an interactive learning tool as there are no reliable or easily accessible
+  systems outside of a classroom setting. Please sign up and log-in to play and learn more about stars and
+  constellations.
+
+</p>
+<br>
+<br>
+<p class="date">Current Date is: <%= Time.now.month%>-<%= Time.now.day%>-<%= Time.now.year%></p>
 
   <% if !flash[:notice].blank? %>
       <p><%= flash[:notice] %></p>
