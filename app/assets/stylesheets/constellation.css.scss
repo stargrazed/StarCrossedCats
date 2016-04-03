@@ -32,10 +32,11 @@ div.container div.notice h3{
 .admin{
   font-family: 'Open Sans', sans-serif;
   display: inline-block;
-  background-color: #F5F5F5;
+  background-color: white;
+  color: #424242;
   padding: 0em 1.25em 1.7em 1.25em;
-  border-radius: 0.5em;
-  box-shadow: 0em 0em 2em #90A4AE;
+  border-radius: 0.2em;
+  box-shadow: 0em 0em 0.75em #90A4AE;
 }
 
 .enlarge span{
@@ -70,13 +71,27 @@ div.enlarge:hover span{
 div#tableOfContents{
   font-family: 'Open Sans', sans-serif;
   padding: 1em 1.1em 1em 1em;
-  font-size: small;
+  font-size: 12px;
 }
 
 div#constellList{
   font-family: 'Open Sans', sans-serif;
+  padding: 1em 1.4em 1em 1em;
+}
+
+div#constellList h2{
+  margin-top: 0;
 }
 
 .fileField{
   font-family: 'Open Sans', sans-serif;
+}
+
+#constell{
+  font-size: 14px;
+  color: #424242;
+  background-color: white;
+  padding: 0em 1.25em 1.7em 1.25em;
+  border-radius: 0.2em;
+  box-shadow: 0em 0em 0.75em #90A4AE;
 }
