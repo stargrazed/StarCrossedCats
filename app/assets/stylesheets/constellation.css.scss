@@ -17,9 +17,11 @@ div#constelImage{
 
 .notice{
   display: inline-block;
+  font-family: 'Open Sans', sans-serif;
+  color: #D84315;
 }
 
-div#tableOfContents h2{
+div#tableOfContents h3{
   margin: 0 0 0 0;
 }
 
@@ -28,6 +30,7 @@ div.container div.notice h3{
 }
 
 .admin{
+  font-family: 'Open Sans', sans-serif;
   display: inline-block;
   background-color: #F5F5F5;
   padding: 0em 1.25em 1.7em 1.25em;
@@ -62,15 +65,6 @@ div.enlarge:hover span{
   -moz-border-radius: 8px;
   border-radius:8px;
   color: #495a62;
-}
-
-div.notice{
-  font-family: 'Open Sans', sans-serif;
-  color: #D84315;
-}
-
-div.admin{
-  font-family: 'Open Sans', sans-serif;
 }
 
 div#tableOfContents{
