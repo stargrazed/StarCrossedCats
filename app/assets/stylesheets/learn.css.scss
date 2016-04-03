@@ -1,0 +1,62 @@
+div.learn{
+  font-family: 'Open Sans', sans-serif;
+}
+
+.card{
+  height: 250px;
+  width: 250px;
+  box-shadow: 0 3px 3px #757575;
+}
+
+.title{
+  background-color: #4DD0E1;
+  width: 100%;
+  height: 60%;
+  color: white;
+  font-size: 25px;
+}
+
+.title span{
+  padding-top: 100px;
+}
+
+.supporting-text{
+  width: 100%;
+  height: 20%;
+  background-color: white;
+  font-size: 12px;
+}
+
+.action{
+  width: 100%;
+  height: 20%;
+  border-top: 1px solid #BDBDBD;
+  background-color: white;
+}
+
+.action a{
+  text-decoration: none;
+  color: #3949AB;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.webContainer{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.youtubeContainer{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-around;
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+h3.learn{
+  padding-left: 50px;
+}
