@@ -3,11 +3,20 @@ div#wrapper{
 }
 
 div#edit_fields{
+  padding-right: 0em;
+}
 
+div#edit_fields p{
+  text-align: left;
 }
 
 div#constelImage{
+  padding-left: 5em;
+  padding-right: 1em;
+}
 
+.constellh3{
+  font-family: 'Open Sans', sans-serif;
 }
 
 .container{
@@ -63,13 +72,8 @@ div.enlarge:hover span{
   height:610px;
   padding: 10px;
   background:#64B5F6;
-  -webkit-box-shadow: 0 0 20px rgba(0,0,0, .75);
-  -moz-box-shadow: 0 0 20px rgba(0,0,0, .75);
-  box-shadow: 0 0 20px rgba(0,0,0, .75);
-  -webkit-border-radius: 8px;
-  -moz-border-radius: 8px;
-  border-radius:8px;
-  color: #495a62;
+  box-shadow: 0em 0em 0.75em #757575;
+  border-radius: 0.05em;
 }
 
 div#tableOfContents{
@@ -129,4 +133,25 @@ table#constell tr.bodyRow:target{
 
 .right{
   padding: 0.25em 0em 0.25em 0.25em;
+}
+
+.textfield{
+  width: 30em;
+  padding: 0.2em 0.2em 0.2em 0.2em;
+  border: 2px solid #BDBDBD;
+}
+
+.textarea{
+  width: 30em;
+  height: 8em;
+  border: 2px solid #BDBDBD;
+  padding: 0.2em;
+}
+
+.spaceblockW{
+  width: 5em;
+}
+
+.spaceblockH{
+  height: 2em;
 }
