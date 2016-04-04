@@ -3,28 +3,52 @@
 <%= stylesheet_link_tag('application') %>
 <%= render(:partial => "default")%>
 
-<p><em>You require Chrome or IE9 to view this page properly.</em></p>
-<p>Possible constellations based on the time of year. It is assumed to be 9-12pm,
+<h3 class="map_titlepage">Current Map</h3>
+
+<p class="map_content">Possible constellations based on the time of year. It is assumed to be 9-12pm,
 regardless of region.</p>
 
-<p id = "score" style="font-size:25px">
-  <span>Score: </span>
-</p>
+<p class="map_content"><em>Note: You require Chrome or IE9 to view this page properly.</em></p>
 
-<div id="timer">
-  <span>00:00:00</span>
-</div>
+<table class ="timer_table">
+  <tr>
+    <td><b>Elapsed Time:</b></td>
+    <td>
+      <div id="timer">
+        <span>00:00:00</span>
+      </div>
+    </td>
+</table>
 
-<%= form_for(:get_month, :url=> {action: "current"}) do |f|%>
-  <%= select_month(Date.today, :field_name => 'get_month') %>
-  <%= submit_tag("Update!") %>
-<% end %>
+<table class="score_progress">
+  <tr>
+    <td>
+      <b>Score: </b>
+    </td>
+    <td>
+      <div id = "score">
+        <span>0</span>
+      </div>
+    </td>
+    </td>
+    <td>
+      <p id="current_const">Progress</p>
+    </td>
+  </tr>
+</table>
 
-<% if !flash[:notice].blank? %>
-    <%= flash[:notice] %>
-<%end%>
+<section class="current_setmonth">
+  <%= form_for(:get_month, :url=> {action: "current"}) do |f|%>
+    <%= select_month(Date.today, :field_name => 'get_month') %>
+    <%= submit_tag("Update!") %>
+  <% end %>
 
-<p id="current_const">Progress</p>
+  <% if !flash[:notice].blank? %>
+      <%= flash[:notice] %>
+  <%end%>
+</section>
+<br>
+<br>
 
 <svg id='test' width="1000" height="800" version="1.1" xmlns="http://www.w3.org/2000/svg">
   <defs>
@@ -637,50 +661,52 @@ regardless of region.</p>
 <%connect(@virgo, "virgo12", 11, 12, 0, 1)%>
 
 </svg>
-<h2>Viewable at night</h2>
-<ul>
-  <%confirm_const(@aqr, "aqr", 0, 1)%>
-  <%confirm_const(@aqu, "aqu", 0, 1)%>
-  <%confirm_const(@ari, "ari", 0, 0)%>
-  <%confirm_const(@aur, "aur", 0, 0)%>
-  <%confirm_const(@bootes, "bootes", 0, 1)%>
-  <%confirm_const(@canis_minor, "canis_minor", 0, 0)%>
-  <%confirm_const(@cap, "cap", 0, 1)%>
-  <%confirm_const(@car, "car", 1, 0)%>
-  <%confirm_const(@cass, "cass", 0, 0)%>
-  <%confirm_const(@cen, "cen", 0, 1)%>
-  <%confirm_const(@cep, "cep", 0, 0)%>
-  <%confirm_const(@col, "col", 0, 0)%>
-  <%confirm_const(@cnc, "cnc", 0, 0)%>
-  <%confirm_const(@cra, "cra", 0, 1)%>
-  <%confirm_const(@crb, "crb", 0, 1)%>
-  <%confirm_const(@cru, "cru", 0, 1)%>
-  <%confirm_const(@cygnus, "cygnus", 0, 1)%>
-  <%confirm_const(@dor, "dor", 1, 0)%>
-  <%confirm_const(@draco, "draco", 0, 1)%>
-  <%confirm_const(@gem, "gem", 0, 0)%>
-  <%confirm_const(@herc, "herc", 0, 1)%>
-  <!-- Hydra too big for any one map
-  <%confirm_const(@hydra, "hydra", 1, 0)%>-->
-  <%confirm_const(@leo, "leo", 0, 0)%>
-  <%confirm_const(@leo_minor, "leo_minor", 0, 0)%>
-  <%confirm_const(@lib, "lib", 0, 1)%>
-  <%confirm_const(@lyra, "lyra", 0, 1)%>
-  <%confirm_const(@lynx, "lynx", 0, 0)%>
-  <%confirm_const(@mon, "mon", 0, 0)%>
-  <%confirm_const(@orion, "orion", 0, 0)%>
-  <%confirm_const(@pers, "pers", 0, 0)%>
-  <%confirm_const(@pegas, "pegas", 0, 1)%>
-  <%confirm_const(@pisc, "pisc", 1, 1)%>
-  <%confirm_const(@pup, "pup", 0, 0)%>
-  <%confirm_const(@sco, "sco", 0, 1)%>
-  <%confirm_const(@sgr, "sgr", 0, 1)%>
-  <%confirm_const(@taur, "taur", 0, 0)%>
-  <%confirm_const(@vel, "vel", 1, 0)%>
-  <%confirm_const(@virgo, "virgo", 0, 1)%>
-  <%confirm_const(@ursa_major, "ursa_major", 0, 0)%>
-  <%confirm_const(@ursa_minor, "ursa_minor", 0, 0)%>
-</ul>
+  <div class ="signs_found">
+    <h2>Viewable at Night</h2>
+    <ul>
+      <%confirm_const(@aqr, "aqr", 0, 1)%>
+      <%confirm_const(@aqu, "aqu", 0, 1)%>
+      <%confirm_const(@ari, "ari", 0, 0)%>
+      <%confirm_const(@aur, "aur", 0, 0)%>
+      <%confirm_const(@bootes, "bootes", 0, 1)%>
+      <%confirm_const(@canis_minor, "canis_minor", 0, 0)%>
+      <%confirm_const(@cap, "cap", 0, 1)%>
+      <%confirm_const(@car, "car", 1, 0)%>
+      <%confirm_const(@cass, "cass", 0, 0)%>
+      <%confirm_const(@cen, "cen", 0, 1)%>
+      <%confirm_const(@cep, "cep", 0, 0)%>
+      <%confirm_const(@col, "col", 0, 0)%>
+      <%confirm_const(@cnc, "cnc", 0, 0)%>
+      <%confirm_const(@cra, "cra", 0, 1)%>
+      <%confirm_const(@crb, "crb", 0, 1)%>
+      <%confirm_const(@cru, "cru", 0, 1)%>
+      <%confirm_const(@cygnus, "cygnus", 0, 1)%>
+      <%confirm_const(@dor, "dor", 1, 0)%>
+      <%confirm_const(@draco, "draco", 0, 1)%>
+      <%confirm_const(@gem, "gem", 0, 0)%>
+      <%confirm_const(@herc, "herc", 0, 1)%>
+      <!-- Hydra too big for any one map
+      <%confirm_const(@hydra, "hydra", 1, 0)%>-->
+      <%confirm_const(@leo, "leo", 0, 0)%>
+      <%confirm_const(@leo_minor, "leo_minor", 0, 0)%>
+      <%confirm_const(@lib, "lib", 0, 1)%>
+      <%confirm_const(@lyra, "lyra", 0, 1)%>
+      <%confirm_const(@lynx, "lynx", 0, 0)%>
+      <%confirm_const(@mon, "mon", 0, 0)%>
+      <%confirm_const(@orion, "orion", 0, 0)%>
+      <%confirm_const(@pers, "pers", 0, 0)%>
+      <%confirm_const(@pegas, "pegas", 0, 1)%>
+      <%confirm_const(@pisc, "pisc", 1, 1)%>
+      <%confirm_const(@pup, "pup", 0, 0)%>
+      <%confirm_const(@sco, "sco", 0, 1)%>
+      <%confirm_const(@sgr, "sgr", 0, 1)%>
+      <%confirm_const(@taur, "taur", 0, 0)%>
+      <%confirm_const(@vel, "vel", 1, 0)%>
+      <%confirm_const(@virgo, "virgo", 0, 1)%>
+      <%confirm_const(@ursa_major, "ursa_major", 0, 0)%>
+      <%confirm_const(@ursa_minor, "ursa_minor", 0, 0)%>
+    </ul>
+  </div>
 </div>
 
 <script>clickedSkymap()</script>
