@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   def confirm_logged_in
     unless session[:user_id]
       flash[:notice] = "You must be logged in to access this page"
-      redirect_to(:action => 'login')
+      redirect_to(:controller => 'login', :action => 'login')
       return false
     else
       return true

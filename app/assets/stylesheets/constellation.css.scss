@@ -1,0 +1,157 @@
+div#wrapper{
+  display: flex;
+}
+
+div#edit_fields{
+  padding-right: 0em;
+}
+
+div#edit_fields p{
+  text-align: left;
+}
+
+div#constelImage{
+  padding-left: 5em;
+  padding-right: 1em;
+}
+
+.constellh3{
+  font-family: 'Open Sans', sans-serif;
+}
+
+.container{
+  width: 100%;
+  text-align: center;
+}
+
+.wrapper2{
+  display: flex;
+}
+
+.notice{
+  display: inline-block;
+  font-family: 'Open Sans', sans-serif;
+  color: #D84315;
+}
+
+div#tableOfContents h3{
+  margin: 0em 0em 0.5em 0em;
+}
+
+div.container div.notice h3{
+  margin: 0.7em 0.5em 0.5em 0.5em;
+}
+
+.admin{
+  font-family: 'Open Sans', sans-serif;
+  display: inline-block;
+  background-color: white;
+  color: #424242;
+  padding: 0em 1.25em 1.7em 1.25em;
+  border-radius: 0.05em;
+  box-shadow: 0em 0em 0.75em #757575;
+}
+
+.enlarge span{
+  position: absolute;
+  left: -9999px;
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transition: opacity 0.5s ease;
+  -moz-transition: opacity 0.5s ease;
+  -ms-transition: opacity 0.5s ease;
+  -o-transition: opacity 0.5s ease;
+  transition: opacity 0.5s ease;
+}
+
+div.enlarge:hover span{
+  visibility: visible;
+  opacity: 1;
+  z-index: 999;
+  width:600px;
+  height:610px;
+  padding: 10px;
+  background:#64B5F6;
+  box-shadow: 0em 0em 0.75em #757575;
+  border-radius: 0.05em;
+}
+
+div#tableOfContents{
+  font-family: 'Open Sans', sans-serif;
+  padding: 1em 1.1em 1em 1em;
+  font-size: 12px;
+}
+
+div#constellList{
+  font-family: 'Open Sans', sans-serif;
+  padding: 1em 1.4em 1em 1em;
+}
+
+div#constellList h2{
+  margin-top: 0;
+}
+
+.fileField{
+  font-family: 'Open Sans', sans-serif;
+}
+
+table#constell{
+  font-size: 12px;
+  color: #424242;
+  background-color: white;
+  padding: 0em 1.25em 1.7em 1.25em;
+  border-radius: 0.05em;
+  box-shadow: 0em 0em 0.75em #757575;
+  border-collapse: collapse;
+}
+
+table#constell td{
+  padding: 1em 1em 1em 1em;
+}
+
+table#constell th{
+  padding: 1em 1em 1em 1em;
+  text-align: left;
+}
+
+table#constell tr{
+  border-bottom: 1px solid #BDBDBD;
+  text-align: left;
+}
+
+table#constell tr.bodyRow:hover{
+  background-color: #F5F5F5;
+}
+
+table#constell tr.bodyRow:target{
+  background-color: #F5F5F5;
+}
+
+.left{
+  padding: 0.25em 0em 0.25em 0.25em;
+}
+
+.right{
+  padding: 0.25em 0em 0.25em 0.25em;
+}
+
+.textfield{
+  width: 30em;
+  padding: 0.2em 0.2em 0.2em 0.2em;
+  border: 2px solid #BDBDBD;
+}
+
+.textarea{
+  width: 30em;
+  height: 8em;
+  border: 2px solid #BDBDBD;
+  padding: 0.2em;
+}
+
+.spaceblockW{
+  width: 5em;
+}
+
+.spaceblockH{
+  height: 2em;
+}

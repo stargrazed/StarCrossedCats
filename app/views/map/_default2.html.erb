@@ -2,7 +2,7 @@
   <meta charset="utf-8">
   <script>resetClick()</script>
 </head>
-<div class="contents">
+<div class="contents2">
   <header id="mainHeader" role="banner"><!--copy and paste to other pages-->
     <h1><%= link_to("StarGrazed", {:controller => 'welcome', :action => 'index'})%></h1>
     <nav role="navigation">
@@ -24,16 +24,16 @@
             <li><%= link_to("Sign-Up", {:controller => 'login', :action => 'new_user'})%></li>
           </ul>
         </li>
-        <li><%= link_to("Maps", {:controller => 'map', :action => 'index'})%>
+        <li><%= link_to("Maps", {:controller => 'map', :action => 'index'}, class:"current")%>
           <ul>
-            <li><%= link_to("Current", {:controller => 'map', :action => 'current'})%></li>
-            <li><%= link_to("East Night", {:controller => 'map', :action => 'east'})%></li>
-            <li><%= link_to("West Night", {:controller => 'map', :action => 'west'})%></li>
-            <li><%= link_to("Zodiac", {:controller => 'map', :action => 'zod'})%></li>
-            <li><%= link_to("Index", {:controller => 'map', :action => 'index'})%></li>
+            <li><%= link_to("Current", {:action => 'current'})%></li>
+            <li><%= link_to("West Night", {:action => 'west'})%></li>
+            <li><%= link_to("East Night", {:action => 'east'})%></li>
+            <li><%= link_to("Zodiac", {:action => 'zod'})%></li>
+            <li><%= link_to("Index", {:action => 'index'})%></li>
           </ul>
         </li>
-        <li><%= link_to("Fun-Facts", {:controller => 'fact', :action => 'index'}, class:"current")%></li>
+        <li><%= link_to("Fun-Facts", {:controller => 'constellations', :action => 'index'})%></li>
         <li><%= link_to("Learn More", {:controller => 'learn', :action => 'index'})%></li>
       </ul>
     </nav>

@@ -1,16 +1,18 @@
+var triggered = 0;
+var time;
+
 function clickedSkymap(){
-    var clickCnt = 0;
     var skymap = document.getElementById("test");
     skymap.addEventListener('click', function(event){
-        if(clickCnt != 1)
-            clickCnt += 1;
-        if(clickCnt == 1)
+        if(triggered == 0){
             startTimer();
+        }
+        triggered = 1;
     }, false);
 }
 
 function startTimer(){
-    var time = document.getElementById("timer");
+    time = document.getElementById("timer");
     var timerVar = setInterval(countTimer, 1000);
     var timeInSec = 0;
 
@@ -49,4 +51,12 @@ function formatDay(day){
     if(day > 1)
         strDay += "s";
     return strDay;
+}
+
+function resetClick(){
+    triggered = 0;
+}
+
+function stopTimer(){
+    time = 0;
 }

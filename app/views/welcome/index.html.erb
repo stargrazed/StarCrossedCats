@@ -1,27 +1,79 @@
 <%= error_messages_for(@user) %>
 
 <title>Welcome to our wonderful domain!</title>
-<meta name="description" content="A desciption of our website and introduction.">
+<meta name="description" content="Star mapping for dummies.">
 <%= stylesheet_link_tag('application') %>
 <%= render(:partial => "default")%>
 
-<p>Current Date is: <%= Time.now.month%>-<%= Time.now.day%>-<%= Time.now.year%></p>
-<p>Current Time is: <%= sprintf("%02d",Time.now.hour%12)%>:
-  <%= sprintf("%02d",Time.now.min)%>
-  <%if Time.now.hour/12 >= 1%>
-    <%= "pm"%>
-  <%else%>
-    <%= "am"%>
-  <%end%>
+<h2 class="welcome">Welcome to Star Grazed</h2>
+
+<p class="welcome_message">
+
+  Project Star Grazed is designed to be an app where people interested in learning about stars and constellations
+  can get a quick look using our easy to use sky-map. Star Grazed will utilize Star-API, a free RESTful API, that
+  provides access to the American Museum of Natural History’s Digital Universe Data.  Star-API provides access to
+  positions of stars and constellations which will enable the user to experience an accurate representation of the
+  universe.
+  <br>
+  <br>
+  This app is fully intended to be an interactive learning tool as there are no reliable or easily accessible
+  systems outside of a classroom setting. Please sign up and log-in to play and learn more about stars and
+  constellations.
+
+</p>
+<br>
+<br>
 
   <% if !flash[:notice].blank? %>
       <p><%= flash[:notice] %></p>
   <%end%>
-<div class="star_container"></div>
+  <svg id='test' width="1180" height="800"version="1.1"xmlns="http://www.w3.org/2000/svg">
+
+      <circle id="sun" cx="600" cy="400" r=30 opacity="1" fill="yellow"></circle>
+
+      <ellipse id="mercury_orbit"cx="600" cy="450" rx="93" ry="93"
+      style="fill:none;stroke:darkblue;stroke-width:1"></ellipse>
+      <circle id="mercury" cx="680" cy="400" r=3 opacity="1" fill="green">
+      <animateTransform attributeName="transform" type="rotate" dur="2.5s"from="0 600 450" to="360 600 450" repeatCount="indefinite"/></circle>
+
+      <ellipse id="venus_orbit"cx="600" cy="450" rx="130" ry="130"
+        style="fill:none;stroke:darkblue;stroke-width:1"></ellipse>
+      <circle id="venus" cx="720" cy="400" r=10 opacity="1" fill="gold">
+      <animateTransform attributeName="transform" type="rotate" dur="7.5s"from="0 600 450" to="360 600 450" repeatCount="indefinite"/></circle>
+
+               <ellipse id="earth_orbit"cx="600" cy="450" rx="180" ry="180"
+               style="fill:none;stroke:darkblue;stroke-width:1"></ellipse>
+      <circle id="earth" cx="770" cy="400" r=10 opacity="1" fill="blue">
+      <animateTransform attributeName="transform" type="rotate" dur="10s"from="0 600 450" to="360 600 450" repeatCount="indefinite"/></circle>
+
+      <ellipse id="mars_orbit"cx="600" cy="450" rx="230" ry="230"
+               style="fill:none;stroke:darkblue;stroke-width:1"></ellipse>
+      <circle id="mars" cx="827" cy="400" r=6 opacity="1" fill="red">
+      <animateTransform attributeName="transform" type="rotate" dur="19s"from="0 600 450" to="360 600 450" repeatCount="indefinite"/></circle>
+
+      <ellipse id="jupiter_orbit"cx="600" cy="450" rx="350" ry="350"
+               style="fill:none;stroke:darkblue;stroke-width:1"></ellipse>
+      <circle id="jupiter" cx="950" cy="400" r=25 opacity="1" fill="brown">
+      <animateTransform attributeName="transform" type="rotate" dur="80s"from="0 600 450" to="360 600 450" repeatCount="indefinite"/></circle>
+
+      <ellipse id="saturn_orbit"cx="600" cy="450" rx="450" ry="450"
+      style="fill:none;stroke:darkblue;stroke-width:1"></ellipse>
+      <ellipse id="saturn_ring"cx="1050" cy="400" rx="10" ry="50"
+               style="fill:none;stroke:gold;stroke-width:2">
+          <animateTransform attributeName="transform" type="rotate" dur="240s"from="0 600 450" to="360 600 450" repeatCount="indefinite"/></ellipse>
+      <circle id="saturn" cx="1050" cy="400" r=20 opacity="1" fill="gold">
+      <animateTransform attributeName="transform" type="rotate" dur="240s"from="0 600 450" to="360 600 450" repeatCount="indefinite"/></circle>
+
+      <ellipse id="uranus_orbit"cx="600" cy="450" rx="550" ry="550"
+               style="fill:none;stroke:darkblue;stroke-width:1"></ellipse>
+      <circle id="uranus" cx="1150" cy="400" r=15 opacity="1" fill="aqua">
+      <animateTransform attributeName="transform" type="rotate" dur="600s"from="0 600 450" to="360 600 450" repeatCount="indefinite"/></circle>
+
+      <ellipse id="neptune_orbit"cx="600" cy="450" rx="600" ry="600"
+               style="fill:none;stroke:darkblue;stroke-width:1"></ellipse>
+      <circle id="neptune" cx="1250" cy="400" r=13 opacity="1" fill="aquamarine">
+      <animateTransform attributeName="transform" type="rotate" dur="1200s"from="0 600 450" to="360 600 450" repeatCount="indefinite"/></circle>
+  </svg>
+<p class="date">Current Date is: <%= Time.now.month%>-<%= Time.now.day%>-<%= Time.now.year%></p>
+
 </div>
-
-<script>
-constell_to_star('https://star-api.herokuapp.com/api/v1/constellation_star_unions?min[constellation_id]=0&max[constellation_id]=3');
-</script>
-
-<script src="welcome.js"></script>

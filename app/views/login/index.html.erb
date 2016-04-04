@@ -6,13 +6,12 @@
 <%= render(:partial => "default")%>
 
 <div>
-  <h2>Admin Menu</h2>
+  <h2>User Menu</h2>
   <% if !flash[:notice].blank? %>
       <%= flash[:notice] %>
   <%end%>
   <ul>
     <li><%= link_to("Profile", :action => 'profile') %></li>
-    <li><%= link_to("Manage Admin Users", '#') %></li>
     <li><%= link_to("Logout", :action => 'logout') %></li>
   </ul>
 </div>

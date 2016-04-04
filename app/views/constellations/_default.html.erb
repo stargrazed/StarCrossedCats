@@ -1,6 +1,7 @@
 <head>
   <meta charset="utf-8">
   <script>resetClick()</script>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
 </head>
 <div class="contents">
   <header id="mainHeader" role="banner"><!--copy and paste to other pages-->
@@ -33,7 +34,7 @@
             <li><%= link_to("Index", {:controller => 'map', :action => 'index'})%></li>
           </ul>
         </li>
-        <li><%= link_to("Fun-Facts", {:controller => 'fact', :action => 'index'}, class:"current")%></li>
+        <li><%= link_to("Fun-Facts", {:controller => 'constellations', :action => 'index'}, class:"current")%></li>
         <li><%= link_to("Learn More", {:controller => 'learn', :action => 'index'})%></li>
       </ul>
     </nav>

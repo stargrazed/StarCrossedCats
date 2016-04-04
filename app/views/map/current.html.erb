@@ -1,0 +1,688 @@
+<title>Welcome to our wonderful domain!</title>
+<meta name="description" content="A desciption of our website and introduction.">
+<%= stylesheet_link_tag('application') %>
+<%= render(:partial => "default")%>
+
+<p><em>You require Chrome or IE9 to view this page properly.</em></p>
+<p>Possible constellations based on the time of year. It is assumed to be 9-12pm,
+regardless of region.</p>
+
+<p id = "score" style="font-size:25px">
+  <span>Score: </span>
+</p>
+
+<div id="timer">
+  <span>00:00:00</span>
+</div>
+
+<%= form_for(:get_month, :url=> {action: "current"}) do |f|%>
+  <%= select_month(Date.today, :field_name => 'get_month') %>
+  <%= submit_tag("Update!") %>
+<% end %>
+
+<% if !flash[:notice].blank? %>
+    <%= flash[:notice] %>
+<%end%>
+
+<p id="current_const">Progress</p>
+
+<svg id='test' width="1000" height="800" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+   <filter id="f1" x="0" y=0>
+     <feGaussianBlur in="SourceGraphic" stdDeviation="1"/>
+   </filter>
+  </defs>
+
+<!--The blue vision circle-->
+  <ellipse cx="500" cy="400" rx="400" ry="350"
+    fill="none" stroke="blue" stroke-width ="3"/>
+
+<%def star_red(b_index)%>
+  <%color1 = 250 + 100*b_index%>
+  <%if color1 > 255%>
+    <%color1 = 255%>
+  <%end%>
+  <%return (color1*100).round/100%>
+<%end%>
+
+<%def star_green(b_index)%>
+  <%color2 = 250 - 80*(b_index.abs)%>
+  <%return (color2*100).round/100%>
+<%end%>
+
+<%def star_blue(b_index)%>
+  <%color3 = 250 - 100*(b_index)%>
+  <%if color3 > 255 %>
+    <%color3 = 255%>
+  <%end%>
+  <%return (color3*100).round/100%>
+<%end%>
+
+<%def draw_const(const, const_name, cross_90, post_half)%>
+  <%i = 0%>
+  <%while const[i] != nil%>
+    <%x_scale = -5%>
+    <%x_shift = 150 + 150*@this_month%>
+    <%y_scale = 5%>
+    <%y_shift = 0%>
+
+    <%x_shift = x_shift + 900*post_half%>
+
+    <%if cross_90 == 1%>
+      <%if const[i][0] < 0%>
+        <%x_shift = x_shift-900%>
+      <%end%>
+    <%end%>
+
+    <%if (const[i][0]*x_scale+x_shift) > 1800%>
+      <%x_shift = x_shift - 1800%>
+    <%end%>
+
+    <%if((const[i][0]*x_scale+x_shift) > 1000)%>
+      <%i = i+1%>
+      <%next%>
+    <%end%>
+
+    <%red = star_red(const[i][3])%>
+    <%green = star_green(const[i][3])%>
+    <%blue = star_blue(const[i][3])%>
+    <circle id="<%=const_name%><%=i%>" cx="<%=(const[i][0])*x_scale+x_shift%>" cy="<%=const[i][1]*y_scale+y_shift%>"
+      r="<%=7-const[i][2]%>" opacity="1" style="filter:url(#f1)"
+      fill="rgb(<%=red%>,<%=green%>, <%=blue%>)" onclick="<%=const_name%>_Click(<%=i%>)">
+      <animateTransform attributeName="transform" type="rotate" dur="6s"from="0
+      <%=const[i][0]*x_scale+x_shift%> <%=const[i][1]*y_scale+y_shift%>" to="360
+      <%=const[i][0]*x_scale+x_shift%> <%=const[i][1]*y_scale+y_shift%>" repeatCount="indefinite"/>
+    </circle>
+    <%i = i+1%>
+  <%end%>
+  <%return%>
+<%end%>
+
+<%def connect(const, class_name, s1, s2, cross_90, post_half)%>
+  <%x_scale = -5%>
+  <%x_shift_1 = 150 + 150*@this_month%>
+  <%x_shift_2 = 150 + 150*@this_month%>
+  <%y_scale = 5%>
+  <%y_shift = 0%>
+
+  <%x_shift_1 = x_shift_1 + 900*post_half%>
+  <%x_shift_2 = x_shift_2 + 900*post_half%>
+
+  <%if cross_90 == 1%>
+    <%if const[s1][0] < 0%>
+      <%x_shift_1 = x_shift_1-900%>
+    <%end%>
+    <%if const[s2][0] < 0%>
+      <%x_shift_2 = x_shift_2-900%>
+    <%end%>
+  <%end%>
+
+  <%if (const[s1][0]*x_scale+x_shift_1) > 1800%>
+    <%x_shift_1 = x_shift_1 - 1800%>
+  <%end%>
+  <%if (const[s2][0]*x_scale+x_shift_2) > 1800%>
+    <%x_shift_2 = x_shift_2 - 1800%>
+  <%end%>
+
+  <%if ((const[s1][0]*x_scale+x_shift_1)-(const[s2][0]*x_scale+x_shift_2)).abs > 1000%>
+    <%return%>
+  <%end%>
+
+  <%if ((const[s2][0]*x_scale+x_shift_2)) > 1000%>
+    <%return%>
+  <%end%>
+
+  <%if ((const[s1][0]*x_scale+x_shift_1)) > 1000%>
+    <%return%>
+  <%end%>
+
+  <line class="<%=class_name%>" x1="<%=const[s1][0]*x_scale+x_shift_1%>" y1="<%=const[s1][1]*y_scale+y_shift%>"
+    x2="<%=const[s2][0]*x_scale+x_shift_2%>" y2="<%=const[s2][1]*y_scale+y_shift%>"/>
+    <%return%>
+<%end%>
+
+<%def confirm_const(const, class_name, cross_90, post_half)%>
+  <%x_scale = -5%>
+  <%x_shift = 150 + 150*@this_month%>
+  <%y_scale = 5%>
+  <%y_shift = 0%>
+
+  <%x_shift = x_shift + 900*post_half%>
+
+  <%if cross_90 == 1%>
+    <%if const[0][0] < 0%>
+      <%x_shift = x_shift-900%>
+    <%end%>
+  <%end%>
+
+  <%if ((const[0][0]*x_scale+x_shift) > 1800)%>
+    <%x_shift = x_shift - 1800%>
+  <%end%>
+
+  <%if((const[0][0]*x_scale+x_shift) > 100 && (const[0][0]*x_scale+x_shift < 900))%>
+    <li id="<%=class_name%>_a"></li>
+  <%end%>
+  <%return%>
+<%end%>
+
+<%draw_const(@andro, "andro", 0, 0)%>
+
+<%draw_const(@ari, "ari", 0, 0)%>
+<%connect(@ari, "ari1", 0, 1, 0, 0)%>
+<%connect(@ari, "ari2", 1, 2, 0, 0)%>
+<%connect(@ari, "ari3", 2, 3, 0, 0)%>
+
+<%draw_const(@aur, "aur", 0, 0)%>
+<%connect(@aur, "aur1", 0, 1, 0, 0)%>
+<%connect(@aur, "aur6", 0, 6, 0, 0)%>
+<%connect(@aur, "aur2", 1, 2, 0, 0)%>
+<%connect(@aur, "aur3", 1, 3, 0, 0)%>
+<%connect(@aur, "aur3", 2, 3, 0, 0)%>
+<%connect(@aur, "aur4", 3, 4, 0, 0)%>
+<%connect(@aur, "aur5", 3, 5, 0, 0)%>
+<%connect(@aur, "aur6", 4, 6, 0, 0)%>
+<%connect(@aur, "aur7", 5, 7, 0, 0)%>
+
+<%draw_const(@aqr, "aqr", 0, 1)%>
+<%connect(@aqr, "aqr1", 0, 1, 0, 1)%>
+<%connect(@aqr, "aqr2", 1, 2, 0, 1)%>
+<%connect(@aqr, "aqr3", 2, 3, 0, 1)%>
+<%connect(@aqr, "aqr11", 2, 11, 0, 1)%>
+<%connect(@aqr, "aqr12", 2, 12, 0, 1)%>
+<%connect(@aqr, "aqr5", 3, 5, 0, 1)%>
+<%connect(@aqr, "aqr4", 4, 5, 0, 1)%>
+<%connect(@aqr, "aqr5", 5, 11, 0, 1)%>
+<%connect(@aqr, "aqr6", 6, 7, 0, 1)%>
+<%connect(@aqr, "aqr8", 7, 8, 0, 1)%>
+<%connect(@aqr, "aqr7", 7, 12, 0, 1)%>
+<%connect(@aqr, "aqr9", 8, 9, 0, 1)%>
+<%connect(@aqr, "aqr10", 9, 10, 0, 1)%>
+<%connect(@aqr, "aqr13", 12, 13, 0, 1)%>
+<%connect(@aqr, "aqr14", 13, 14, 0, 1)%>
+
+<%draw_const(@aqu, "aqu", 0, 1)%>
+<%connect(@aqu, "aqu1", 0, 1, 0, 1)%>
+<%connect(@aqu, "aqu7", 1, 7, 0, 1)%>
+<%connect(@aqu, "aqu3", 2, 3, 0, 1)%>
+<%connect(@aqu, "aqu9", 1, 9, 0, 1)%>
+<%connect(@aqu, "aqu2", 9, 2, 0, 1)%>
+<%connect(@aqu, "aqu4", 3, 4, 0, 1)%>
+<%connect(@aqu, "aqu5", 5, 6, 0, 1)%>
+<%connect(@aqu, "aqu7", 5, 7, 0, 1)%>
+<%connect(@aqu, "aqu6", 6, 9, 0, 1)%>
+<%connect(@aqu, "aqu8", 7, 8, 0, 1)%>
+
+<%draw_const(@bootes, "bootes", 0, 1)%>
+<%connect(@bootes, "bootes1", 0, 1, 0, 1)%>
+<%connect(@bootes, "bootes2", 1, 2, 0, 1)%>
+<%connect(@bootes, "bootes3", 2, 3, 0, 1)%>
+<%connect(@bootes, "bootes5", 3, 5, 0, 1)%>
+<%connect(@bootes, "bootes6", 3, 6, 0, 1)%>
+<%connect(@bootes, "bootes4", 4, 6, 0, 1)%>
+<%connect(@bootes, "bootes7", 7, 5, 0, 1)%>
+<%connect(@bootes, "bootes8", 7, 8, 0, 1)%>
+<%connect(@bootes, "bootes9", 8, 9, 0, 1)%>
+<%connect(@bootes, "bootes10", 9, 10, 0, 1)%>
+<%connect(@bootes, "bootes10", 10, 3, 0, 1)%>
+
+<%draw_const(@canis_major, "canis_major", 0, 0)%>
+
+<%draw_const(@canis_minor, "canis_minor", 0, 0)%>
+<%connect(@canis_minor, "canis_minor1", 0, 1, 0, 0)%>
+
+<%draw_const(@cap, "cap", 0, 1)%>
+<%connect(@cap, "cap1", 0, 1, 0, 1)%>
+<%connect(@cap, "cap10", 1, 10, 0, 1)%>
+<%connect(@cap, "cap2", 1, 2, 0, 1)%>
+<%connect(@cap, "cap4", 2, 4, 0, 1)%>
+<%connect(@cap, "cap3", 3, 4, 0, 1)%>
+<%connect(@cap, "cap5", 3, 5, 0, 1)%>
+<%connect(@cap, "cap6", 5, 6, 0, 1)%>
+<%connect(@cap, "cap7", 6, 7, 0, 1)%>
+<%connect(@cap, "cap8", 7, 8, 0, 1)%>
+<%connect(@cap, "cap9", 8, 9, 0, 1)%>
+<%connect(@cap, "cap10", 9, 10, 0, 1)%>
+
+<%draw_const(@car, "car", 1, 0)%>
+<%connect(@car, "car2", 1, 2, 1, 0)%>
+<%connect(@car, "car1", 1, 9, 1, 0)%>
+<%connect(@car, "car4", 2, 4, 1, 0)%>
+<%connect(@car, "car3", 3, 5, 1, 0)%>
+<%connect(@car, "car5", 4, 5, 1, 0)%>
+<%connect(@car, "car6", 5, 6, 1, 0)%>
+<%connect(@car, "car7", 6, 7, 1, 0)%>
+<%connect(@car, "car8", 7, 8, 1, 0)%>
+<%connect(@car, "car9", 8, 9, 1, 0)%>
+
+<%draw_const(@cass, "cass", 0, 0)%>
+<%connect(@cass, "cass1", 0, 1, 0, 0)%>
+<%connect(@cass, "cass2", 1, 2, 0, 0)%>
+<%connect(@cass, "cass3", 2, 3, 0, 0)%>
+<%connect(@cass, "cass4", 3, 4, 0, 0)%>
+
+<%draw_const(@cen, "cen", 0, 1)%>
+<%connect(@cen, "cen1", 0, 1, 0, 1)%>
+<%connect(@cen, "cen3", 1, 3, 0, 1)%>
+<%connect(@cen, "cen2", 2, 4, 0, 1)%>
+<%connect(@cen, "cen4", 3, 4, 0, 1)%>
+<%connect(@cen, "cen5", 4, 5, 0, 1)%>
+<%connect(@cen, "cen8", 5, 8, 0, 1)%>
+<%connect(@cen, "cen9", 5, 9, 0, 1)%>
+<%connect(@cen, "cen6", 6, 7, 0, 1)%>
+<%connect(@cen, "cen7", 7, 8, 0, 1)%>
+<%connect(@cen, "cen9", 8, 9, 0, 1)%>
+<%connect(@cen, "cen10", 9, 10, 0, 1)%>
+<%connect(@cen, "cen10", 10, 11, 0, 1)%>
+<%connect(@cen, "cen14", 10, 14, 0, 1)%>
+<%connect(@cen, "cen12", 11, 12, 0, 1)%>
+<%connect(@cen, "cen13", 13, 14, 0, 1)%>
+<%connect(@cen, "cen15", 11, 15, 0, 1)%>
+<%connect(@cen, "cen16", 15, 16, 0, 1)%>
+
+<%draw_const(@cep, "cep", 0, 0)%>
+<%connect(@cep, "cep4", 0, 4, 0, 0)%>
+<%connect(@cep, "cep5", 1, 5, 0, 0)%>
+<%connect(@cep, "cep4", 2, 4, 0, 0)%>
+<%connect(@cep, "cep3", 3, 0, 0, 0)%>
+<%connect(@cep, "cep4", 4, 8, 0, 0)%>
+<%connect(@cep, "cep5", 5, 2, 0, 0)%>
+<%connect(@cep, "cep6", 1, 6, 0, 0)%>
+<%connect(@cep, "cep7", 6, 7, 0, 0)%>
+<%connect(@cep, "cep8", 7, 8, 0, 0)%>
+
+<%draw_const(@cnc, "cnc", 0, 0)%>
+<%connect(@cnc, "cnc1", 0, 1, 0, 0)%>
+<%connect(@cnc, "cnc2", 1, 2, 0, 0)%>
+<%connect(@cnc, "cnc3", 1, 3, 0, 0)%>
+<%connect(@cnc, "cnc4", 3, 4, 0, 0)%>
+
+<%draw_const(@col, "col", 0, 0)%>
+<%connect(@col, "col1", 0, 1, 0, 0)%>
+<%connect(@col, "col4", 1, 4, 0, 0)%>
+<%connect(@col, "col3", 2, 3, 0, 0)%>
+<%connect(@col, "col2", 2, 4, 0, 0)%>
+<%connect(@col, "col6", 2, 6, 0, 0)%>
+<%connect(@col, "col5", 3, 5, 0, 0)%>
+
+<%draw_const(@cra, "cra", 0, 1)%>
+<%connect(@cra, "cra1", 0, 1, 0, 1)%>
+<%connect(@cra, "cra2", 1, 2, 0, 1)%>
+<%connect(@cra, "cra3", 2, 3, 0, 1)%>
+<%connect(@cra, "cra4", 3, 4, 0, 1)%>
+<%connect(@cra, "cra5", 4, 5, 0, 1)%>
+
+<%draw_const(@crb, "crb", 0, 1)%>
+<%connect(@crb, "crb1", 0, 1, 0, 1)%>
+<%connect(@crb, "crb2", 1, 2, 0, 1)%>
+<%connect(@crb, "crb3", 2, 3, 0, 1)%>
+<%connect(@crb, "crb4", 3, 4, 0, 1)%>
+<%connect(@crb, "crb5", 4, 5, 0, 1)%>
+<%connect(@crb, "crb6", 5, 6, 0, 1)%>
+
+<%draw_const(@cru, "cru", 0, 1)%>
+<%connect(@cru, "cru1", 0, 1, 0, 1)%>
+<%connect(@cru, "cru3", 2, 3, 0, 1)%>
+
+<%draw_const(@cygnus, "cygnus", 0, 1)%>
+<%connect(@cygnus, "cygnus1", 0, 1, 0, 1)%>
+<%connect(@cygnus, "cygnus3", 3, 4, 0, 1)%>
+<%connect(@cygnus, "cygnus2", 2, 5, 0, 1)%>
+<%connect(@cygnus, "cygnus6", 2, 6, 0, 1)%>
+<%connect(@cygnus, "cygnus8", 1, 8, 0, 1)%>
+<%connect(@cygnus, "cygnus5", 1, 5, 0, 1)%>
+<%connect(@cygnus, "cygnus7", 1, 7, 0, 1)%>
+<%connect(@cygnus, "cygnus9", 8, 9, 0, 1)%>
+<%connect(@cygnus, "cygnus4", 4, 7, 0, 1)%>
+
+<%draw_const(@dor, "dor", 1, 0)%>
+<%connect(@dor, "dor1", 0, 1, 1, 0)%>
+<%connect(@dor, "dor3", 1, 3, 1, 0)%>
+<%connect(@dor, "dor2", 2, 3, 1, 0)%>
+<%connect(@dor, "dor4", 3, 4, 1, 0)%>
+
+<%draw_const(@draco,"draco", 1, 1)%>
+<%connect(@draco, "draco1", 0, 1, 1, 1)%>
+<%connect(@draco, "draco3", 0, 3, 1, 1)%>
+<%connect(@draco, "draco4", 0, 4, 1, 1)%>
+<%connect(@draco, "draco2", 1, 2, 1, 1)%>
+<%connect(@draco, "draco2", 2, 4, 1, 1)%>
+<%connect(@draco, "draco5", 3, 5, 1, 1)%>
+<%connect(@draco, "draco6", 5, 6, 1, 1)%>
+<%connect(@draco, "draco7", 6, 7, 1, 1)%>
+<%connect(@draco, "draco8", 7, 8, 1, 1)%>
+<%connect(@draco, "draco9", 8, 9, 1, 1)%>
+<%connect(@draco, "draco10", 9, 10, 1, 1)%>
+<%connect(@draco, "draco11", 10, 11, 1, 1)%>
+<%connect(@draco, "draco12", 11, 12, 1, 1)%>
+<%connect(@draco, "draco13", 12, 13, 1, 1)%>
+<%connect(@draco, "draco14", 13, 14, 1, 1)%>
+<%connect(@draco, "draco15", 14, 15, 1, 1)%>
+
+<%draw_const(@gem, "gem", 0, 0)%>
+<%connect(@gem, "gem1", 0, 1, 0, 0)%>
+<%connect(@gem, "gem10", 0, 10, 0, 0)%>
+<%connect(@gem, "gem1", 1, 9, 0, 0)%>
+<%connect(@gem, "gem3", 1, 3, 0, 0)%>
+<%connect(@gem, "gem2", 2, 4, 0, 0)%>
+<%connect(@gem, "gem5", 2, 5, 0, 0)%>
+<%connect(@gem, "gem4", 3, 4, 0, 0)%>
+<%connect(@gem, "gem6", 5, 6, 0, 0)%>
+<%connect(@gem, "gem8", 6, 8, 0, 0)%>
+<%connect(@gem, "gem7", 7, 8, 0, 0)%>
+
+<%draw_const(@herc, "herc", 0, 1)%>
+<%connect(@herc, "herc1", 0, 1, 0, 1)%>
+<%connect(@herc, "herc2", 1, 2, 0, 1)%>
+<%connect(@herc, "herc14", 2, 14, 0, 1)%>
+<%connect(@herc, "herc3", 3, 4, 0, 1)%>
+<%connect(@herc, "herc15", 3, 15, 0, 1)%>
+<%connect(@herc, "herc4", 4, 5, 0, 1)%>
+<%connect(@herc, "herc6", 6, 7, 0, 1)%>
+<%connect(@herc, "herc7", 7, 8, 0, 1)%>
+<%connect(@herc, "herc8", 8, 9, 0, 1)%>
+<%connect(@herc, "herc9", 9, 10, 0, 1)%>
+<%connect(@herc, "herc12", 10, 12, 0, 1)%>
+<%connect(@herc, "herc10", 10, 16, 0, 1)%>
+<%connect(@herc, "herc11", 11, 15, 0, 1)%>
+<%connect(@herc, "herc11", 11, 16, 0, 1)%>
+<%connect(@herc, "herc17", 11, 17, 0, 1)%>
+<%connect(@herc, "herc17", 12, 17, 0, 1)%>
+<%connect(@herc, "herc13", 13, 17, 0, 1)%>
+<%connect(@herc, "herc14", 14, 15, 0, 1)%>
+<%connect(@herc, "herc16", 14, 16, 0, 1)%>
+
+<%draw_const(@hydra,"hydra", 1, 0)%>
+<%connect(@hydra, "hydra1", 0, 1, 1, 0)%>
+<%connect(@hydra, "hydra2", 0, 2, 1, 0)%>
+<%connect(@hydra, "hydra5", 0, 5, 1, 0)%>
+<%connect(@hydra, "hydra1", 1, 4, 1, 0)%>
+<%connect(@hydra, "hydra3", 2, 3, 1, 0)%>
+<%connect(@hydra, "hydra4", 3, 4, 1, 0)%>
+<%connect(@hydra, "hydra6", 5, 6, 1, 0)%>
+<%connect(@hydra, "hydra7", 6, 7, 1, 0)%>
+<%connect(@hydra, "hydra8", 7, 8, 1, 0)%>
+<%connect(@hydra, "hydra9", 8, 9, 1, 0)%>
+<%connect(@hydra, "hydra10", 9, 10, 1, 0)%>
+<%connect(@hydra, "hydra11", 10, 11, 1, 0)%>
+<%connect(@hydra, "hydra12", 11, 12, 1, 0)%>
+<%connect(@hydra, "hydra13", 12, 13, 1, 0)%>
+<%connect(@hydra, "hydra14", 13, 14, 1, 0)%>
+<%connect(@hydra, "hydra15", 14, 15, 1, 0)%>
+<%connect(@hydra, "hydra16", 15, 16, 1, 0)%>
+
+<%draw_const(@leo, "leo", 0, 0)%>
+<%connect(@leo, "leo1", 0, 1, 0, 0)%>
+<%connect(@leo, "leo5", 0, 5, 0, 0)%>
+<%connect(@leo, "leo2", 1, 2, 0, 0)%>
+<%connect(@leo, "leo3", 1, 3, 0, 0)%>
+<%connect(@leo, "leo3", 2, 3, 0, 0)%>
+<%connect(@leo, "leo4", 3, 4, 0, 0)%>
+<%connect(@leo, "leo5", 4, 5, 0, 0)%>
+<%connect(@leo, "leo6", 4, 6, 0, 0)%>
+<%connect(@leo, "leo7", 6, 7, 0, 0)%>
+<%connect(@leo, "leo8", 7, 8, 0, 0)%>
+
+<%draw_const(@leo_minor, "leo_minor", 0, 0)%>
+<%connect(@leo_minor, "leo_minor1", 0, 1, 0, 0)%>
+<%connect(@leo_minor, "leo_minor1", 1, 2, 0, 0)%>
+
+<%draw_const(@lib, "lib", 0, 1)%>
+<%connect(@lib, "lib1", 0, 1, 0, 1)%>
+<%connect(@lib, "lib2", 0, 2, 0, 1)%>
+<%connect(@lib, "lib1", 1, 2, 0, 1)%>
+<%connect(@lib, "lib3", 1, 3, 0, 1)%>
+<%connect(@lib, "lib4", 2, 4, 0, 1)%>
+<%connect(@lib, "lib5", 4, 5, 0, 1)%>
+
+<%draw_const(@lyra, "lyra", 0, 1)%>
+<%connect(@lyra, "lyra1", 0, 1, 0, 1)%>
+<%connect(@lyra, "lyra2", 0, 2, 0, 1)%>
+<%connect(@lyra, "lyra1", 1, 2, 0, 1)%>
+<%connect(@lyra, "lyra3", 2, 3, 0, 1)%>
+<%connect(@lyra, "lyra4", 3, 4, 0, 1)%>
+<%connect(@lyra, "lyra5", 4, 5, 0, 1)%>
+<%connect(@lyra, "lyra5", 2, 5, 0, 1)%>
+
+<%draw_const(@lynx, "lynx", 0, 0)%>
+<%connect(@lynx, "lynx1", 0, 1, 0, 0)%>
+<%connect(@lynx, "lynx2", 1, 2, 0, 0)%>
+<%connect(@lynx, "lynx3", 2, 3, 0, 0)%>
+<%connect(@lynx, "lynx4", 3, 4, 0, 0)%>
+<%connect(@lynx, "lynx5", 4, 5, 0, 0)%>
+<%connect(@lynx, "lynx6", 5, 6, 0, 0)%>
+
+<%draw_const(@mon, "mon", 0, 0)%>
+<%connect(@mon, "mon1", 0, 1, 0, 0)%>
+<%connect(@mon, "mon1", 0, 2, 0, 0)%>
+<%connect(@mon, "mon1", 1, 2, 0, 0)%>
+<%connect(@mon, "mon3", 1, 3, 0, 0)%>
+<%connect(@mon, "mon4", 3, 4, 0, 0)%>
+<%connect(@mon, "mon6", 3, 6, 0, 0)%>
+<%connect(@mon, "mon5", 4, 5, 0, 0)%>
+<%connect(@mon, "mon7", 6, 7, 0, 0)%>
+
+<%draw_const(@orion, "orion", 0, 0)%>
+<%connect(@orion, "orion1", 0, 1, 0, 0)%>
+<%connect(@orion, "orion6", 0, 6, 0, 0)%>
+<%connect(@orion, "orion8", 0, 8, 0, 0)%>
+<%connect(@orion, "orion3", 1, 3, 0, 0)%>
+<%connect(@orion, "orion2", 2, 3, 0, 0)%>
+<%connect(@orion, "orion5", 2, 5, 0, 0)%>
+<%connect(@orion, "orion14", 3, 14, 0, 0)%>
+<%connect(@orion, "orion4", 4, 5, 0, 0)%>
+<%connect(@orion, "orion7", 6, 7, 0, 0)%>
+<%connect(@orion, "orion9", 8, 9, 0, 0)%>
+<%connect(@orion, "orion9", 9, 10, 0, 0)%>
+<%connect(@orion, "orion9", 9, 12, 0, 0)%>
+<%connect(@orion, "orion9", 10, 11, 0, 0)%>
+<%connect(@orion, "orion9", 11, 12, 0, 0)%>
+<%connect(@orion, "orion13", 13, 2, 0, 0)%>
+<%connect(@orion, "orion13", 13, 6, 0, 0)%>
+<%connect(@orion, "orion14", 14, 16, 0, 0)%>
+<%connect(@orion, "orion14", 14, 17, 0, 0)%>
+<%connect(@orion, "orion14", 15, 16, 0, 0)%>
+<%connect(@orion, "orion14", 17, 18, 0, 0)%>
+<%connect(@orion, "orion14", 18, 19, 0, 0)%>
+
+<%draw_const(@pegas, "pegas", 1, 1)%>
+<%connect(@pegas, "pegas1", 0, 1, 1, 1)%>
+<%connect(@pegas, "pegas5", 1, 5, 1, 1)%>
+<%connect(@pegas, "pegas2", 2, 4, 1, 1)%>
+<%connect(@pegas, "pegas3", 0, 3, 1, 1)%>
+<%connect(@pegas, "pegas3", 3, 5, 1, 1)%>
+<%connect(@pegas, "pegas6", 3, 6, 1, 1)%>
+<%connect(@pegas, "pegas7", 3, 7, 1, 1)%>
+<%connect(@pegas, "pegas4", 4, 8, 1, 1)%>
+<%connect(@pegas, "pegas9", 5, 9, 1, 1)%>
+<%connect(@pegas, "pegas8", 7, 8, 1, 1)%>
+<%connect(@pegas, "pegas10", 9, 10, 1, 1)%>
+<%connect(@pegas, "pegas11", 10, 11, 1, 1)%>
+<%connect(@pegas, "pegas12", 11, 12, 1, 1)%>
+
+
+<%draw_const(@pers, "pers", 0, 0)%>
+<%connect(@pers, "pers1", 0, 1, 0, 0)%>
+<%connect(@pers, "pers2", 1, 2, 0, 0)%>
+<%connect(@pers, "pers7", 2, 7, 0, 0)%>
+<%connect(@pers, "pers3", 3, 4, 0, 0)%>
+<%connect(@pers, "pers4", 4, 5, 0, 0)%>
+<%connect(@pers, "pers5", 5, 6, 0, 0)%>
+<%connect(@pers, "pers6", 6, 2, 0, 0)%>
+<%connect(@pers, "pers8", 7, 8, 0, 0)%>
+<%connect(@pers, "pers9", 8, 9, 0, 0)%>
+<%connect(@pers, "pers10", 9, 10, 0, 0)%>
+<%connect(@pers, "pers11", 10, 11, 0, 0)%>
+
+<%draw_const(@pisc, "pisc", 1, 1)%>
+<%connect(@pisc, "pisc1", 0, 1, 1, 1)%>
+<%connect(@pisc, "pisc4", 0, 4, 1, 1)%>
+<%connect(@pisc, "pisc2", 1, 2, 1, 1)%>
+<%connect(@pisc, "pisc3", 2, 3, 1, 1)%>
+<%connect(@pisc, "pisc4", 3, 4, 1, 1)%>
+<%connect(@pisc, "pisc5", 0, 5, 1, 1)%>
+<%connect(@pisc, "pisc6", 5, 6, 1, 1)%>
+<%connect(@pisc, "pisc7", 6, 7, 1, 1)%>
+<%connect(@pisc, "pisc8", 7, 8, 1, 1)%>
+<%connect(@pisc, "pisc9", 8, 9, 1, 1)%>
+<%connect(@pisc, "pisc10", 9, 10, 1, 1)%>
+<%connect(@pisc, "pisc11", 10, 11, 1, 1)%>
+<%connect(@pisc, "pisc12", 11, 12, 1, 1)%>
+<%connect(@pisc, "pisc13", 12, 13, 1, 1)%>
+<%connect(@pisc, "pisc14", 12, 14, 1, 1)%>
+<%connect(@pisc, "pisc14", 13, 14, 1, 1)%>
+
+<%draw_const(@pup, "pup", 0, 0)%>
+<%connect(@pup, "pup1", 0, 1, 0, 0)%>
+<%connect(@pup, "pup8", 0, 8, 0, 0)%>
+<%connect(@pup, "pup5", 5, 6, 0, 0)%>
+<%connect(@pup, "pup6", 6, 7, 0, 0)%>
+<%connect(@pup, "pup7", 7, 8, 0, 0)%>
+
+<%draw_const(@sco, "sco", 0, 1)%>
+<%connect(@sco, "sco1", 0, 1, 0, 1)%>
+<%connect(@sco, "sco2", 1, 2, 0, 1)%>
+<%connect(@sco, "sco3", 2, 3, 0, 1)%>
+<%connect(@sco, "sco4", 3, 4, 0, 1)%>
+<%connect(@sco, "sco5", 2, 5, 0, 1)%>
+<%connect(@sco, "sco6", 5, 6, 0, 1)%>
+<%connect(@sco, "sco7", 6, 7, 0, 1)%>
+<%connect(@sco, "sco11", 7, 11, 0, 1)%>
+<%connect(@sco, "sco9", 8, 9, 0, 1)%>
+<%connect(@sco, "sco8", 8, 16, 0, 1)%>
+<%connect(@sco, "sco9", 9, 10, 0, 1)%>
+<%connect(@sco, "sco12", 11, 12, 0, 1)%>
+<%connect(@sco, "sco13", 12, 13, 0, 1)%>
+<%connect(@sco, "sco14", 13, 14, 0, 1)%>
+<%connect(@sco, "sco15", 14, 15, 0, 1)%>
+<%connect(@sco, "sco16", 15, 16, 0, 1)%>
+
+<%draw_const(@sgr, "sgr", 0, 1)%>
+<%connect(@sgr, "sgr4", 1, 4, 0, 1)%>
+<%connect(@sgr, "sgr6", 1, 6, 0, 1)%>
+<%connect(@sgr, "sgr7", 1, 7, 0, 1)%>
+<%connect(@sgr, "sgr6", 6, 4, 0, 1)%>
+<%connect(@sgr, "sgr8", 6, 8, 0, 1)%>
+<%connect(@sgr, "sgr9", 6, 9, 0, 1)%>
+<%connect(@sgr, "sgr7", 7, 8, 0, 1)%>
+<%connect(@sgr, "sgr10", 7, 10, 0, 1)%>
+<%connect(@sgr, "sgr9", 8, 9, 0, 1)%>
+<%connect(@sgr, "sgr11", 8, 11, 0, 1)%>
+<%connect(@sgr, "sgr11", 10, 11, 0, 1)%>
+
+<%draw_const(@taur, "taur", 0, 0)%>
+<%connect(@taur, "taur1", 0, 1, 0, 0)%>
+<%connect(@taur, "taur2", 1, 2, 0, 0)%>
+<%connect(@taur, "taur3", 2, 3, 0, 0)%>
+<%connect(@taur, "taur4", 3, 4, 0, 0)%>
+<%connect(@taur, "taur5", 3, 5, 0, 0)%>
+<%connect(@taur, "taur6", 6, 4, 0, 0)%>
+<%connect(@taur, "taur7", 6, 7, 0, 0)%>
+<%connect(@taur, "taur9", 5, 9, 0, 0)%>
+<%connect(@taur, "taur9", 8, 9, 0, 0)%>
+
+<%draw_const(@ursa_major, "ursa_major", 0, 0)%>
+<%connect(@ursa_major, "ursa_major1", 0, 1, 0, 0)%>
+<%connect(@ursa_major, "ursa_major2", 1, 2, 0, 0)%>
+<%connect(@ursa_major, "ursa_major3", 2, 3, 0, 0)%>
+<%connect(@ursa_major, "ursa_major5", 3, 5, 0, 0)%>
+<%connect(@ursa_major, "ursa_major6", 3, 6, 0, 0)%>
+<%connect(@ursa_major, "ursa_major4", 4, 9, 0, 0)%>
+<%connect(@ursa_major, "ursa_major4", 4, 5, 0, 0)%>
+<%connect(@ursa_major, "ursa_major6", 6, 7, 0, 0)%>
+<%connect(@ursa_major, "ursa_major6", 6, 4, 0, 0)%>
+<%connect(@ursa_major, "ursa_major7", 7, 8, 0, 0)%>
+<%connect(@ursa_major, "ursa_major7", 7, 9, 0, 0)%>
+<%connect(@ursa_major, "ursa_major9", 8, 9, 0, 0)%>
+<%connect(@ursa_major, "ursa_major10", 9, 10, 0, 0)%>
+<%connect(@ursa_major, "ursa_major12", 10, 12, 0, 0)%>
+<%connect(@ursa_major, "ursa_major11", 11, 12, 0, 0)%>
+<%connect(@ursa_major, "ursa_major13", 5, 13, 0, 0)%>
+<%connect(@ursa_major, "ursa_major15", 13, 15, 0, 0)%>
+<%connect(@ursa_major, "ursa_major15", 14, 15, 0, 0)%>
+<%connect(@ursa_major, "ursa_major16", 13, 16, 0, 0)%>
+<%connect(@ursa_major, "ursa_major17", 16, 17, 0, 0)%>
+
+<%draw_const(@ursa_minor, "ursa_minor", 0, 0)%>
+<%connect(@ursa_minor, "ursa_minor1", 0, 1, 0, 0)%>
+<%connect(@ursa_minor, "ursa_minor2", 1, 2, 0, 0)%>
+<%connect(@ursa_minor, "ursa_minor3", 2, 3, 0, 0)%>
+<%connect(@ursa_minor, "ursa_minor4", 3, 4, 0, 0)%>
+<%connect(@ursa_minor, "ursa_minor5", 4, 5, 0, 0)%>
+<%connect(@ursa_minor, "ursa_minor6", 5, 6, 0, 0)%>
+<%connect(@ursa_minor, "ursa_minor3", 3, 6, 0, 0)%>
+
+<%draw_const(@vel, "vel", 1, 0)%>
+<%connect(@vel, "vel5", 0, 5, 1, 0)%>
+<%connect(@vel, "vel10", 0, 10, 1, 0)%>
+<%connect(@vel, "vel1", 1, 3, 1, 0)%>
+<%connect(@vel, "vel3", 2, 3, 1, 0)%>
+<%connect(@vel, "vel2", 2, 4, 1, 0)%>
+<%connect(@vel, "vel4", 4, 5, 1, 0)%>
+<%connect(@vel, "vel7", 6, 7, 1, 0)%>
+<%connect(@vel, "vel8", 7, 8, 1, 0)%>
+<%connect(@vel, "vel9", 8, 9, 1, 0)%>
+<%connect(@vel, "vel10", 9, 10, 1, 0)%>
+
+<%draw_const(@virgo, "virgo", 0, 1)%>
+<%connect(@virgo, "virgo3", 0, 3, 0, 1)%>
+<%connect(@virgo, "virgo2", 2, 5, 0, 1)%>
+<%connect(@virgo, "virgo2", 2, 7, 0, 1)%>
+<%connect(@virgo, "virgo4", 3, 4, 0, 1)%>
+<%connect(@virgo, "virgo7", 4, 7, 0, 1)%>
+<%connect(@virgo, "virgo4", 4, 8, 0, 1)%>
+<%connect(@virgo, "virgo6", 6, 7, 0, 1)%>
+<%connect(@virgo, "virgo10", 6, 10, 0, 1)%>
+<%connect(@virgo, "virgo11", 7, 11, 0, 1)%>
+<%connect(@virgo, "virgo8", 8, 9, 0, 1)%>
+<%connect(@virgo, "virgo12", 11, 12, 0, 1)%>
+
+</svg>
+<h2>Viewable at night</h2>
+<ul>
+  <%confirm_const(@aqr, "aqr", 0, 1)%>
+  <%confirm_const(@aqu, "aqu", 0, 1)%>
+  <%confirm_const(@ari, "ari", 0, 0)%>
+  <%confirm_const(@aur, "aur", 0, 0)%>
+  <%confirm_const(@bootes, "bootes", 0, 1)%>
+  <%confirm_const(@canis_minor, "canis_minor", 0, 0)%>
+  <%confirm_const(@cap, "cap", 0, 1)%>
+  <%confirm_const(@car, "car", 1, 0)%>
+  <%confirm_const(@cass, "cass", 0, 0)%>
+  <%confirm_const(@cen, "cen", 0, 1)%>
+  <%confirm_const(@cep, "cep", 0, 0)%>
+  <%confirm_const(@col, "col", 0, 0)%>
+  <%confirm_const(@cnc, "cnc", 0, 0)%>
+  <%confirm_const(@cra, "cra", 0, 1)%>
+  <%confirm_const(@crb, "crb", 0, 1)%>
+  <%confirm_const(@cru, "cru", 0, 1)%>
+  <%confirm_const(@cygnus, "cygnus", 0, 1)%>
+  <%confirm_const(@dor, "dor", 1, 0)%>
+  <%confirm_const(@draco, "draco", 0, 1)%>
+  <%confirm_const(@gem, "gem", 0, 0)%>
+  <%confirm_const(@herc, "herc", 0, 1)%>
+  <!-- Hydra too big for any one map
+  <%confirm_const(@hydra, "hydra", 1, 0)%>-->
+  <%confirm_const(@leo, "leo", 0, 0)%>
+  <%confirm_const(@leo_minor, "leo_minor", 0, 0)%>
+  <%confirm_const(@lib, "lib", 0, 1)%>
+  <%confirm_const(@lyra, "lyra", 0, 1)%>
+  <%confirm_const(@lynx, "lynx", 0, 0)%>
+  <%confirm_const(@mon, "mon", 0, 0)%>
+  <%confirm_const(@orion, "orion", 0, 0)%>
+  <%confirm_const(@pers, "pers", 0, 0)%>
+  <%confirm_const(@pegas, "pegas", 0, 1)%>
+  <%confirm_const(@pisc, "pisc", 1, 1)%>
+  <%confirm_const(@pup, "pup", 0, 0)%>
+  <%confirm_const(@sco, "sco", 0, 1)%>
+  <%confirm_const(@sgr, "sgr", 0, 1)%>
+  <%confirm_const(@taur, "taur", 0, 0)%>
+  <%confirm_const(@vel, "vel", 1, 0)%>
+  <%confirm_const(@virgo, "virgo", 0, 1)%>
+  <%confirm_const(@ursa_major, "ursa_major", 0, 0)%>
+  <%confirm_const(@ursa_minor, "ursa_minor", 0, 0)%>
+</ul>
+</div>
+
+<script>clickedSkymap()</script>
+<script>start_score()</script>
+</div>
