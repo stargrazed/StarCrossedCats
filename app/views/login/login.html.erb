@@ -6,25 +6,27 @@
 <%= stylesheet_link_tag('application') %>
 <%= render(:partial => "default")%>
 
-<div>
-  <% if !flash[:notice].blank? %>
-      <%= flash[:notice] %>
-  <%end%>
+<section class="login_style">
+  <div>
+    <% if !flash[:notice].blank? %>
+        <%= flash[:notice] %>
+    <%end%>
 
-  <%= form_tag(:action => 'attempt_login') do %>
-  <table>
-    <tr>
-      <td><%= label_tag(:username) %></td>
-      <td><%= text_field_tag(:username)%></td>
-    </tr>
-    <tr>
-      <td><%= label_tag(:password) %></td>
-      <td><%= password_field_tag(:password)%></td>
-    </tr>
-    <tr>
-      <td>&nbsp;</td>
-      <td><%= submit_tag("Log In") %></td>
-    </tr>
-  </table>
-  <%end%>
-</div>
+    <%= form_tag(:action => 'attempt_login') do %>
+    <table>
+      <tr>
+        <td><%= label_tag(:username) %></td>
+        <td><%= text_field_tag(:username)%></td>
+      </tr>
+      <tr>
+        <td><%= label_tag(:password) %></td>
+        <td><%= password_field_tag(:password)%></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td><%= submit_tag("Log In") %></td>
+      </tr>
+    </table>
+    <%end%>
+  </div>
+</section>
