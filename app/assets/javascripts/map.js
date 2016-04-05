@@ -87,8 +87,7 @@ function ursa_minor_Click(id) {
   document.getElementById("ursa_minor"+id).onclick = "";//do nothing now
   if(ursa_minor_count == 7){
     score_count = score_count + 1;
-    document.getElementById("ursa_minor_a").innerHTML = "<a href='/constellations#UMi'>Ursa Minor, The Lesser Bear</a>";
-    document.getElementById("found_coin").play();
+  document.getElementById("ursa_minor_a").innerHTML = "<a href='/constellations#UMi'>Ursa Minor, The Lesser Bear</a>";
   }
 }
 
@@ -116,7 +115,6 @@ function ursa_major_Click(id) {
   if(ursa_major_count == 20){
     score_count = score_count + 1;
     document.getElementById("ursa_major_a").innerHTML = "<a href='/constellations#UMa'>Ursa Major, The Great Bear</a>";
-    document.getElementById("found").play();
   }
 }
 
@@ -141,7 +139,6 @@ function aqu_Click(id) {
   if(aqu_count == 10){
     score_count = score_count + 1;
     document.getElementById("aqu_a").innerHTML = "<a href='/constellations#Aql'>Aquila, The Eagle</a>";
-    document.getElementById("found_coin").play();
   }
 }
 
@@ -166,7 +163,6 @@ function aqr_Click(id) {
   if(aqr_count == 15){
     score_count = score_count + 1;
     document.getElementById("aqr_a").innerHTML = "<a href='/constellations#Aqr'>Aquarius, The Water Bearer</a>";
-    document.getElementById("found").play();
   }
 }
 
@@ -188,7 +184,6 @@ function ari_Click(id) {
   if(ari_count == 3){
     score_count = score_count + 1;
     document.getElementById("ari_a").innerHTML = "<a href='/constellations#Ari'>Aries, The Ram</a>";
-    document.getElementById("found_coin").play();
   }
 }
 
@@ -215,7 +210,6 @@ function aur_Click(id) {
   if(aur_count == 9){
     score_count = score_count + 1;
     document.getElementById("aur_a").innerHTML = "<a href='/constellations#Aur'>Auriga, The Charioteer</a>";
-    document.getElementById("found_coin").play();
   }
 }
 
@@ -236,8 +230,7 @@ function car_Click(id) {
   document.getElementById("car"+id).onclick = ""; //do nothing now
   if(car_count == 9){
     score_count = score_count + 1;
-    document.getElementById("car_a").innerHTML = "<a href='/constellations#Car'>Carina, The Keel</a>";
-    document.getElementById("found_coin").play();
+    document.getElementById("carina_a").innerHTML = "<a href='/constellations#Car'>Carina, The Keel</a>";
   }
 }
 
@@ -260,7 +253,6 @@ function cass_Click(id) {
   if(cass_count == 4){
     score_count = score_count + 1;
     document.getElementById("cass_a").innerHTML = "<a href='/constellations#Cas'>Cassiopeia, The Queen</a>";
-    document.getElementById("found_coin").play();
   }
 }
 
@@ -295,7 +287,6 @@ function canis_minor_Click(id) {
   if(canis_minor_count == 1){
     score_count = score_count + 1;
     document.getElementById("canis_minor_a").innerHTML = "<a href='/constellations#CMi'>Canis Minor, The Lesser Dog</a>";
-    document.getElementById("found_coin").play();
   }
 }
 
@@ -319,8 +310,7 @@ function cap_Click(id) {
   document.getElementById("cap"+id).onclick = ""; //do nothing now
   if(cap_count == 11){
     score_count = score_count + 1;
-    document.getElementById("cap_a").innerHTML = "<a href='/constellations#Cap'>Capricorn, The Goat</a>";
-    document.getElementById("found_coin").play();
+document.getElementById("cap_a").innerHTML = "<a href='/constellations#Cap'>Capricorn, The Goat</a>";
   }
 }
 
@@ -345,7 +335,6 @@ function cen_Click(id) {
   if(cen_count == 17){
     score_count = score_count + 1;
     document.getElementById("cen_a").innerHTML = "<a href='/constellations#Cen'>Centaurus, The Centaur</a>";
-    document.getElementById("found").play();
   }
 }
 
@@ -367,7 +356,6 @@ function cnc_Click(id) {
   if(cnc_count == 4){
     score_count = score_count + 1;
     document.getElementById("cnc_a").innerHTML = "<a href='/constellations#Cnc'>Cancer, The Crab</a>";
-    document.getElementById("found_coin").play();
   }
 }
 
@@ -389,7 +377,6 @@ function col_Click(id) {
   if(col_count == 6){
     score_count = score_count + 1;
     document.getElementById("col_a").innerHTML = "<a href='/constellations#Col'>Columba, The Dove</a>";
-    document.getElementById("found_coin").play();
   }
 }
 
@@ -411,7 +398,6 @@ function cra_Click(id) {
   if(cra_count == 5){
     score_count = score_count + 1;
     document.getElementById("cra_a").innerHTML = "<a href='/constellations#CrA'>Corona Australis, The Southern Crown</a>";
-    document.getElementById("found_coin").play();
   }
 }
 
@@ -433,7 +419,6 @@ function crb_Click(id) {
   if(crb_count == 6){
     score_count = score_count + 1;
     document.getElementById("crb_a").innerHTML = "<a href='/constellations#CrB'>Corona Borealis, The Northern Crown</a>";
-    document.getElementById("found_coin").play();
   }
 }
 
@@ -455,7 +440,6 @@ function cru_Click(id) {
   if(cru_count == 2){
     score_count = score_count + 1;
     document.getElementById("cru_a").innerHTML = "<a href='/constellations#Cru'>Crux, The Southern Cross</a>";
-    document.getElementById("found_coin").play();
   }
 }
 
@@ -477,7 +461,6 @@ function dor_Click(id) {
   if(dor_count == 4){
     score_count = score_count + 1;
     document.getElementById("dor_a").innerHTML = "<a href='/constellations#Dor'>Dorado, The Goldfish</a>";
-    document.getElementById("found_coin").play();
   }
 }
 
@@ -502,7 +485,6 @@ function draco_Click(id) {
   if(draco_count == 16){
     score_count = score_count + 1;
     document.getElementById("draco_a").innerHTML = "<a href='/constellations#Dra'>Draco, The Dragon</a>";
-    document.getElementById("found").play();
   }
 }
 
@@ -527,7 +509,6 @@ function herc_Click(id) {
   if(herc_count == 19){
     score_count = score_count + 1;
     document.getElementById("herc_a").innerHTML = "<a href='/constellations#Her'>Hercules</a>";
-    document.getElementById("found").play();
   }
 }
 
@@ -549,7 +530,6 @@ function cygnus_Click(id) {
   if(cygnus_count == 9){
     score_count = score_count + 1;
     document.getElementById("cygnus_a").innerHTML = "<a href='/constellations#Cyg'>Cygnus, The Swan</a>";
-    document.getElementById("found").play();
   }
 }
 
@@ -577,7 +557,6 @@ function cep_Click(id) {
   if(cep_count == 9){
     score_count = score_count + 1;
     document.getElementById("cep_a").innerHTML = "<a href='/constellations#Cep'>Cepheus, The King</a>";
-    document.getElementById("found_coin").play();
   }
 }
 
@@ -602,7 +581,6 @@ function bootes_Click(id) {
   if(bootes_count == 9){
     score_count = score_count + 1;
     document.getElementById("bootes_a").innerHTML = "<a href='/constellations#Boo'>Bootes, The Herdsman</a>";
-    document.getElementById("found_coin").play();
   }
 }
 
@@ -627,7 +605,6 @@ function gem_Click(id) {
   if(gem_count == 10){
     score_count = score_count + 1;
     document.getElementById("gem_a").innerHTML = "<a href='/constellations#Gem'>Gemini, The Twins</a>";
-    document.getElementById("found_coin").play();
   }
 }
 
@@ -652,7 +629,6 @@ function hydra_Click(id) {
   if(hydra_count == 17){
     score_count = score_count + 1;
     document.getElementById("hydra_a").innerHTML = "<a href='/constellations#Hya'>Hydra</a>";
-    document.getElementById("found").play();
   }
 }
 
@@ -677,7 +653,6 @@ function leo_Click(id) {
   if(leo_count == 10){
     score_count = score_count + 1;
     document.getElementById("leo_a").innerHTML = "<a href='/constellations#Leo'>Leo, The Lion</a>";
-    document.getElementById("found_coin").play();
   }
 }
 
@@ -699,7 +674,6 @@ function leo_minor_Click(id) {
   if(leo_minor_count == 2){
     score_count = score_count + 1;
     document.getElementById("leo_minor_a").innerHTML = "<a href='/constellations#LMi'>Leo Minor, The Lesser Lion</a>";
-    document.getElementById("found_coin").play();
   }
 }
 
@@ -724,7 +698,6 @@ function lib_Click(id) {
   if(lib_count == 6){
     score_count = score_count + 1;
     document.getElementById("lib_a").innerHTML = "<a href='/constellations#Lib'>Libra, The Scale</a>";
-    document.getElementById("found_coin").play();
   }
 }
 
@@ -749,7 +722,6 @@ function lyra_Click(id) {
   if(lyra_count == 7){
     score_count = score_count + 1;
     document.getElementById("lyra_a").innerHTML = "<a href='/constellations#Lyr'>Lyra, The Lyre</a>";
-    document.getElementById("found_coin").play();
   }
 }
 
@@ -771,7 +743,6 @@ function lynx_Click(id) {
   if(lynx_count == 6){
     score_count = score_count + 1;
     document.getElementById("lynx_a").innerHTML = "<a href='/constellations#Lyn'>Lynx</a>";
-    document.getElementById("found_coin").play();
   }
 }
 
@@ -796,7 +767,6 @@ function mon_Click(id) {
   if(mon_count == 8){
     score_count = score_count + 1;
     document.getElementById("mon_a").innerHTML = "<a href='/constellations#Mon'>Monoceros, The Unicorn</a>";
-    document.getElementById("found_coin").play();
   }
 }
 
@@ -827,7 +797,6 @@ function orion_Click(id) {
   if(orion_count == 21){
     score_count = score_count + 1;
     document.getElementById("orion_a").innerHTML = "<a href='/constellations#Ori'>Orion, The Hunter</a>";
-    document.getElementById("found").play();
   }
 }
 
@@ -849,7 +818,6 @@ function pers_Click(id) {
   if(pers_count == 11){
     score_count = score_count + 1;
     document.getElementById("pers_a").innerHTML = "<a href='/constellations#Per'>Perseus</a>";
-    document.getElementById("found_coin").play();
   }
 }
 
@@ -874,7 +842,6 @@ function pegas_Click(id) {
   if(pegas_count == 13){
     score_count = score_count + 1;
     document.getElementById("pegas_a").innerHTML = "<a href='/constellations#Peg'>Pegasus</a>";
-    document.getElementById("found").play();
   }
 }
 
@@ -899,7 +866,6 @@ function pisc_Click(id) {
   if(pisc_count == 16){
     score_count = score_count + 1;
     document.getElementById("pisc_a").innerHTML = "<a href='/constellations#Psc'>Pisces, The Fish</a>";
-    document.getElementById("found").play();
   }
 }
 
@@ -921,7 +887,6 @@ function pup_Click(id) {
   if(pup_count == 5){
     score_count = score_count + 1;
     document.getElementById("pup_a").innerHTML = "<a href='/constellations#Pup'>Puppis, The Poop Deck</a>";
-    document.getElementById("found_coin").play();
   }
 }
 
@@ -946,7 +911,6 @@ function sgr_Click(id) {
   if(sgr_count == 11){
     score_count = score_count + 1;
     document.getElementById("sgr_a").innerHTML = "<a href='/constellations#Sgr'>Sagittarius, The Archer</a>";
-    document.getElementById("found").play();
   }
 }
 
@@ -971,7 +935,6 @@ function sco_Click(id) {
   if(sco_count == 16){
     score_count = score_count + 1;
     document.getElementById("sco_a").innerHTML = "<a href='/constellations#Sco'>Scorpius, The Scorpion</a>";
-    document.getElementById("found").play();
   }
 }
 
@@ -993,7 +956,6 @@ function taur_Click(id) {
   if(taur_count == 9){
     score_count = score_count + 1;
     document.getElementById("taur_a").innerHTML = "<a href='/constellations#Tau'>Taurus, The Bull</a>";
-    document.getElementById("found_coin").play();
   }
 }
 
@@ -1018,7 +980,6 @@ function vel_Click(id) {
   if(vel_count == 10){
     score_count = score_count + 1;
     document.getElementById("vel_a").innerHTML = "<a href='/constellations#Vel'>Vela, The Sails</a>";
-    document.getElementById("found").play();
   }
 }
 
@@ -1043,7 +1004,6 @@ function virgo_Click(id) {
   if(virgo_count == 11){
     score_count = score_count + 1;
     document.getElementById("virgo_a").innerHTML = "<a href='/constellations#Vir'>Virgo, The Maiden</a>";
-    document.getElementById("found").play();
   }
 }
 
