@@ -25,6 +25,10 @@
 <% constellations = Constellation.all %>
   <% if constellations.size != 0 %>
     <% count = 0 %>
+
+  <span>
+    <h2 class="constell_titleh2">Constellations</h2>
+  </span>
     <div id="tableOfContents">
       <h3>Table of Contents</h3>
       <span>
@@ -37,9 +41,7 @@
   <% end %>
 
 <div id="constellList">
-  <span>
-    <h2>Constellations</h2>
-  </span>
+
   <% if constellations.size == 0 %>
       <h3 class="constellh3">No constellations to display :(</h3>
   <% else %>
@@ -96,6 +98,6 @@
 
 <div id="sources">
   <span>Sources:</span>
-  <span><a href="http://www.iau.org/public/themes/constellations/">International Astronomical Union</a></span>
+  <span><a href="http://www.iau.org/public/themes/constellations/">International Astronomical Union</a> / </span>
   <span><a href="http://www.constellation-guide.com/">Constellation Guide</a></span>
 </div>
