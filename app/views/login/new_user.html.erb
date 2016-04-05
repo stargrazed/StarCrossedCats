@@ -4,12 +4,13 @@
 <%= render(:partial => "default")%>
 
 <%= error_messages_for(@user) %>
+<section class="login_style">
   <div>
-    <h2>Fill in the following</h2>
+    <h2 class="Sign-Up_title">Sign-Up</h2>
 
     <%= form_for(:user, :url=> {:action => 'create'}) do |human| %>
-
-    <table>
+    <p class="new_user_content"><b>Please fill in the following information:</b></p>
+    <table class="new_user">
       <tr>
         <th><%= human.label(:name, "Name") %></th>
         <td><%= human.text_field(:name) %></td>
@@ -26,12 +27,25 @@
         <th><%= human.label(:password_confirmation, "Confirm Password") %></th>
         <td><%= human.password_field(:password_confirmation) %></td>
       </tr>
+      <tr>
+        <th></th>
+        <td></td>
+      </tr>
+      <tr>
+        <th></th>
+        <td></td>
+      </tr>
+      <tr>
+        <th>   </th>
+        <td><%= submit_tag("Sign-Up")%></td>
+      </tr>
     </table>
 
-    <%= submit_tag("Sign-Up")%>
+
 
   <%end%>
 
   </div>
+</section>
 </div>
 </body>

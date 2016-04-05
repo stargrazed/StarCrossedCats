@@ -3,20 +3,44 @@
 <%= stylesheet_link_tag('application') %>
 <%= render(:partial => "default2")%>
 
-<p><em>You require Chrome or IE9 to view this page properly.</em></p>
-<p>A simple exercise which uses only the signs of the Zodiac. At no point in time will
+<h3 class="map_titlepage">Zodiac Map</h3>
+
+<p class ="map_content">A simple exercise which uses only the signs of the Zodiac. At no point in time will
 all these constellations be visible at the same time.</p>
-<p id = "score" style="font-size:25px">
-  <span>Score: </span>
-</p>
 
-<div id="timer">
-  <span>00:00:00</span>
-</div>
+<p class="map_content"><em>Note: You require Chrome or IE9 to view this page properly.</em></p>
+<br>
 
-<p id="current_const">Progress</p>
 <audio id="found" src="/audio/LOZ_secret.mp3"></audio>
 <audio id="found_coin" src="/audio/mario_coin.mp3"></audio>
+
+<table class ="timer_table">
+  <tr>
+    <td><b>Elapsed Time:</b></td>
+    <td>
+      <div id="timer">
+        <span>00:00:00</span>
+      </div>
+    </td>
+</table>
+
+<table class="score_progress">
+  <tr>
+    <td>
+      <b>Score: </b>
+    </td>
+    <td>
+      <div id = "score">
+        <span>0</span>
+      </div>
+    </td>
+    </td>
+    <td>
+      <p id="current_const">Progress</p>
+    </td>
+  </tr>
+</table>
+>>>>>>> master
 
 <svg id='test' width="1800" height="800" version="1.1" xmlns="http://www.w3.org/2000/svg">
   <defs>
@@ -264,21 +288,23 @@ drawLabel(1325,275, "Libra");
 drawLabel(1450,100, "Virgo");
 </script>
 
-<h2>Zodiac Signs</h2>
-<ul>
-  <li id="aqr_a"></li>
-  <li id="ari_a"></li>
-  <li id="cap_a"></li>
-  <li id="cnc_a"></li>
-  <li id="gem_a"></li>
-  <li id="leo_a"></li>
-  <li id="lib_a"></li>
-  <li id="pisc_a"></li>
-  <li id="sco_a"></li>
-  <li id="sgr_a"></li>
-  <li id="taur_a"></li>
-  <li id="virgo_a"></li>
-</ul>
+<div class ="signs_found">
+  <h2>Zodiac Signs</h2>
+  <ul>
+    <li id="aqr_a"></li>
+    <li id="ari_a"></li>
+    <li id="cap_a"></li>
+    <li id="cnc_a"></li>
+    <li id="gem_a"></li>
+    <li id="leo_a"></li>
+    <li id="lib_a"></li>
+    <li id="pisc_a"></li>
+    <li id="sco_a"></li>
+    <li id="sgr_a"></li>
+    <li id="taur_a"></li>
+    <li id="virgo_a"></li>
+  </ul>
+</div>
 <div id="zod"></div>
 
 <script>clickedSkymap()</script>

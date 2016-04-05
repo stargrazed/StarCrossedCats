@@ -1,0 +1,48 @@
+.map_titlepage{
+  margin-top: 0;
+  font-weight: bold;
+  font-size: 225%;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.map_names{
+  text-align:center;
+}
+
+.map_content{
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+section.map_table_area{
+  table.map_table{
+    margin-left: 150px;
+    margin-right: 150px;
+    width: auto;
+    table-layout: auto;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  th, td{
+    border-bottom: 1px solid black;
+    padding: 15px;
+  }
+}
+
+table.score_progress{
+  font-family: Arial, Helvetica, sans-serif;
+  margin-left: 50px;
+}
+
+table.timer_table{
+  margin-left: 50px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.signs_found{
+  font-family: Arial, Helvetica, sans-serif;
+}
+section.current_setmonth{
+  margin-left: 50px;
+  font-family: Arial, Helvetica, sans-serif;
+}
