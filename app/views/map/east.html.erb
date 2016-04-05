@@ -3,18 +3,40 @@
 <%= stylesheet_link_tag('application') %>
 <%= render(:partial => "default")%>
 
-<p><em>You require Chrome or IE9 to view this page properly.</em></p>
-<p>This page is a (possible) view of what can be seen in the Eastern Hemisphere (Moscow, Russia)
+<h3 class="map_titlepage">Eastern Hemisphere Map</h3>
+
+<p class="map_content">This page is a (possible) view of what can be seen in the Eastern Hemisphere (Moscow, Russia)
 at 12:00am. This map only applies to the months of February and March</p>
-<p id = "score" style="font-size:25px">
-  <span>Score: </span>
-</p>
 
-<div id="timer">
-  <span>00:00:00</span>
-</div>
+<p class="map_content"><em>Note: You require Chrome or IE9 to view this page properly.</em></p>
 
-<p id="current_const">Progress</p>
+<table class ="timer_table">
+  <tr>
+    <td><b>Elapsed Time:</b></td>
+    <td>
+      <div id="timer">
+        <span>00:00:00</span>
+      </div>
+    </td>
+</table>
+
+<table class="score_progress">
+  <tr>
+    <td>
+      <b>Score: </b>
+    </td>
+    <td>
+      <div id = "score">
+        <span>0</span>
+      </div>
+    </td>
+    </td>
+    <td>
+      <p id="current_const">Progress</p>
+    </td>
+  </tr>
+</table>
+
 
 <svg id='test' width="1000" height="800" version="1.1" xmlns="http://www.w3.org/2000/svg">
   <defs>
@@ -346,27 +368,30 @@ at 12:00am. This map only applies to the months of February and March</p>
 <%connect(@ursa_major, "ursa_major17", 16, 17, 0)%>
 
 </svg>
-<h2>Possible viewable constellations</h2>
-<ul>
-  <li id="ari_a"></li>
-  <li id="aqu_a"></li>
-  <li id="aur_a"></li>
-  <li id="aqr_a"></li>
-  <li id="bootes_a"></li>
-  <li id="cap_a"></li>
-  <li id="cass_a"></li>
-  <li id="cep_a"></li>
-  <li id="cygnus_a"></li>
-  <li id="draco_a"></li>
-  <li id="gem_a"></li>
-  <li id="herc_a"></li>
-  <li id="lyra_a"></li>
-  <li id="pegas_a"></li>
-  <li id="pers_a"></li>
-  <li id="pisc_a"></li>
-  <li id="ursa_minor_a"></li>
-  <li id="ursa_major_a"></li>
-</ul>
+
+<div class ="signs_found">
+  <h2>Possible Viewable Constellations</h2>
+  <ul>
+    <li id="ari_a"></li>
+    <li id="aqu_a"></li>
+    <li id="aur_a"></li>
+    <li id="aqr_a"></li>
+    <li id="bootes_a"></li>
+    <li id="cap_a"></li>
+    <li id="cass_a"></li>
+    <li id="cep_a"></li>
+    <li id="cygnus_a"></li>
+    <li id="draco_a"></li>
+    <li id="gem_a"></li>
+    <li id="herc_a"></li>
+    <li id="lyra_a"></li>
+    <li id="pegas_a"></li>
+    <li id="pers_a"></li>
+    <li id="pisc_a"></li>
+    <li id="ursa_minor_a"></li>
+    <li id="ursa_major_a"></li>
+  </ul>
+</div>
 <div id='east'></div>
 
 <script>clickedSkymap()</script>

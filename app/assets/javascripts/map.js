@@ -1079,6 +1079,6 @@ function start_score(){
   var skymap = document.getElementById("test");
   skymap.addEventListener("click", function(){
     var fill = document.getElementById("score");
-    fill.innerHTML="Score: "+ score_count;
+    fill.innerHTML= score_count;
   });
 }
