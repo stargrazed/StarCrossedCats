@@ -1,5 +1,6 @@
 var triggered = 0;
 var time;
+var timeVar;
 
 function clickedSkymap(){
     var skymap = document.getElementById("test");
@@ -13,7 +14,7 @@ function clickedSkymap(){
 
 function startTimer(){
     time = document.getElementById("timer");
-    var timerVar = setInterval(countTimer, 1000);
+    timeVar = setInterval(countTimer, 1000);
     var timeInSec = 0;
 
     function countTimer(){
@@ -35,6 +36,15 @@ function startTimer(){
             displayTime = day + " " + formatDay(day) + ", " + displayTime;
         }
         time.innerHTML = displayTime;
+
+        if(document.getElementById("zod") && score_count == 12)
+            stopTimer();
+        else if(document.getElementById("west") && score_count == 16)
+            stopTimer();
+        else if(document.getElementById("east") && score_count == 18)
+            stopTimer();
+        else if(document.getElementById("current") && score_count == 18)
+            stopTimer();
     }
 }
 
@@ -55,8 +65,9 @@ function formatDay(day){
 
 function resetClick(){
     triggered = 0;
+    clearInterval(timeVar)
 }
 
 function stopTimer(){
-    time = 0;
+    clearInterval(timeVar);
 }

@@ -1080,8 +1080,5 @@ function start_score(){
   skymap.addEventListener("click", function(){
     var fill = document.getElementById("score");
     fill.innerHTML= score_count;
-    //forty score+= 1
-    if(score_count == 40)
-        stopTimer();
   });
 }
