@@ -5,40 +5,66 @@
 <%= stylesheet_link_tag('application') %>
 <%= render(:partial => "default")%>
 
-<p>Current Date is: <%= Time.now.month%>-<%= Time.now.day%>-<%= Time.now.year%></p>
-<p>Current Time is: <%= sprintf("%02d",Time.now.hour%12)%>:
-  <%= sprintf("%02d",Time.now.min)%>
-  <%if Time.now.hour/12 >= 1%>
-    <%= "pm"%>
-  <%else%>
-    <%= "am"%>
-  <%end%>
+<h3 class="map_titlepage">Maps</h3>
 
-<p>The sky-maps require that you utilize IE9+ or Chrome to be able to view and
-interact with the SVG properly. <strong>You must also be logged into the app to access them.</strong></p>
+<p class="map_content">
+  <strong>You must log-in to the app to access the maps.</strong>
+  Also the sky-maps require IE9+ or Chrome to be able to view and
+  interact with the SVG properly.
+</p>
 
-<p><em>For all maps it is assumed to be 9pm-12pm, which is the ideal time to view most (visible) constellations.
+<p class="map_content">Current Date is: <%= Time.now.month%>-<%= Time.now.day%>-<%= Time.now.year%></p>
+
+<section class="map_table_area">
+  <table class="map_table" >
+    <tr>
+      <td><h2 class="map_names"><%= link_to("Current", {:action => 'current'})%></h2></td>
+      <td>
+        <p class="map_content">
+          The "Current" map is designed to allow a user to interact with a sky-map
+          that is representative of the current month. One is also able to "shift" the map
+          by choosing a different month and will be given a different set of constellations to
+          work with.
+        </p>
+      </td>
+    </tr>
+
+    <tr>
+      <td><h2 class="map_names"><%= link_to("West", {:action => 'west'})%></h2></td>
+      <td>
+        <p class="map_content">
+          The "West" map is a sky-map over Vancouver, BC, more accurately during the month of February.
+          It is preset and much easier to follow than "Current."
+        </p>
+      </td>
+    </tr>
+
+    <tr>
+      <td><h2 class="map_names"><%= link_to("East", {:action => 'east'})%></h2></td>
+      <td>
+        <p class="map_content">
+          The "East" map is a sky-map over Moscow, Russia, more accurately during the month of February.
+          It is preset and much easier to follow than "Current". One may notice that it is very similar to the Vancouver map.
+        </p>
+      </td>
+    </tr>
+
+    <tr>
+      <td><h2 class="map_names"><%= link_to("Zodiac", {:action => 'zod'})%></h2></td>
+      <td>
+        <p class="map_content">
+          "Zodiac" is a map which spans the whole year and is used to identify
+          the twelve signs of the zodiac. It is the easiest map to complete as there are little
+          to no interfering constellations and stars
+        </p>
+      </td>
+    </tr>
+  </table>
+</section>
+
+<br>
+<br>
+<p class="map_content"><em>Note: For all maps it is assumed to be 9pm-12pm, which is the ideal time to view most (visible) constellations.
   The blue circle indicates a possible field-of-view</em></p>
-
-<h2><%= link_to("Current", {:action => 'current'})%></h2>
-
-<article>The "Current" map is designed to allow a user to interact with a sky-map
-that is representative of the current month. One is also able to "shift" the map
-by choosing a different month and will be given a different set of constellations to
-work with.</article>
-
-<h2><%= link_to("West", {:action => 'west'})%></h2>
-<article>The "West" map is a sky-map over Vancouver, BC, more accurately during the month of February.
-  It is preset and much easier to follow than "Current."</article>
-
-<h2><%= link_to("East", {:action => 'east'})%></h2>
-<article>The "East" map is a sky-map over Moscow, Russia, more accurately during the month of February.
-  It is preset and much easier to follow than "Current". One may notice that
-it is very similar to the Vancouver map.</article>
-
-<h2><%= link_to("Zodiac", {:action => 'zod'})%></h2>
-<article>"Zodiac" is a map which spans the whole year and is used to identify
-the twelve signs of the zodiac. It is the easiest map to complete as there are little
-to no interfering constellations and stars.</article>
 
 </div>
