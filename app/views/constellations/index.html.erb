@@ -3,6 +3,10 @@
 <%= stylesheet_link_tag('application') %>
 <%= render(:partial => "default")%>
 
+<span>
+  <h2 class="constell_titleh2">Constellations</h2>
+</span>
+
 <% if session[:user_id] && session[:username] == 'admin' %>
   <div class="container">
     <div class="admin">
@@ -25,10 +29,6 @@
 <% constellations = Constellation.all %>
   <% if constellations.size != 0 %>
     <% count = 0 %>
-
-  <span>
-    <h2 class="constell_titleh2">Constellations</h2>
-  </span>
     <div id="tableOfContents">
       <h3>Table of Contents</h3>
       <span>
@@ -41,9 +41,7 @@
   <% end %>
 
 <div id="constellList">
-  <span>
-    <h2 class="constell_titleh2">Constellations</h2>
-  </span>
+
   <% if constellations.size == 0 %>
       <h3 class="constellh3">No constellations to display :(</h3>
   <% else %>
