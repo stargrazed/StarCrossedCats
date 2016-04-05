@@ -3,9 +3,7 @@
 <%= stylesheet_link_tag('application') %>
 <%= render(:partial => "default")%>
 
-<h3 class="map_titlepage">Western Hemisphere Map</h3>
-
-<p class="map_content">This page is a (possible) view of what can be seen at 49, -128 at 9:00pm.
+<p>This page is a (possible) view of what can be seen at 49, -128 at 9:00pm.
 This map only applies to the months of February and March.</p>
 
 <p class="map_content"><em>Note: You require Chrome or IE9 to view this page properly.</em></p>
@@ -361,28 +359,25 @@ This map only applies to the months of February and March.</p>
 <%connect(@pisc, "pisc14", 13, 14, 1)%>
 
 </svg>
-
-<div class ="signs_found">
-  <h2>Possibly Viewable Constellations</h2>
-  <ul>
-    <li id="aqu_a"></li>
-    <li id="aur_a"></li>
-    <li id="canis_minor_a"></li>
-    <li id="cass_a"></li>
-    <li id="cep_a"></li>
-    <li id="cygnus_a"></li>
-    <li id="gem_a"></li>
-    <li id="herc_a"></li>
-    <li id="leo_a"></li>
-    <li id="leo_minor_a"></li>
-    <li id="lyra_a"></li>
-    <li id="orion_a"></li>
-    <li id="pers_a"></li>
-    <li id="taur_a"></li>
-    <li id="ursa_minor_a"></li>
-    <li id="ursa_major_a"></li>
-  </ul>
-</div>
+<h2>Possibly viewable constellations</h2>
+<ul>
+  <li id="aqu_a"></li>
+  <li id="aur_a"></li>
+  <li id="canis_minor_a"></li>
+  <li id="cass_a"></li>
+  <li id="cep_a"></li>
+  <li id="cygnus_a"></li>
+  <li id="gem_a"></li>
+  <li id="herc_a"></li>
+  <li id="leo_a"></li>
+  <li id="leo_minor_a"></li>
+  <li id="lyra_a"></li>
+  <li id="orion_a"></li>
+  <li id="pers_a"></li>
+  <li id="taur_a"></li>
+  <li id="ursa_minor_a"></li>
+  <li id="ursa_major_a"></li>
+</ul>
 <div id='west'></div>
 
 <script>clickedSkymap()</script>

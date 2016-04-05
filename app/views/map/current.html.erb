@@ -3,9 +3,7 @@
 <%= stylesheet_link_tag('application') %>
 <%= render(:partial => "default")%>
 
-<h3 class="map_titlepage">Current Map</h3>
-
-<p class="map_content">Possible constellations based on the time of year. It is assumed to be 9-12pm,
+<p>Possible constellations based on the time of year. It is assumed to be 9-12pm,
 regardless of region.</p>
 
 <audio id="found" src="/audio/LOZ_secret.mp3"></audio>
@@ -664,52 +662,50 @@ regardless of region.</p>
 <%connect(@virgo, "virgo12", 11, 12, 0, 1)%>
 
 </svg>
-  <div class ="signs_found">
-    <h2>Viewable at Night</h2>
-    <ul>
-      <%confirm_const(@aqr, "aqr", 0, 1)%>
-      <%confirm_const(@aqu, "aqu", 0, 1)%>
-      <%confirm_const(@ari, "ari", 0, 0)%>
-      <%confirm_const(@aur, "aur", 0, 0)%>
-      <%confirm_const(@bootes, "bootes", 0, 1)%>
-      <%confirm_const(@canis_minor, "canis_minor", 0, 0)%>
-      <%confirm_const(@cap, "cap", 0, 1)%>
-      <%confirm_const(@car, "car", 1, 0)%>
-      <%confirm_const(@cass, "cass", 0, 0)%>
-      <%confirm_const(@cen, "cen", 0, 1)%>
-      <%confirm_const(@cep, "cep", 0, 0)%>
-      <%confirm_const(@col, "col", 0, 0)%>
-      <%confirm_const(@cnc, "cnc", 0, 0)%>
-      <%confirm_const(@cra, "cra", 0, 1)%>
-      <%confirm_const(@crb, "crb", 0, 1)%>
-      <%confirm_const(@cru, "cru", 0, 1)%>
-      <%confirm_const(@cygnus, "cygnus", 0, 1)%>
-      <%confirm_const(@dor, "dor", 1, 0)%>
-      <%confirm_const(@draco, "draco", 0, 1)%>
-      <%confirm_const(@gem, "gem", 0, 0)%>
-      <%confirm_const(@herc, "herc", 0, 1)%>
-      <!-- Hydra too big for any one map
-      <%confirm_const(@hydra, "hydra", 1, 0)%>-->
-      <%confirm_const(@leo, "leo", 0, 0)%>
-      <%confirm_const(@leo_minor, "leo_minor", 0, 0)%>
-      <%confirm_const(@lib, "lib", 0, 1)%>
-      <%confirm_const(@lyra, "lyra", 0, 1)%>
-      <%confirm_const(@lynx, "lynx", 0, 0)%>
-      <%confirm_const(@mon, "mon", 0, 0)%>
-      <%confirm_const(@orion, "orion", 0, 0)%>
-      <%confirm_const(@pers, "pers", 0, 0)%>
-      <%confirm_const(@pegas, "pegas", 0, 1)%>
-      <%confirm_const(@pisc, "pisc", 1, 1)%>
-      <%confirm_const(@pup, "pup", 0, 0)%>
-      <%confirm_const(@sco, "sco", 0, 1)%>
-      <%confirm_const(@sgr, "sgr", 0, 1)%>
-      <%confirm_const(@taur, "taur", 0, 0)%>
-      <%confirm_const(@vel, "vel", 1, 0)%>
-      <%confirm_const(@virgo, "virgo", 0, 1)%>
-      <%confirm_const(@ursa_major, "ursa_major", 0, 0)%>
-      <%confirm_const(@ursa_minor, "ursa_minor", 0, 0)%>
-    </ul>
-  </div>
+<h2>Viewable at night</h2>
+<ul>
+  <%confirm_const(@aqr, "aqr", 0, 1)%>
+  <%confirm_const(@aqu, "aqu", 0, 1)%>
+  <%confirm_const(@ari, "ari", 0, 0)%>
+  <%confirm_const(@aur, "aur", 0, 0)%>
+  <%confirm_const(@bootes, "bootes", 0, 1)%>
+  <%confirm_const(@canis_minor, "canis_minor", 0, 0)%>
+  <%confirm_const(@cap, "cap", 0, 1)%>
+  <%confirm_const(@car, "car", 1, 0)%>
+  <%confirm_const(@cass, "cass", 0, 0)%>
+  <%confirm_const(@cen, "cen", 0, 1)%>
+  <%confirm_const(@cep, "cep", 0, 0)%>
+  <%confirm_const(@col, "col", 0, 0)%>
+  <%confirm_const(@cnc, "cnc", 0, 0)%>
+  <%confirm_const(@cra, "cra", 0, 1)%>
+  <%confirm_const(@crb, "crb", 0, 1)%>
+  <%confirm_const(@cru, "cru", 0, 1)%>
+  <%confirm_const(@cygnus, "cygnus", 0, 1)%>
+  <%confirm_const(@dor, "dor", 1, 0)%>
+  <%confirm_const(@draco, "draco", 0, 1)%>
+  <%confirm_const(@gem, "gem", 0, 0)%>
+  <%confirm_const(@herc, "herc", 0, 1)%>
+  <!-- Hydra too big for any one map
+  <%confirm_const(@hydra, "hydra", 1, 0)%>-->
+  <%confirm_const(@leo, "leo", 0, 0)%>
+  <%confirm_const(@leo_minor, "leo_minor", 0, 0)%>
+  <%confirm_const(@lib, "lib", 0, 1)%>
+  <%confirm_const(@lyra, "lyra", 0, 1)%>
+  <%confirm_const(@lynx, "lynx", 0, 0)%>
+  <%confirm_const(@mon, "mon", 0, 0)%>
+  <%confirm_const(@orion, "orion", 0, 0)%>
+  <%confirm_const(@pers, "pers", 0, 0)%>
+  <%confirm_const(@pegas, "pegas", 0, 1)%>
+  <%confirm_const(@pisc, "pisc", 1, 1)%>
+  <%confirm_const(@pup, "pup", 0, 0)%>
+  <%confirm_const(@sco, "sco", 0, 1)%>
+  <%confirm_const(@sgr, "sgr", 0, 1)%>
+  <%confirm_const(@taur, "taur", 0, 0)%>
+  <%confirm_const(@vel, "vel", 1, 0)%>
+  <%confirm_const(@virgo, "virgo", 0, 1)%>
+  <%confirm_const(@ursa_major, "ursa_major", 0, 0)%>
+  <%confirm_const(@ursa_minor, "ursa_minor", 0, 0)%>
+</ul>
 </div>
 <div id='current'></div>
 
