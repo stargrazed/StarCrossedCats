@@ -6,28 +6,30 @@
 <%= stylesheet_link_tag('application') %>
 <%= render(:partial => "default")%>
 
-<div>
-  <h2>Profile Page</h2>
-  <% if !flash[:notice].blank? %>
-      <%= flash[:notice] %>
-  <%end%>
+<section class="login_style">
+  <div>
+    <h2 class="profile_title">Profile Page</h2>
+    <% if !flash[:notice].blank? %>
+        <%= flash[:notice] %>
+    <%end%>
 
 
-    <div class="row">
-      <aside class="col-md-4">
-        <section class="user_info">
-          <h1>
-            <%= @user.name%>
-          </h1>
-          <table>
-            <tr>
-              <th>Member Since: </th>
-              <th><%= @user.created_at%></th>
-            </tr>
+      <div class="row">
+        <aside class="col-md-4">
+          <section class="user_info">
+            <h1>
+              <%= @user.name%>
+            </h1>
+            <table>
+              <tr>
+                <th>Member Since: </th>
+                <th><%= @user.created_at%></th>
+              </tr>
 
 
-          </table>
-        </section>
-      </aside>
-    </div>
-</div>
+            </table>
+          </section>
+        </aside>
+      </div>
+  </div>
+</section>

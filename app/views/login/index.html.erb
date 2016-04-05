@@ -5,13 +5,17 @@
 <%= stylesheet_link_tag('application') %>
 <%= render(:partial => "default")%>
 
-<div>
-  <h2>User Menu</h2>
-  <% if !flash[:notice].blank? %>
-      <%= flash[:notice] %>
-  <%end%>
-  <ul>
-    <li><%= link_to("Profile", :action => 'profile') %></li>
-    <li><%= link_to("Logout", :action => 'logout') %></li>
-  </ul>
-</div>
+<section class="login_style">
+  <h2 class="user_menu_title">User Menu</h2>
+  <div class="user_list">
+    <% if !flash[:notice].blank? %>
+        <%= flash[:notice] %>
+    <%end%>
+    <ul>
+      <%= link_to("Profile", :action => 'profile') %>
+      <br>
+      <br>
+      <%= link_to("Logout", :action => 'logout') %>
+    </ul>
+  </div>
+</section>
